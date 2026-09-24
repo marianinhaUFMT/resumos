@@ -1,0 +1,2012 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Resumo Flutter - Docs Marianinha</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tutorial-completo-flutter-mvvm-riverpod" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="Docs Marianinha" class="md-header__button md-logo" aria-label="Docs Marianinha" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Docs Marianinha
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Resumo Flutter
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Alternar para modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Alternar para modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Alternar para modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Alternar para modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Resumo Flutter
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Docs Marianinha" class="md-nav__button md-logo" aria-label="Docs Marianinha" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Docs Marianinha
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resumo Flutter
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resumo Flutter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sumário
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-fundamentos-do-flutter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Fundamentos do Flutter
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Fundamentos do Flutter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-tudo-e-widget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Tudo é widget
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-programacao-declarativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Programação declarativa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-estrutura-basica-de-um-projeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Estrutura básica de um projeto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-ponto-de-entrada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Ponto de entrada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-hot-reload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 Hot reload
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-por-que-gerenciamento-de-estado-importa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 Por que gerenciamento de estado importa
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-o-que-e-mvvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. O que é MVVM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. O que é MVVM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-as-tres-camadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 As três camadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-o-mecanismo-de-binding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 O mecanismo de "binding"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-model-com-mais-detalhe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Model, com mais detalhe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-por-que-usar-mvvm-e-nao-so-jogar-tudo-no-widget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Por que usar MVVM (e não só "jogar tudo no widget")
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-o-que-e-riverpod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. O que é Riverpod
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. O que é Riverpod">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-conceito-central-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Conceito central: Provider
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-tipos-principais-de-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Tipos principais de provider
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-refwatch-vs-refread-vs-reflisten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 ref.watch vs ref.read vs ref.listen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-code-generation-riverpod_generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Code generation (riverpod_generator)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-consumerwidget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 ConsumerWidget
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-setup-do-projeto-versoes-atuais-checadas-na-documentacao-oficial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 Setup do projeto (versões atuais, checadas na documentação oficial)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-exemplo-isolado-mvvm-puro-sem-riverpod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Exemplo isolado: MVVM puro (sem Riverpod)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-exemplo-isolado-riverpod-puro-sem-mvvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Exemplo isolado: Riverpod puro (sem MVVM)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-projeto-pratico-app-de-tarefas-com-mvvm-riverpod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Projeto prático: App de Tarefas com MVVM + Riverpod
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Projeto prático: App de Tarefas com MVVM + Riverpod">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passo-0-pre-requisitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 0 — Pré-requisitos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-1-criar-o-projeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 1 — Criar o projeto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-2-adicionar-as-dependencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 2 — Adicionar as dependências
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-3-estrutura-de-pastas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 3 — Estrutura de pastas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-4-o-model-datamodelstaskdart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 4 — O Model (data/models/task.dart)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-5-o-repository-datarepositoriestask_repositorydart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 5 — O Repository (data/repositories/task_repository.dart)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-6-o-viewmodel-featurestasksviewmodeltask_list_viewmodeldart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 6 — O ViewModel (features/tasks/viewmodel/task_list_viewmodel.dart)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-7-rodar-o-gerador-de-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 7 — Rodar o gerador de código
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-8-a-view-o-widget-da-tarefa-featurestasksviewwidgetstask_tiledart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 8 — A View: o widget da tarefa (features/tasks/view/widgets/task_tile.dart)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-9-a-view-principal-featurestasksviewtask_list_viewdart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 9 — A View principal (features/tasks/view/task_list_view.dart)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-10-conectar-tudo-no-maindart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 10 — Conectar tudo no main.dart
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-11-rodar-o-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 11 — Rodar o app
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-como-os-dados-fluem-recapitulando" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Como os dados fluem (recapitulando)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-proximos-passos-e-exercicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Próximos passos e exercícios
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sumário
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-fundamentos-do-flutter" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Fundamentos do Flutter
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Fundamentos do Flutter">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#11-tudo-e-widget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.1 Tudo é widget
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#12-programacao-declarativa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.2 Programação declarativa
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#13-estrutura-basica-de-um-projeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.3 Estrutura básica de um projeto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#14-ponto-de-entrada" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.4 Ponto de entrada
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#15-hot-reload" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.5 Hot reload
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#16-por-que-gerenciamento-de-estado-importa" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1.6 Por que gerenciamento de estado importa
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-o-que-e-mvvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. O que é MVVM
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. O que é MVVM">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#21-as-tres-camadas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.1 As três camadas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#22-o-mecanismo-de-binding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.2 O mecanismo de "binding"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#23-model-com-mais-detalhe" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.3 Model, com mais detalhe
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#24-por-que-usar-mvvm-e-nao-so-jogar-tudo-no-widget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2.4 Por que usar MVVM (e não só "jogar tudo no widget")
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-o-que-e-riverpod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. O que é Riverpod
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. O que é Riverpod">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#31-conceito-central-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.1 Conceito central: Provider
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#32-tipos-principais-de-provider" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.2 Tipos principais de provider
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#33-refwatch-vs-refread-vs-reflisten" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.3 ref.watch vs ref.read vs ref.listen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#34-code-generation-riverpod_generator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.4 Code generation (riverpod_generator)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#35-consumerwidget" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.5 ConsumerWidget
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#36-setup-do-projeto-versoes-atuais-checadas-na-documentacao-oficial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3.6 Setup do projeto (versões atuais, checadas na documentação oficial)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-exemplo-isolado-mvvm-puro-sem-riverpod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Exemplo isolado: MVVM puro (sem Riverpod)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-exemplo-isolado-riverpod-puro-sem-mvvm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Exemplo isolado: Riverpod puro (sem MVVM)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-projeto-pratico-app-de-tarefas-com-mvvm-riverpod" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Projeto prático: App de Tarefas com MVVM + Riverpod
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="6. Projeto prático: App de Tarefas com MVVM + Riverpod">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#passo-0-pre-requisitos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 0 — Pré-requisitos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-1-criar-o-projeto" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 1 — Criar o projeto
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-2-adicionar-as-dependencias" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 2 — Adicionar as dependências
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-3-estrutura-de-pastas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 3 — Estrutura de pastas
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-4-o-model-datamodelstaskdart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 4 — O Model (data/models/task.dart)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-5-o-repository-datarepositoriestask_repositorydart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 5 — O Repository (data/repositories/task_repository.dart)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-6-o-viewmodel-featurestasksviewmodeltask_list_viewmodeldart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 6 — O ViewModel (features/tasks/viewmodel/task_list_viewmodel.dart)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-7-rodar-o-gerador-de-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 7 — Rodar o gerador de código
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-8-a-view-o-widget-da-tarefa-featurestasksviewwidgetstask_tiledart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 8 — A View: o widget da tarefa (features/tasks/view/widgets/task_tile.dart)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-9-a-view-principal-featurestasksviewtask_list_viewdart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 9 — A View principal (features/tasks/view/task_list_view.dart)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-10-conectar-tudo-no-maindart" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 10 — Conectar tudo no main.dart
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#passo-11-rodar-o-app" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Passo 11 — Rodar o app
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-como-os-dados-fluem-recapitulando" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Como os dados fluem (recapitulando)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-proximos-passos-e-exercicios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Próximos passos e exercícios
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="tutorial-completo-flutter-mvvm-riverpod">Tutorial completo: Flutter + MVVM + Riverpod</h1>
+<blockquote>
+<p>Guia de referência para o TCC. Cobre os fundamentos de Flutter, o padrão MVVM, o Riverpod (versão 3.x, sintaxe atual com <code>riverpod_generator</code>), exemplos isolados de cada conceito e, por fim, a construção passo a passo de um app simples de lista de tarefas combinando os dois.</p>
+</blockquote>
+<hr />
+<h2 id="sumario">Sumário</h2>
+<ol>
+<li><a href="#1-fundamentos-do-flutter">Fundamentos do Flutter</a></li>
+<li><a href="#2-o-que-e-mvvm">O que é MVVM</a></li>
+<li><a href="#3-o-que-e-riverpod">O que é Riverpod</a></li>
+<li><a href="#4-exemplo-isolado-mvvm-puro-sem-riverpod">Exemplo isolado: MVVM puro (sem Riverpod)</a></li>
+<li><a href="#5-exemplo-isolado-riverpod-puro-sem-mvvm">Exemplo isolado: Riverpod puro (sem MVVM)</a></li>
+<li><a href="#6-projeto-pratico-app-de-tarefas-com-mvvm-riverpod">Projeto prático: App de Tarefas com MVVM + Riverpod</a></li>
+<li><a href="#7-como-os-dados-fluem-recapitulando">Como os dados fluem (recapitulando)</a></li>
+<li><a href="#8-proximos-passos-e-exercicios">Próximos passos e exercícios</a></li>
+</ol>
+<hr />
+<h2 id="1-fundamentos-do-flutter">1. Fundamentos do Flutter</h2>
+<p>Flutter é o SDK de UI multiplataforma do Google. Você escreve em <strong>Dart</strong> e o mesmo código compila para Android, iOS, Web e Desktop, usando o próprio motor de renderização do Flutter (não os widgets nativos da plataforma).</p>
+<h3 id="11-tudo-e-widget">1.1 Tudo é widget</h3>
+<p>A unidade fundamental do Flutter é o <strong>widget</strong>. Um botão, um texto, um espaçamento, um layout inteiro — tudo é (ou é composto por) widgets, organizados em uma árvore (<em>widget tree</em>). Não existe "tela" no sentido tradicional; existe uma árvore de widgets que é reconstruída (<em>rebuild</em>) sempre que algo muda.</p>
+<p>Dois tipos essenciais:</p>
+<ul>
+<li><strong><code>StatelessWidget</code></strong>: não guarda estado mutável. Depende só dos parâmetros recebidos no construtor. Se nada muda de fora, ele nunca se reconstrói sozinho.</li>
+<li><strong><code>StatefulWidget</code></strong>: tem um objeto <code>State</code> associado, que pode chamar <code>setState()</code> para forçar reconstrução quando algo interno muda.</li>
+</ul>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">Greeting</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">StatelessWidget</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">Greeting</span><span class="p">({</span><span class="k">super</span><span class="p">.</span><span class="n">key</span><span class="p">,</span><span class="w"> </span><span class="kd">required</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">name</span><span class="p">});</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="n">name</span><span class="p">;</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="nd">@override</span>
+</span><span id="__span-0-6"><a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="n">Widget</span><span class="w"> </span><span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-0-7"><a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span><span class="s1">'Olá, </span><span class="si">$</span><span class="n">name</span><span class="s1">!'</span><span class="p">);</span>
+</span><span id="__span-0-8"><a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-0-9"><a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Todo widget implementa um método <code>build(BuildContext context)</code> que retorna a "foto" da UI naquele momento. O Flutter compara a árvore antiga com a nova e atualiza só o que mudou (<em>reconciliation</em>), de forma parecida com o Virtual DOM do React.</p>
+<h3 id="12-programacao-declarativa">1.2 Programação declarativa</h3>
+<p>Você não diz "pegue esse texto na tela e mude para X" (imperativo). Você diz "quando o estado for X, o texto deve ser X" (declarativo) — e o framework cuida da atualização. É por isso que <strong>gerenciamento de estado</strong> é um tema tão central em Flutter: como esse "estado" que a UI declara depender é armazenado, alterado e propagado é o que muda entre Provider, Riverpod, Bloc, GetX, etc.</p>
+<h3 id="13-estrutura-basica-de-um-projeto">1.3 Estrutura básica de um projeto</h3>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>meu_app/
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── android/, ios/, web/...   # código nativo de cada plataforma (gerado)
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├── lib/                      # SEU código Dart vive aqui
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│   └── main.dart             # ponto de entrada
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>├── test/                     # testes
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>├── pubspec.yaml              # dependências e metadados do projeto
+</span></code></pre></div>
+<p>O <code>pubspec.yaml</code> é o equivalente ao <code>package.json</code> do Node ou ao <code>requirements.txt</code> do Python — é onde você declara pacotes (como o Riverpod).</p>
+<h3 id="14-ponto-de-entrada">1.4 Ponto de entrada</h3>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">import</span><span class="w"> </span><span class="s1">'package:flutter/material.dart'</span><span class="p">;</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="n">runApp</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">MyApp</span><span class="p">());</span>
+</span><span id="__span-2-5"><a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="p">}</span>
+</span><span id="__span-2-6"><a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a>
+</span><span id="__span-2-7"><a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="kd">class</span><span class="w"> </span><span class="nc">MyApp</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">StatelessWidget</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-8"><a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">MyApp</span><span class="p">({</span><span class="k">super</span><span class="p">.</span><span class="n">key</span><span class="p">});</span>
+</span><span id="__span-2-9"><a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a>
+</span><span id="__span-2-10"><a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="w">  </span><span class="nd">@override</span>
+</span><span id="__span-2-11"><a id="__codelineno-2-11" name="__codelineno-2-11" href="#__codelineno-2-11"></a><span class="w">  </span><span class="n">Widget</span><span class="w"> </span><span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-12"><a id="__codelineno-2-12" name="__codelineno-2-12" href="#__codelineno-2-12"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">MaterialApp</span><span class="p">(</span>
+</span><span id="__span-2-13"><a id="__codelineno-2-13" name="__codelineno-2-13" href="#__codelineno-2-13"></a><span class="w">      </span><span class="nl">home:</span><span class="w"> </span><span class="n">Scaffold</span><span class="p">(</span>
+</span><span id="__span-2-14"><a id="__codelineno-2-14" name="__codelineno-2-14" href="#__codelineno-2-14"></a><span class="w">        </span><span class="nl">appBar:</span><span class="w"> </span><span class="n">AppBar</span><span class="p">(</span><span class="nl">title:</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span><span class="s1">'Meu App'</span><span class="p">)),</span>
+</span><span id="__span-2-15"><a id="__codelineno-2-15" name="__codelineno-2-15" href="#__codelineno-2-15"></a><span class="w">        </span><span class="nl">body:</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Center</span><span class="p">(</span><span class="nl">child:</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span><span class="s1">'Olá, Flutter!'</span><span class="p">)),</span>
+</span><span id="__span-2-16"><a id="__codelineno-2-16" name="__codelineno-2-16" href="#__codelineno-2-16"></a><span class="w">      </span><span class="p">),</span>
+</span><span id="__span-2-17"><a id="__codelineno-2-17" name="__codelineno-2-17" href="#__codelineno-2-17"></a><span class="w">    </span><span class="p">);</span>
+</span><span id="__span-2-18"><a id="__codelineno-2-18" name="__codelineno-2-18" href="#__codelineno-2-18"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-2-19"><a id="__codelineno-2-19" name="__codelineno-2-19" href="#__codelineno-2-19"></a><span class="p">}</span>
+</span></code></pre></div>
+<ul>
+<li><code>runApp()</code> pluga o widget raiz na árvore e inicia o motor de renderização.</li>
+<li><code>MaterialApp</code> configura tema, rotas, etc. (existe também <code>CupertinoApp</code> para visual iOS).</li>
+<li><code>Scaffold</code> é o "esqueleto" de uma tela: AppBar, corpo, FAB, drawer, etc.</li>
+</ul>
+<h3 id="15-hot-reload">1.5 Hot reload</h3>
+<p>Uma das grandes vantagens do Flutter: ao salvar o arquivo, o app já atualiza na tela em menos de 1 segundo, sem perder o estado atual (na maioria dos casos). Isso torna o ciclo de desenvolvimento muito rápido — importante lembrar disso quando você for codar o projeto lá na frente.</p>
+<h3 id="16-por-que-gerenciamento-de-estado-importa">1.6 Por que gerenciamento de estado importa</h3>
+<p>Em apps pequenos, <code>setState()</code> dentro de um <code>StatefulWidget</code> resolve. Mas conforme o app cresce, alguns problemas aparecem:</p>
+<ul>
+<li>Como compartilhar o mesmo estado entre widgets distantes na árvore, sem passar parâmetro por 5 camadas (<em>prop drilling</em>)?</li>
+<li>Como separar a lógica de "buscar dados e decidir o que mostrar" da lógica de "desenhar a tela"?</li>
+<li>Como testar a lógica sem precisar montar widgets?</li>
+</ul>
+<p>É exatamente aí que entram <strong>arquitetura (MVVM)</strong> e <strong>gerenciamento de estado (Riverpod)</strong> — são duas preocupações diferentes que se complementam, como você vai ver.</p>
+<hr />
+<h2 id="2-o-que-e-mvvm">2. O que é MVVM</h2>
+<p><strong>MVVM = Model – View – ViewModel.</strong> É um padrão arquitetural originado no ecossistema .NET/WPF (Microsoft, ~2005) para permitir <em>data binding</em> declarativo entre a UI e os dados. Hoje é amplamente usado também em Android (Jetpack), iOS (Combine/SwiftUI) e Flutter.</p>
+<h3 id="21-as-tres-camadas">2.1 As três camadas</h3>
+<table>
+<thead>
+<tr>
+<th>Camada</th>
+<th>Responsabilidade</th>
+<th>Sabe sobre</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Model</strong></td>
+<td>Dados puros + regras de negócio + acesso a dados (API, banco, cache)</td>
+<td>Nada de UI</td>
+</tr>
+<tr>
+<td><strong>View</strong></td>
+<td>Desenhar a UI, capturar interação do usuário</td>
+<td>Apenas o ViewModel</td>
+</tr>
+<tr>
+<td><strong>ViewModel</strong></td>
+<td>Buscar/transformar dados do Model, expor <strong>estado observável</strong> para a View, expor <strong>comandos</strong> (métodos) que a View pode chamar</td>
+<td>Model. <strong>Nunca</strong> a View</td>
+</tr>
+</tbody>
+</table>
+<p>A regra de ouro é a <strong>direção da dependência</strong>: <code>View → ViewModel → Model</code>. Nunca o inverso. O ViewModel <strong>não importa nada de UI</strong> (no Flutter, isso significa: o arquivo do ViewModel não deveria importar <code>package:flutter/material.dart</code>). Isso é o que torna o ViewModel testável sem precisar montar um widget.</p>
+<h3 id="22-o-mecanismo-de-binding">2.2 O mecanismo de "binding"</h3>
+<p>No WPF original, existia <em>data binding</em> automático de verdade (XAML). No Flutter não existe isso nativamente — por isso, na prática, usamos uma biblioteca de gerenciamento de estado (Riverpod, no seu caso) para <strong>simular esse binding reativo</strong>:</p>
+<ul>
+<li>A View <strong>observa</strong> (watch) o estado exposto pelo ViewModel → sempre que o estado muda, a View se reconstrói sozinha.</li>
+<li>A View <strong>notifica</strong> o ViewModel quando o usuário interage (tocou um botão, digitou algo) chamando um método do ViewModel.</li>
+</ul>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>Usuário toca botão
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>      │
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>      ▼
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>   View chama viewModel.incrementar()
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>      │
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>      ▼
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>ViewModel atualiza seu estado interno
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>      │
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>      ▼
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>ViewModel notifica os observadores
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>      │
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>      ▼
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>   View se reconstrói automaticamente
+</span></code></pre></div>
+<h3 id="23-model-com-mais-detalhe">2.3 Model, com mais detalhe</h3>
+<p>"Model" geralmente é dividido em duas partes na prática:</p>
+<ul>
+<li><strong>Entidade / DTO</strong>: uma classe de dados pura (ex: <code>class Task { id, title, isDone }</code>), sem lógica de UI nem de rede.</li>
+<li><strong>Repository / Service</strong>: a classe responsável por <em>buscar e persistir</em> essas entidades (API REST, banco local, SharedPreferences, etc). O ViewModel depende do Repository, nunca fala direto com a API.</li>
+</ul>
+<h3 id="24-por-que-usar-mvvm-e-nao-so-jogar-tudo-no-widget">2.4 Por que usar MVVM (e não só "jogar tudo no widget")</h3>
+<ul>
+<li><strong>Testabilidade</strong>: você testa o ViewModel isoladamente (é uma classe Dart comum), sem precisar de <code>WidgetTester</code>.</li>
+<li><strong>Separação de responsabilidades</strong>: um dev de UI mexe na View sem entender toda a lógica de negócio, e vice-versa.</li>
+<li><strong>Reuso</strong>: o mesmo ViewModel pode alimentar telas diferentes (ex: versão mobile e versão tablet de uma tela).</li>
+<li>É o que seu orientador provavelmente quer ver documentado no TCC: uma justificativa clara de separação de camadas.</li>
+</ul>
+<hr />
+<h2 id="3-o-que-e-riverpod">3. O que é Riverpod</h2>
+<p><strong>Riverpod</strong> é uma biblioteca de gerenciamento de estado e injeção de dependências para Dart/Flutter, criada por Remi Rousselet (o mesmo autor do pacote <code>Provider</code>, do qual Riverpod é o "sucessor espiritual", corrigindo várias limitações dele).</p>
+<p>Importante: <strong>Riverpod não é uma arquitetura</strong>. Ele não impõe MVVM, Clean Architecture ou qualquer outra coisa — ele só resolve o problema de "como armazenar estado e notificar quem está observando". A arquitetura (MVVM, no seu caso) é uma decisão em cima dele.</p>
+<h3 id="31-conceito-central-provider">3.1 Conceito central: Provider</h3>
+<p>Um <strong>provider</strong> é uma declaração global (<code>final</code> no top-level do arquivo) que descreve <strong>como criar um valor</strong> — não o valor em si. O valor real só é criado na primeira vez que alguém o "observa", e fica guardado dentro de um <code>ProviderContainer</code> (não na árvore de widgets, ao contrário do <code>InheritedWidget</code>/Provider clássico).</p>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="kd">final</span><span class="w"> </span><span class="n">helloWorldProvider</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Provider</span><span class="o">&lt;</span><span class="kt">String</span><span class="o">&gt;</span><span class="p">((</span><span class="n">ref</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="s1">'Olá, mundo'</span><span class="p">);</span>
+</span></code></pre></div>
+<p>Para a árvore de widgets conseguir acessar os providers, é preciso envolver o app inteiro com um <code>ProviderScope</code>:</p>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="n">runApp</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ProviderScope</span><span class="p">(</span><span class="nl">child:</span><span class="w"> </span><span class="n">MyApp</span><span class="p">()));</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="32-tipos-principais-de-provider">3.2 Tipos principais de provider</h3>
+<table>
+<thead>
+<tr>
+<th>Provider</th>
+<th>Uso</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Provider</code></td>
+<td>Valor imutável / serviço / dependência (ex: um Repository)</td>
+</tr>
+<tr>
+<td><code>NotifierProvider</code></td>
+<td>Estado <strong>síncrono</strong> e mutável, com métodos que o alteram (ex: contador, lista local)</td>
+</tr>
+<tr>
+<td><code>AsyncNotifierProvider</code></td>
+<td>Estado <strong>assíncrono</strong> e mutável (ex: dados vindos de uma API, com loading/erro/sucesso automáticos)</td>
+</tr>
+<tr>
+<td><code>FutureProvider</code></td>
+<td>Um valor assíncrono somente leitura (uma chamada de API que não muda por métodos)</td>
+</tr>
+<tr>
+<td><code>StreamProvider</code></td>
+<td>Um valor vindo de uma <code>Stream</code> (ex: um socket, um listener do Firestore)</td>
+</tr>
+</tbody>
+</table>
+<p>Na prática, dentro do MVVM, os <strong>ViewModels quase sempre serão <code>Notifier</code> ou <code>AsyncNotifier</code></strong>, e os <strong>Repositories/Services quase sempre serão <code>Provider</code></strong>.</p>
+<h3 id="33-refwatch-vs-refread-vs-reflisten">3.3 <code>ref.watch</code> vs <code>ref.read</code> vs <code>ref.listen</code></h3>
+<ul>
+<li><strong><code>ref.watch(provider)</code></strong>: usa dentro do <code>build()</code> da View. Assina o provider — sempre que ele mudar, a View reconstrói.</li>
+<li><strong><code>ref.read(provider)</code></strong>: lê o valor uma única vez, sem assinar. Use dentro de callbacks (<code>onPressed</code>, etc.), nunca dentro do <code>build()</code>.</li>
+<li><strong><code>ref.listen(provider, (previous, next) {...})</code></strong>: executa um efeito colateral quando o provider muda (ex: mostrar um <code>SnackBar</code>), sem reconstruir a View inteira.</li>
+</ul>
+<h3 id="34-code-generation-riverpod_generator">3.4 Code generation (<code>riverpod_generator</code>)</h3>
+<p>Escrever providers na mão é verboso. Por isso, hoje o padrão recomendado é usar a anotação <code>@riverpod</code> + geração de código, que cria o provider automaticamente a partir de uma função ou classe:</p>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">part</span><span class="w"> </span><span class="s1">'meu_arquivo.g.dart'</span><span class="p">;</span><span class="w"> </span><span class="c1">// obrigatório</span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="nd">@riverpod</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="kt">String</span><span class="w"> </span><span class="n">helloWorld</span><span class="p">(</span><span class="n">Ref</span><span class="w"> </span><span class="n">ref</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="s1">'Olá, mundo'</span><span class="p">;</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Isso gera um <code>helloWorldProvider</code> pronto pra usar. Você roda o gerador com:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>dart<span class="w"> </span>run<span class="w"> </span>build_runner<span class="w"> </span>watch<span class="w"> </span>-d
+</span></code></pre></div>
+<blockquote>
+<p><strong>Nota de versão:</strong> desde o Riverpod 3.0 (lançado em setembro de 2025), o parâmetro do provider gerado é sempre do tipo <code>Ref</code> (antes era um tipo específico tipo <code>HelloWorldRef</code>). Se você ver tutoriais mais antigos usando <code>ExampleRef</code>, saiba que é sintaxe desatualizada.</p>
+</blockquote>
+<h3 id="35-consumerwidget">3.5 <code>ConsumerWidget</code></h3>
+<p>Para uma View conseguir usar <code>ref</code>, ela precisa estender <code>ConsumerWidget</code> (em vez de <code>StatelessWidget</code>) ou <code>ConsumerStatefulWidget</code>:</p>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">MyView</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ConsumerWidget</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">MyView</span><span class="p">({</span><span class="k">super</span><span class="p">.</span><span class="n">key</span><span class="p">});</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+</span><span id="__span-8-4"><a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="w">  </span><span class="nd">@override</span>
+</span><span id="__span-8-5"><a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a><span class="w">  </span><span class="n">Widget</span><span class="w"> </span><span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">WidgetRef</span><span class="w"> </span><span class="n">ref</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-8-6"><a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">value</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref</span><span class="p">.</span><span class="n">watch</span><span class="p">(</span><span class="n">helloWorldProvider</span><span class="p">);</span>
+</span><span id="__span-8-7"><a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span><span class="n">value</span><span class="p">);</span>
+</span><span id="__span-8-8"><a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-8-9"><a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a><span class="p">}</span>
+</span></code></pre></div>
+<h3 id="36-setup-do-projeto-versoes-atuais-checadas-na-documentacao-oficial">3.6 Setup do projeto (versões atuais, checadas na documentação oficial)</h3>
+<div class="language-yaml highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="nt">dependencies</span><span class="p">:</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">flutter</span><span class="p">:</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">    </span><span class="nt">sdk</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">flutter</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="nt">flutter_riverpod</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^3.4.3</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="w">  </span><span class="nt">riverpod_annotation</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^4.0.7</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a><span class="nt">dev_dependencies</span><span class="p">:</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a><span class="w">  </span><span class="nt">flutter_lints</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^5.0.0</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9" href="#__codelineno-9-9"></a><span class="w">  </span><span class="nt">build_runner</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^2.4.13</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10" href="#__codelineno-9-10"></a><span class="w">  </span><span class="nt">riverpod_generator</span><span class="p">:</span><span class="w"> </span><span class="l l-Scalar l-Scalar-Plain">^4.0.9</span>
+</span></code></pre></div>
+<p>Ou, via terminal:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>flutter<span class="w"> </span>pub<span class="w"> </span>add<span class="w"> </span>flutter_riverpod<span class="w"> </span>riverpod_annotation
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>flutter<span class="w"> </span>pub<span class="w"> </span>add<span class="w"> </span>-d<span class="w"> </span>build_runner<span class="w"> </span>riverpod_generator
+</span></code></pre></div>
+<hr />
+<h2 id="4-exemplo-isolado-mvvm-puro-sem-riverpod">4. Exemplo isolado: MVVM puro (sem Riverpod)</h2>
+<p>Antes de misturar tudo, veja o MVVM funcionando <strong>sem nenhuma biblioteca externa</strong> — só com <code>ChangeNotifier</code>, que já vem no Flutter. Isso deixa claro que MVVM é um <em>padrão</em>, não uma biblioteca.</p>
+<p><strong>Model</strong> (nesse exemplo, o estado em si já é simples o bastante para não precisar de uma classe separada):</p>
+<p><strong>ViewModel</strong> — repare que ele <strong>não importa <code>material.dart</code></strong>:</p>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="k">import</span><span class="w"> </span><span class="s1">'package:flutter/foundation.dart'</span><span class="p">;</span><span class="w"> </span><span class="c1">// só para ChangeNotifier, não é UI</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="kd">class</span><span class="w"> </span><span class="nc">CounterViewModel</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ChangeNotifier</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">_count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">;</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="kd">get</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_count</span><span class="p">;</span><span class="w"> </span><span class="c1">// estado exposto (somente leitura pra fora)</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">increment</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a><span class="w">    </span><span class="n">_count</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a><span class="w">    </span><span class="n">notifyListeners</span><span class="p">();</span><span class="w"> </span><span class="c1">// avisa a View que algo mudou</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><strong>View</strong> — usa <code>ListenableBuilder</code> para "escutar" o ViewModel e reconstruir só aquele trecho da árvore:</p>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="k">import</span><span class="w"> </span><span class="s1">'package:flutter/material.dart'</span><span class="p">;</span>
+</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a><span class="k">import</span><span class="w"> </span><span class="s1">'counter_viewmodel.dart'</span><span class="p">;</span>
+</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>
+</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a><span class="kd">class</span><span class="w"> </span><span class="nc">CounterPage</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">StatefulWidget</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">CounterPage</span><span class="p">({</span><span class="k">super</span><span class="p">.</span><span class="n">key</span><span class="p">});</span>
+</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>
+</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="w">  </span><span class="nd">@override</span>
+</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="w">  </span><span class="n">State</span><span class="o">&lt;</span><span class="n">CounterPage</span><span class="o">&gt;</span><span class="w"> </span><span class="n">createState</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_CounterPageState</span><span class="p">();</span>
+</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="p">}</span>
+</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a>
+</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="kd">class</span><span class="w"> </span><span class="nc">_CounterPageState</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">State</span><span class="o">&lt;</span><span class="n">CounterPage</span><span class="o">&gt;</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="n">viewModel</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">CounterViewModel</span><span class="p">();</span>
+</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a>
+</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="w">  </span><span class="nd">@override</span>
+</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="w">  </span><span class="n">Widget</span><span class="w"> </span><span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-12-16"><a id="__codelineno-12-16" name="__codelineno-12-16" href="#__codelineno-12-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Scaffold</span><span class="p">(</span>
+</span><span id="__span-12-17"><a id="__codelineno-12-17" name="__codelineno-12-17" href="#__codelineno-12-17"></a><span class="w">      </span><span class="nl">appBar:</span><span class="w"> </span><span class="n">AppBar</span><span class="p">(</span><span class="nl">title:</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span><span class="s1">'MVVM puro'</span><span class="p">)),</span>
+</span><span id="__span-12-18"><a id="__codelineno-12-18" name="__codelineno-12-18" href="#__codelineno-12-18"></a><span class="w">      </span><span class="nl">body:</span><span class="w"> </span><span class="n">Center</span><span class="p">(</span>
+</span><span id="__span-12-19"><a id="__codelineno-12-19" name="__codelineno-12-19" href="#__codelineno-12-19"></a><span class="w">        </span><span class="nl">child:</span><span class="w"> </span><span class="n">ListenableBuilder</span><span class="p">(</span>
+</span><span id="__span-12-20"><a id="__codelineno-12-20" name="__codelineno-12-20" href="#__codelineno-12-20"></a><span class="w">          </span><span class="nl">listenable:</span><span class="w"> </span><span class="n">viewModel</span><span class="p">,</span>
+</span><span id="__span-12-21"><a id="__codelineno-12-21" name="__codelineno-12-21" href="#__codelineno-12-21"></a><span class="w">          </span><span class="nl">builder:</span><span class="w"> </span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span><span class="s1">'Contagem: </span><span class="si">${</span><span class="n">viewModel</span><span class="p">.</span><span class="n">count</span><span class="si">}</span><span class="s1">'</span><span class="p">),</span>
+</span><span id="__span-12-22"><a id="__codelineno-12-22" name="__codelineno-12-22" href="#__codelineno-12-22"></a><span class="w">        </span><span class="p">),</span>
+</span><span id="__span-12-23"><a id="__codelineno-12-23" name="__codelineno-12-23" href="#__codelineno-12-23"></a><span class="w">      </span><span class="p">),</span>
+</span><span id="__span-12-24"><a id="__codelineno-12-24" name="__codelineno-12-24" href="#__codelineno-12-24"></a><span class="w">      </span><span class="nl">floatingActionButton:</span><span class="w"> </span><span class="n">FloatingActionButton</span><span class="p">(</span>
+</span><span id="__span-12-25"><a id="__codelineno-12-25" name="__codelineno-12-25" href="#__codelineno-12-25"></a><span class="w">        </span><span class="nl">onPressed:</span><span class="w"> </span><span class="n">viewModel</span><span class="p">.</span><span class="n">increment</span><span class="p">,</span><span class="w"> </span><span class="c1">// View chama o "comando" do ViewModel</span>
+</span><span id="__span-12-26"><a id="__codelineno-12-26" name="__codelineno-12-26" href="#__codelineno-12-26"></a><span class="w">        </span><span class="nl">child:</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">add</span><span class="p">),</span>
+</span><span id="__span-12-27"><a id="__codelineno-12-27" name="__codelineno-12-27" href="#__codelineno-12-27"></a><span class="w">      </span><span class="p">),</span>
+</span><span id="__span-12-28"><a id="__codelineno-12-28" name="__codelineno-12-28" href="#__codelineno-12-28"></a><span class="w">    </span><span class="p">);</span>
+</span><span id="__span-12-29"><a id="__codelineno-12-29" name="__codelineno-12-29" href="#__codelineno-12-29"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-12-30"><a id="__codelineno-12-30" name="__codelineno-12-30" href="#__codelineno-12-30"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Isso <strong>é</strong> MVVM: a View nunca manipula o número diretamente, ela só chama <code>viewModel.increment()</code> e observa <code>viewModel.count</code>. O problema é que, num app real, esse jeito manual de "escutar" fica trabalhoso conforme cresce o número de ViewModels e telas — é aí que o Riverpod entra, cuidando desse encanamento pra você.</p>
+<hr />
+<h2 id="5-exemplo-isolado-riverpod-puro-sem-mvvm">5. Exemplo isolado: Riverpod puro (sem MVVM)</h2>
+<p>Agora o oposto: Riverpod sozinho, sem nenhuma separação de camadas — só pra você ver que Riverpod, por si só, <strong>não impõe arquitetura nenhuma</strong>. Aqui a lógica fica direto dentro do provider e é usada direto no widget.</p>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a><span class="k">import</span><span class="w"> </span><span class="s1">'package:flutter/material.dart'</span><span class="p">;</span>
+</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a><span class="k">import</span><span class="w"> </span><span class="s1">'package:flutter_riverpod/flutter_riverpod.dart'</span><span class="p">;</span>
+</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a><span class="k">import</span><span class="w"> </span><span class="s1">'package:riverpod_annotation/riverpod_annotation.dart'</span><span class="p">;</span>
+</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>
+</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a><span class="k">part</span><span class="w"> </span><span class="s1">'main.g.dart'</span><span class="p">;</span>
+</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>
+</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="nd">@riverpod</span>
+</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a><span class="kd">class</span><span class="w"> </span><span class="nc">Counter</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">_$Counter</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="w">  </span><span class="nd">@override</span>
+</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a><span class="w">  </span><span class="kt">int</span><span class="w"> </span><span class="n">build</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="m">0</span><span class="p">;</span><span class="w"> </span><span class="c1">// estado inicial</span>
+</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>
+</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">increment</span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">state</span><span class="o">++</span><span class="p">;</span>
+</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="p">}</span>
+</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>
+</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a><span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="w">  </span><span class="n">runApp</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ProviderScope</span><span class="p">(</span><span class="nl">child:</span><span class="w"> </span><span class="n">MyApp</span><span class="p">()));</span>
+</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="p">}</span>
+</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a>
+</span><span id="__span-13-19"><a id="__codelineno-13-19" name="__codelineno-13-19" href="#__codelineno-13-19"></a><span class="kd">class</span><span class="w"> </span><span class="nc">MyApp</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">StatelessWidget</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-20"><a id="__codelineno-13-20" name="__codelineno-13-20" href="#__codelineno-13-20"></a><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">MyApp</span><span class="p">({</span><span class="k">super</span><span class="p">.</span><span class="n">key</span><span class="p">});</span>
+</span><span id="__span-13-21"><a id="__codelineno-13-21" name="__codelineno-13-21" href="#__codelineno-13-21"></a>
+</span><span id="__span-13-22"><a id="__codelineno-13-22" name="__codelineno-13-22" href="#__codelineno-13-22"></a><span class="w">  </span><span class="nd">@override</span>
+</span><span id="__span-13-23"><a id="__codelineno-13-23" name="__codelineno-13-23" href="#__codelineno-13-23"></a><span class="w">  </span><span class="n">Widget</span><span class="w"> </span><span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-24"><a id="__codelineno-13-24" name="__codelineno-13-24" href="#__codelineno-13-24"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">MaterialApp</span><span class="p">(</span>
+</span><span id="__span-13-25"><a id="__codelineno-13-25" name="__codelineno-13-25" href="#__codelineno-13-25"></a><span class="w">      </span><span class="nl">home:</span><span class="w"> </span><span class="n">Scaffold</span><span class="p">(</span>
+</span><span id="__span-13-26"><a id="__codelineno-13-26" name="__codelineno-13-26" href="#__codelineno-13-26"></a><span class="w">        </span><span class="nl">appBar:</span><span class="w"> </span><span class="n">AppBar</span><span class="p">(</span><span class="nl">title:</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span><span class="s1">'Riverpod puro'</span><span class="p">)),</span>
+</span><span id="__span-13-27"><a id="__codelineno-13-27" name="__codelineno-13-27" href="#__codelineno-13-27"></a><span class="w">        </span><span class="nl">body:</span><span class="w"> </span><span class="n">Center</span><span class="p">(</span>
+</span><span id="__span-13-28"><a id="__codelineno-13-28" name="__codelineno-13-28" href="#__codelineno-13-28"></a><span class="w">          </span><span class="nl">child:</span><span class="w"> </span><span class="n">Consumer</span><span class="p">(</span>
+</span><span id="__span-13-29"><a id="__codelineno-13-29" name="__codelineno-13-29" href="#__codelineno-13-29"></a><span class="w">            </span><span class="nl">builder:</span><span class="w"> </span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">ref</span><span class="p">,</span><span class="w"> </span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-13-30"><a id="__codelineno-13-30" name="__codelineno-13-30" href="#__codelineno-13-30"></a><span class="w">              </span><span class="kd">final</span><span class="w"> </span><span class="n">count</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref</span><span class="p">.</span><span class="n">watch</span><span class="p">(</span><span class="n">counterProvider</span><span class="p">);</span>
+</span><span id="__span-13-31"><a id="__codelineno-13-31" name="__codelineno-13-31" href="#__codelineno-13-31"></a><span class="w">              </span><span class="k">return</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span><span class="s1">'Contagem: </span><span class="si">$</span><span class="n">count</span><span class="s1">'</span><span class="p">);</span>
+</span><span id="__span-13-32"><a id="__codelineno-13-32" name="__codelineno-13-32" href="#__codelineno-13-32"></a><span class="w">            </span><span class="p">},</span>
+</span><span id="__span-13-33"><a id="__codelineno-13-33" name="__codelineno-13-33" href="#__codelineno-13-33"></a><span class="w">          </span><span class="p">),</span>
+</span><span id="__span-13-34"><a id="__codelineno-13-34" name="__codelineno-13-34" href="#__codelineno-13-34"></a><span class="w">        </span><span class="p">),</span>
+</span><span id="__span-13-35"><a id="__codelineno-13-35" name="__codelineno-13-35" href="#__codelineno-13-35"></a><span class="w">        </span><span class="nl">floatingActionButton:</span><span class="w"> </span><span class="n">FloatingActionButton</span><span class="p">(</span>
+</span><span id="__span-13-36"><a id="__codelineno-13-36" name="__codelineno-13-36" href="#__codelineno-13-36"></a><span class="w">          </span><span class="nl">onPressed:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ref</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">counterProvider</span><span class="p">.</span><span class="n">notifier</span><span class="p">).</span><span class="n">increment</span><span class="p">(),</span>
+</span><span id="__span-13-37"><a id="__codelineno-13-37" name="__codelineno-13-37" href="#__codelineno-13-37"></a><span class="w">          </span><span class="nl">child:</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">add</span><span class="p">),</span>
+</span><span id="__span-13-38"><a id="__codelineno-13-38" name="__codelineno-13-38" href="#__codelineno-13-38"></a><span class="w">        </span><span class="p">),</span>
+</span><span id="__span-13-39"><a id="__codelineno-13-39" name="__codelineno-13-39" href="#__codelineno-13-39"></a><span class="w">      </span><span class="p">),</span>
+</span><span id="__span-13-40"><a id="__codelineno-13-40" name="__codelineno-13-40" href="#__codelineno-13-40"></a><span class="w">    </span><span class="p">);</span>
+</span><span id="__span-13-41"><a id="__codelineno-13-41" name="__codelineno-13-41" href="#__codelineno-13-41"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-13-42"><a id="__codelineno-13-42" name="__codelineno-13-42" href="#__codelineno-13-42"></a><span class="p">}</span>
+</span></code></pre></div>
+<blockquote>
+<p>Nesse exemplo específico o <code>FloatingActionButton</code> está fora de um <code>Consumer</code>, então na prática seria necessário também transformar o <code>MyApp</code> em <code>ConsumerWidget</code> para ter acesso ao <code>ref</code> ali. Deixei assim de propósito pra você notar o problema: <strong>sem uma camada de ViewModel bem definida, a lógica de estado tende a se espalhar pelo widget</strong>, misturando UI com regra de negócio. É exatamente esse espalhamento que o MVVM organiza.</p>
+</blockquote>
+<p>Perceba: aqui não existe Model, nem Repository, nem separação de responsabilidade — é só estado + widget. Funciona para protótipos rápidos, mas em um TCC onde a arquitetura é parte da avaliação, você quer a organização do MVVM por cima disso.</p>
+<hr />
+<h2 id="6-projeto-pratico-app-de-tarefas-com-mvvm-riverpod">6. Projeto prático: App de Tarefas com MVVM + Riverpod</h2>
+<p>Agora vamos juntar tudo. Vamos construir um <strong>app de lista de tarefas simples</strong> (dados em memória, sem backend — o foco é 100% entender a arquitetura, não integração de API), do zero.</p>
+<h3 id="passo-0-pre-requisitos">Passo 0 — Pré-requisitos</h3>
+<p>Confirme que o Flutter está instalado e funcionando:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>flutter<span class="w"> </span>--version
+</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>flutter<span class="w"> </span>doctor
+</span></code></pre></div>
+<h3 id="passo-1-criar-o-projeto">Passo 1 — Criar o projeto</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>flutter<span class="w"> </span>create<span class="w"> </span>tarefas_mvvm_riverpod
+</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a><span class="nb">cd</span><span class="w"> </span>tarefas_mvvm_riverpod
+</span></code></pre></div>
+<p>Isso gera um projeto padrão com um contador de exemplo. Vamos limpar e reconstruir.</p>
+<h3 id="passo-2-adicionar-as-dependencias">Passo 2 — Adicionar as dependências</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>flutter<span class="w"> </span>pub<span class="w"> </span>add<span class="w"> </span>flutter_riverpod<span class="w"> </span>riverpod_annotation
+</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a>flutter<span class="w"> </span>pub<span class="w"> </span>add<span class="w"> </span>-d<span class="w"> </span>build_runner<span class="w"> </span>riverpod_generator
+</span></code></pre></div>
+<p>Isso atualiza automaticamente seu <code>pubspec.yaml</code>.</p>
+<h3 id="passo-3-estrutura-de-pastas">Passo 3 — Estrutura de pastas</h3>
+<p>Dentro de <code>lib/</code>, apague o conteúdo de <code>main.dart</code> (vamos reescrever) e crie esta estrutura:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>lib/
+</span><span id="__span-17-2"><a id="__codelineno-17-2" name="__codelineno-17-2" href="#__codelineno-17-2"></a>├── main.dart
+</span><span id="__span-17-3"><a id="__codelineno-17-3" name="__codelineno-17-3" href="#__codelineno-17-3"></a>├── data/
+</span><span id="__span-17-4"><a id="__codelineno-17-4" name="__codelineno-17-4" href="#__codelineno-17-4"></a>│   ├── models/
+</span><span id="__span-17-5"><a id="__codelineno-17-5" name="__codelineno-17-5" href="#__codelineno-17-5"></a>│   │   └── task.dart
+</span><span id="__span-17-6"><a id="__codelineno-17-6" name="__codelineno-17-6" href="#__codelineno-17-6"></a>│   └── repositories/
+</span><span id="__span-17-7"><a id="__codelineno-17-7" name="__codelineno-17-7" href="#__codelineno-17-7"></a>│       └── task_repository.dart
+</span><span id="__span-17-8"><a id="__codelineno-17-8" name="__codelineno-17-8" href="#__codelineno-17-8"></a>└── features/
+</span><span id="__span-17-9"><a id="__codelineno-17-9" name="__codelineno-17-9" href="#__codelineno-17-9"></a>    └── tasks/
+</span><span id="__span-17-10"><a id="__codelineno-17-10" name="__codelineno-17-10" href="#__codelineno-17-10"></a>        ├── viewmodel/
+</span><span id="__span-17-11"><a id="__codelineno-17-11" name="__codelineno-17-11" href="#__codelineno-17-11"></a>        │   └── task_list_viewmodel.dart
+</span><span id="__span-17-12"><a id="__codelineno-17-12" name="__codelineno-17-12" href="#__codelineno-17-12"></a>        └── view/
+</span><span id="__span-17-13"><a id="__codelineno-17-13" name="__codelineno-17-13" href="#__codelineno-17-13"></a>            ├── task_list_view.dart
+</span><span id="__span-17-14"><a id="__codelineno-17-14" name="__codelineno-17-14" href="#__codelineno-17-14"></a>            └── widgets/
+</span><span id="__span-17-15"><a id="__codelineno-17-15" name="__codelineno-17-15" href="#__codelineno-17-15"></a>                └── task_tile.dart
+</span></code></pre></div>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>lib/data/models<span class="w"> </span>lib/data/repositories
+</span><span id="__span-18-2"><a id="__codelineno-18-2" name="__codelineno-18-2" href="#__codelineno-18-2"></a>mkdir<span class="w"> </span>-p<span class="w"> </span>lib/features/tasks/viewmodel<span class="w"> </span>lib/features/tasks/view/widgets
+</span></code></pre></div>
+<p>Essa organização é <strong>feature-first</strong>: em vez de ter uma pasta <code>models/</code>, uma <code>views/</code> e uma <code>viewmodels/</code> soltas na raiz misturando tudo de todas as telas, cada <em>feature</em> (aqui, "tasks") carrega suas próprias camadas dentro dela. Isso escala melhor conforme o projeto cresce (você teria <code>features/auth/</code>, <code>features/tasks/</code>, etc.).</p>
+<h3 id="passo-4-o-model-datamodelstaskdart">Passo 4 — O Model (<code>data/models/task.dart</code>)</h3>
+<p>A entidade pura — sem nenhuma lógica de UI ou de acesso a dados:</p>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a><span class="kd">class</span><span class="w"> </span><span class="nc">Task</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">Task</span><span class="p">({</span>
+</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a><span class="w">    </span><span class="kd">required</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">id</span><span class="p">,</span>
+</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a><span class="w">    </span><span class="kd">required</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">title</span><span class="p">,</span>
+</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a><span class="w">    </span><span class="k">this</span><span class="p">.</span><span class="n">isDone</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span>
+</span><span id="__span-19-6"><a id="__codelineno-19-6" name="__codelineno-19-6" href="#__codelineno-19-6"></a><span class="w">  </span><span class="p">});</span>
+</span><span id="__span-19-7"><a id="__codelineno-19-7" name="__codelineno-19-7" href="#__codelineno-19-7"></a>
+</span><span id="__span-19-8"><a id="__codelineno-19-8" name="__codelineno-19-8" href="#__codelineno-19-8"></a><span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="n">id</span><span class="p">;</span>
+</span><span id="__span-19-9"><a id="__codelineno-19-9" name="__codelineno-19-9" href="#__codelineno-19-9"></a><span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="kt">String</span><span class="w"> </span><span class="n">title</span><span class="p">;</span>
+</span><span id="__span-19-10"><a id="__codelineno-19-10" name="__codelineno-19-10" href="#__codelineno-19-10"></a><span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="kt">bool</span><span class="w"> </span><span class="n">isDone</span><span class="p">;</span>
+</span><span id="__span-19-11"><a id="__codelineno-19-11" name="__codelineno-19-11" href="#__codelineno-19-11"></a>
+</span><span id="__span-19-12"><a id="__codelineno-19-12" name="__codelineno-19-12" href="#__codelineno-19-12"></a><span class="w">  </span><span class="n">Task</span><span class="w"> </span><span class="n">copyWith</span><span class="p">({</span><span class="kt">String</span><span class="o">?</span><span class="w"> </span><span class="n">title</span><span class="p">,</span><span class="w"> </span><span class="kt">bool</span><span class="o">?</span><span class="w"> </span><span class="n">isDone</span><span class="p">})</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-19-13"><a id="__codelineno-19-13" name="__codelineno-19-13" href="#__codelineno-19-13"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Task</span><span class="p">(</span>
+</span><span id="__span-19-14"><a id="__codelineno-19-14" name="__codelineno-19-14" href="#__codelineno-19-14"></a><span class="w">      </span><span class="nl">id:</span><span class="w"> </span><span class="n">id</span><span class="p">,</span>
+</span><span id="__span-19-15"><a id="__codelineno-19-15" name="__codelineno-19-15" href="#__codelineno-19-15"></a><span class="w">      </span><span class="nl">title:</span><span class="w"> </span><span class="n">title</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">title</span><span class="p">,</span>
+</span><span id="__span-19-16"><a id="__codelineno-19-16" name="__codelineno-19-16" href="#__codelineno-19-16"></a><span class="w">      </span><span class="nl">isDone:</span><span class="w"> </span><span class="n">isDone</span><span class="w"> </span><span class="o">??</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">isDone</span><span class="p">,</span>
+</span><span id="__span-19-17"><a id="__codelineno-19-17" name="__codelineno-19-17" href="#__codelineno-19-17"></a><span class="w">    </span><span class="p">);</span>
+</span><span id="__span-19-18"><a id="__codelineno-19-18" name="__codelineno-19-18" href="#__codelineno-19-18"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-19-19"><a id="__codelineno-19-19" name="__codelineno-19-19" href="#__codelineno-19-19"></a><span class="p">}</span>
+</span></code></pre></div>
+<p><code>copyWith</code> é um padrão comum em Dart para criar uma cópia de um objeto imutável alterando só alguns campos — evita mutação direta do estado, o que facilita muito o trabalho do Riverpod (que compara estados por igualdade).</p>
+<h3 id="passo-5-o-repository-datarepositoriestask_repositorydart">Passo 5 — O Repository (<code>data/repositories/task_repository.dart</code>)</h3>
+<p>Essa classe representa "de onde os dados vêm". Aqui, simulada em memória (num projeto real, seria uma chamada HTTP, um banco Sqlite, etc.):</p>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-20-1"><a id="__codelineno-20-1" name="__codelineno-20-1" href="#__codelineno-20-1"></a><span class="k">import</span><span class="w"> </span><span class="s1">'package:riverpod_annotation/riverpod_annotation.dart'</span><span class="p">;</span>
+</span><span id="__span-20-2"><a id="__codelineno-20-2" name="__codelineno-20-2" href="#__codelineno-20-2"></a>
+</span><span id="__span-20-3"><a id="__codelineno-20-3" name="__codelineno-20-3" href="#__codelineno-20-3"></a><span class="k">import</span><span class="w"> </span><span class="s1">'../models/task.dart'</span><span class="p">;</span>
+</span><span id="__span-20-4"><a id="__codelineno-20-4" name="__codelineno-20-4" href="#__codelineno-20-4"></a>
+</span><span id="__span-20-5"><a id="__codelineno-20-5" name="__codelineno-20-5" href="#__codelineno-20-5"></a><span class="k">part</span><span class="w"> </span><span class="s1">'task_repository.g.dart'</span><span class="p">;</span>
+</span><span id="__span-20-6"><a id="__codelineno-20-6" name="__codelineno-20-6" href="#__codelineno-20-6"></a>
+</span><span id="__span-20-7"><a id="__codelineno-20-7" name="__codelineno-20-7" href="#__codelineno-20-7"></a><span class="kd">class</span><span class="w"> </span><span class="nc">TaskRepository</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-20-8"><a id="__codelineno-20-8" name="__codelineno-20-8" href="#__codelineno-20-8"></a><span class="w">  </span><span class="c1">// "Banco de dados" fake, em memória.</span>
+</span><span id="__span-20-9"><a id="__codelineno-20-9" name="__codelineno-20-9" href="#__codelineno-20-9"></a><span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="n">List</span><span class="o">&lt;</span><span class="n">Task</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_tasks</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-20-10"><a id="__codelineno-20-10" name="__codelineno-20-10" href="#__codelineno-20-10"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Task</span><span class="p">(</span><span class="nl">id:</span><span class="w"> </span><span class="s1">'1'</span><span class="p">,</span><span class="w"> </span><span class="nl">title:</span><span class="w"> </span><span class="s1">'Estudar arquitetura MVVM'</span><span class="p">),</span>
+</span><span id="__span-20-11"><a id="__codelineno-20-11" name="__codelineno-20-11" href="#__codelineno-20-11"></a><span class="w">    </span><span class="k">const</span><span class="w"> </span><span class="n">Task</span><span class="p">(</span><span class="nl">id:</span><span class="w"> </span><span class="s1">'2'</span><span class="p">,</span><span class="w"> </span><span class="nl">title:</span><span class="w"> </span><span class="s1">'Configurar Riverpod no projeto'</span><span class="p">),</span>
+</span><span id="__span-20-12"><a id="__codelineno-20-12" name="__codelineno-20-12" href="#__codelineno-20-12"></a><span class="w">  </span><span class="p">];</span>
+</span><span id="__span-20-13"><a id="__codelineno-20-13" name="__codelineno-20-13" href="#__codelineno-20-13"></a>
+</span><span id="__span-20-14"><a id="__codelineno-20-14" name="__codelineno-20-14" href="#__codelineno-20-14"></a><span class="w">  </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Task</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">getTasks</span><span class="p">()</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-20-15"><a id="__codelineno-20-15" name="__codelineno-20-15" href="#__codelineno-20-15"></a><span class="w">    </span><span class="kd">await</span><span class="w"> </span><span class="n">Future</span><span class="p">.</span><span class="n">delayed</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">Duration</span><span class="p">(</span><span class="nl">milliseconds:</span><span class="w"> </span><span class="m">300</span><span class="p">));</span><span class="w"> </span><span class="c1">// simula latência de rede</span>
+</span><span id="__span-20-16"><a id="__codelineno-20-16" name="__codelineno-20-16" href="#__codelineno-20-16"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">List</span><span class="p">.</span><span class="n">unmodifiable</span><span class="p">(</span><span class="n">_tasks</span><span class="p">);</span>
+</span><span id="__span-20-17"><a id="__codelineno-20-17" name="__codelineno-20-17" href="#__codelineno-20-17"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-20-18"><a id="__codelineno-20-18" name="__codelineno-20-18" href="#__codelineno-20-18"></a>
+</span><span id="__span-20-19"><a id="__codelineno-20-19" name="__codelineno-20-19" href="#__codelineno-20-19"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">addTask</span><span class="p">(</span><span class="n">Task</span><span class="w"> </span><span class="n">task</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_tasks</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="n">task</span><span class="p">);</span>
+</span><span id="__span-20-20"><a id="__codelineno-20-20" name="__codelineno-20-20" href="#__codelineno-20-20"></a>
+</span><span id="__span-20-21"><a id="__codelineno-20-21" name="__codelineno-20-21" href="#__codelineno-20-21"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">removeTask</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_tasks</span><span class="p">.</span><span class="n">removeWhere</span><span class="p">((</span><span class="n">task</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">id</span><span class="p">);</span>
+</span><span id="__span-20-22"><a id="__codelineno-20-22" name="__codelineno-20-22" href="#__codelineno-20-22"></a>
+</span><span id="__span-20-23"><a id="__codelineno-20-23" name="__codelineno-20-23" href="#__codelineno-20-23"></a><span class="w">  </span><span class="kt">void</span><span class="w"> </span><span class="n">updateTask</span><span class="p">(</span><span class="n">Task</span><span class="w"> </span><span class="n">updated</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-20-24"><a id="__codelineno-20-24" name="__codelineno-20-24" href="#__codelineno-20-24"></a><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">index</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">_tasks</span><span class="p">.</span><span class="n">indexWhere</span><span class="p">((</span><span class="n">task</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="n">id</span><span class="w"> </span><span class="o">==</span><span class="w"> </span><span class="n">updated</span><span class="p">.</span><span class="n">id</span><span class="p">);</span>
+</span><span id="__span-20-25"><a id="__codelineno-20-25" name="__codelineno-20-25" href="#__codelineno-20-25"></a><span class="w">    </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">index</span><span class="w"> </span><span class="o">!=</span><span class="w"> </span><span class="o">-</span><span class="m">1</span><span class="p">)</span><span class="w"> </span><span class="n">_tasks</span><span class="p">[</span><span class="n">index</span><span class="p">]</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">updated</span><span class="p">;</span>
+</span><span id="__span-20-26"><a id="__codelineno-20-26" name="__codelineno-20-26" href="#__codelineno-20-26"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-20-27"><a id="__codelineno-20-27" name="__codelineno-20-27" href="#__codelineno-20-27"></a><span class="p">}</span>
+</span><span id="__span-20-28"><a id="__codelineno-20-28" name="__codelineno-20-28" href="#__codelineno-20-28"></a>
+</span><span id="__span-20-29"><a id="__codelineno-20-29" name="__codelineno-20-29" href="#__codelineno-20-29"></a><span class="nd">@riverpod</span>
+</span><span id="__span-20-30"><a id="__codelineno-20-30" name="__codelineno-20-30" href="#__codelineno-20-30"></a><span class="n">TaskRepository</span><span class="w"> </span><span class="n">taskRepository</span><span class="p">(</span><span class="n">Ref</span><span class="w"> </span><span class="n">ref</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-20-31"><a id="__codelineno-20-31" name="__codelineno-20-31" href="#__codelineno-20-31"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="n">TaskRepository</span><span class="p">();</span>
+</span><span id="__span-20-32"><a id="__codelineno-20-32" name="__codelineno-20-32" href="#__codelineno-20-32"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>O <code>@riverpod</code> aqui transforma a função <code>taskRepository</code> em um provider (<code>taskRepositoryProvider</code>) que qualquer ViewModel pode acessar via <code>ref.watch</code>/<code>ref.read</code>. Isso é a "injeção de dependência" do Riverpod — o ViewModel não instancia <code>TaskRepository()</code> diretamente, ele pede pro Riverpod fornecer.</p>
+<h3 id="passo-6-o-viewmodel-featurestasksviewmodeltask_list_viewmodeldart">Passo 6 — O ViewModel (<code>features/tasks/viewmodel/task_list_viewmodel.dart</code>)</h3>
+<p>Esse é o coração da arquitetura. Repare: <strong>nenhum import de <code>flutter/material.dart</code></strong> — ele só conhece o Model e o Repository.</p>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-21-1"><a id="__codelineno-21-1" name="__codelineno-21-1" href="#__codelineno-21-1"></a><span class="k">import</span><span class="w"> </span><span class="s1">'package:riverpod_annotation/riverpod_annotation.dart'</span><span class="p">;</span>
+</span><span id="__span-21-2"><a id="__codelineno-21-2" name="__codelineno-21-2" href="#__codelineno-21-2"></a>
+</span><span id="__span-21-3"><a id="__codelineno-21-3" name="__codelineno-21-3" href="#__codelineno-21-3"></a><span class="k">import</span><span class="w"> </span><span class="s1">'../../../data/models/task.dart'</span><span class="p">;</span>
+</span><span id="__span-21-4"><a id="__codelineno-21-4" name="__codelineno-21-4" href="#__codelineno-21-4"></a><span class="k">import</span><span class="w"> </span><span class="s1">'../../../data/repositories/task_repository.dart'</span><span class="p">;</span>
+</span><span id="__span-21-5"><a id="__codelineno-21-5" name="__codelineno-21-5" href="#__codelineno-21-5"></a>
+</span><span id="__span-21-6"><a id="__codelineno-21-6" name="__codelineno-21-6" href="#__codelineno-21-6"></a><span class="k">part</span><span class="w"> </span><span class="s1">'task_list_viewmodel.g.dart'</span><span class="p">;</span>
+</span><span id="__span-21-7"><a id="__codelineno-21-7" name="__codelineno-21-7" href="#__codelineno-21-7"></a>
+</span><span id="__span-21-8"><a id="__codelineno-21-8" name="__codelineno-21-8" href="#__codelineno-21-8"></a><span class="nd">@riverpod</span>
+</span><span id="__span-21-9"><a id="__codelineno-21-9" name="__codelineno-21-9" href="#__codelineno-21-9"></a><span class="kd">class</span><span class="w"> </span><span class="nc">TaskListViewModel</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">_$TaskListViewModel</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-10"><a id="__codelineno-21-10" name="__codelineno-21-10" href="#__codelineno-21-10"></a><span class="w">  </span><span class="nd">@override</span>
+</span><span id="__span-21-11"><a id="__codelineno-21-11" name="__codelineno-21-11" href="#__codelineno-21-11"></a><span class="w">  </span><span class="n">Future</span><span class="o">&lt;</span><span class="n">List</span><span class="o">&lt;</span><span class="n">Task</span><span class="o">&gt;&gt;</span><span class="w"> </span><span class="n">build</span><span class="p">()</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-12"><a id="__codelineno-21-12" name="__codelineno-21-12" href="#__codelineno-21-12"></a><span class="w">    </span><span class="c1">// build() roda automaticamente quando o provider é observado</span>
+</span><span id="__span-21-13"><a id="__codelineno-21-13" name="__codelineno-21-13" href="#__codelineno-21-13"></a><span class="w">    </span><span class="c1">// pela primeira vez. Aqui buscamos o estado inicial.</span>
+</span><span id="__span-21-14"><a id="__codelineno-21-14" name="__codelineno-21-14" href="#__codelineno-21-14"></a><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">repository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref</span><span class="p">.</span><span class="n">watch</span><span class="p">(</span><span class="n">taskRepositoryProvider</span><span class="p">);</span>
+</span><span id="__span-21-15"><a id="__codelineno-21-15" name="__codelineno-21-15" href="#__codelineno-21-15"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">repository</span><span class="p">.</span><span class="n">getTasks</span><span class="p">();</span>
+</span><span id="__span-21-16"><a id="__codelineno-21-16" name="__codelineno-21-16" href="#__codelineno-21-16"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-21-17"><a id="__codelineno-21-17" name="__codelineno-21-17" href="#__codelineno-21-17"></a>
+</span><span id="__span-21-18"><a id="__codelineno-21-18" name="__codelineno-21-18" href="#__codelineno-21-18"></a><span class="w">  </span><span class="n">Future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">addTask</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">title</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-19"><a id="__codelineno-21-19" name="__codelineno-21-19" href="#__codelineno-21-19"></a><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">repository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">taskRepositoryProvider</span><span class="p">);</span>
+</span><span id="__span-21-20"><a id="__codelineno-21-20" name="__codelineno-21-20" href="#__codelineno-21-20"></a><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">newTask</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">Task</span><span class="p">(</span>
+</span><span id="__span-21-21"><a id="__codelineno-21-21" name="__codelineno-21-21" href="#__codelineno-21-21"></a><span class="w">      </span><span class="nl">id:</span><span class="w"> </span><span class="n">DateTime</span><span class="p">.</span><span class="n">now</span><span class="p">().</span><span class="n">millisecondsSinceEpoch</span><span class="p">.</span><span class="n">toString</span><span class="p">(),</span>
+</span><span id="__span-21-22"><a id="__codelineno-21-22" name="__codelineno-21-22" href="#__codelineno-21-22"></a><span class="w">      </span><span class="nl">title:</span><span class="w"> </span><span class="n">title</span><span class="p">,</span>
+</span><span id="__span-21-23"><a id="__codelineno-21-23" name="__codelineno-21-23" href="#__codelineno-21-23"></a><span class="w">    </span><span class="p">);</span>
+</span><span id="__span-21-24"><a id="__codelineno-21-24" name="__codelineno-21-24" href="#__codelineno-21-24"></a><span class="w">    </span><span class="n">repository</span><span class="p">.</span><span class="n">addTask</span><span class="p">(</span><span class="n">newTask</span><span class="p">);</span>
+</span><span id="__span-21-25"><a id="__codelineno-21-25" name="__codelineno-21-25" href="#__codelineno-21-25"></a><span class="w">    </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">await</span><span class="w"> </span><span class="n">AsyncValue</span><span class="p">.</span><span class="n">guard</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">repository</span><span class="p">.</span><span class="n">getTasks</span><span class="p">());</span>
+</span><span id="__span-21-26"><a id="__codelineno-21-26" name="__codelineno-21-26" href="#__codelineno-21-26"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-21-27"><a id="__codelineno-21-27" name="__codelineno-21-27" href="#__codelineno-21-27"></a>
+</span><span id="__span-21-28"><a id="__codelineno-21-28" name="__codelineno-21-28" href="#__codelineno-21-28"></a><span class="w">  </span><span class="n">Future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">toggleDone</span><span class="p">(</span><span class="n">Task</span><span class="w"> </span><span class="n">task</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-29"><a id="__codelineno-21-29" name="__codelineno-21-29" href="#__codelineno-21-29"></a><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">repository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">taskRepositoryProvider</span><span class="p">);</span>
+</span><span id="__span-21-30"><a id="__codelineno-21-30" name="__codelineno-21-30" href="#__codelineno-21-30"></a><span class="w">    </span><span class="n">repository</span><span class="p">.</span><span class="n">updateTask</span><span class="p">(</span><span class="n">task</span><span class="p">.</span><span class="n">copyWith</span><span class="p">(</span><span class="nl">isDone:</span><span class="w"> </span><span class="o">!</span><span class="n">task</span><span class="p">.</span><span class="n">isDone</span><span class="p">));</span>
+</span><span id="__span-21-31"><a id="__codelineno-21-31" name="__codelineno-21-31" href="#__codelineno-21-31"></a><span class="w">    </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">await</span><span class="w"> </span><span class="n">AsyncValue</span><span class="p">.</span><span class="n">guard</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">repository</span><span class="p">.</span><span class="n">getTasks</span><span class="p">());</span>
+</span><span id="__span-21-32"><a id="__codelineno-21-32" name="__codelineno-21-32" href="#__codelineno-21-32"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-21-33"><a id="__codelineno-21-33" name="__codelineno-21-33" href="#__codelineno-21-33"></a>
+</span><span id="__span-21-34"><a id="__codelineno-21-34" name="__codelineno-21-34" href="#__codelineno-21-34"></a><span class="w">  </span><span class="n">Future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">removeTask</span><span class="p">(</span><span class="kt">String</span><span class="w"> </span><span class="n">id</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-21-35"><a id="__codelineno-21-35" name="__codelineno-21-35" href="#__codelineno-21-35"></a><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">repository</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref</span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">taskRepositoryProvider</span><span class="p">);</span>
+</span><span id="__span-21-36"><a id="__codelineno-21-36" name="__codelineno-21-36" href="#__codelineno-21-36"></a><span class="w">    </span><span class="n">repository</span><span class="p">.</span><span class="n">removeTask</span><span class="p">(</span><span class="n">id</span><span class="p">);</span>
+</span><span id="__span-21-37"><a id="__codelineno-21-37" name="__codelineno-21-37" href="#__codelineno-21-37"></a><span class="w">    </span><span class="n">state</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="kd">await</span><span class="w"> </span><span class="n">AsyncValue</span><span class="p">.</span><span class="n">guard</span><span class="p">(()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">repository</span><span class="p">.</span><span class="n">getTasks</span><span class="p">());</span>
+</span><span id="__span-21-38"><a id="__codelineno-21-38" name="__codelineno-21-38" href="#__codelineno-21-38"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-21-39"><a id="__codelineno-21-39" name="__codelineno-21-39" href="#__codelineno-21-39"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Pontos-chave:</p>
+<ul>
+<li>Estendemos <code>AsyncNotifier</code> (via <code>_$TaskListViewModel</code>, gerado automaticamente) porque <code>getTasks()</code> é assíncrono — isso dá de graça os estados de <strong>loading</strong>, <strong>erro</strong> e <strong>dado carregado</strong>, sem você escrever <code>bool isLoading</code> na mão.</li>
+<li><code>AsyncValue.guard(...)</code> executa a função e automaticamente encapsula o resultado em sucesso ou erro — se <code>getTasks()</code> lançar uma exceção, o estado vira erro sozinho, sem <code>try/catch</code> manual.</li>
+<li>Os métodos (<code>addTask</code>, <code>toggleDone</code>, <code>removeTask</code>) são os <strong>comandos</strong> do ViewModel — é isso que a View vai chamar.</li>
+</ul>
+<h3 id="passo-7-rodar-o-gerador-de-codigo">Passo 7 — Rodar o gerador de código</h3>
+<p>Antes de continuar, gere os arquivos <code>.g.dart</code> (necessários por causa do <code>part '...'.g.dart'</code> que colocamos nos arquivos):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-22-1"><a id="__codelineno-22-1" name="__codelineno-22-1" href="#__codelineno-22-1"></a>dart<span class="w"> </span>run<span class="w"> </span>build_runner<span class="w"> </span>build<span class="w"> </span>--delete-conflicting-outputs
+</span></code></pre></div>
+<p>Ou, para ele ficar rodando e regenerando a cada alteração salva (recomendado durante o desenvolvimento):</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-23-1"><a id="__codelineno-23-1" name="__codelineno-23-1" href="#__codelineno-23-1"></a>dart<span class="w"> </span>run<span class="w"> </span>build_runner<span class="w"> </span>watch<span class="w"> </span>-d
+</span></code></pre></div>
+<p>Isso cria <code>task_repository.g.dart</code> e <code>task_list_viewmodel.g.dart</code> automaticamente — <strong>não edite esses arquivos na mão</strong>.</p>
+<h3 id="passo-8-a-view-o-widget-da-tarefa-featurestasksviewwidgetstask_tiledart">Passo 8 — A View: o widget da tarefa (<code>features/tasks/view/widgets/task_tile.dart</code>)</h3>
+<p>Um widget pequeno, "burro" (sem lógica de negócio), que só recebe dados e callbacks:</p>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-24-1"><a id="__codelineno-24-1" name="__codelineno-24-1" href="#__codelineno-24-1"></a><span class="k">import</span><span class="w"> </span><span class="s1">'package:flutter/material.dart'</span><span class="p">;</span>
+</span><span id="__span-24-2"><a id="__codelineno-24-2" name="__codelineno-24-2" href="#__codelineno-24-2"></a>
+</span><span id="__span-24-3"><a id="__codelineno-24-3" name="__codelineno-24-3" href="#__codelineno-24-3"></a><span class="k">import</span><span class="w"> </span><span class="s1">'../../../../data/models/task.dart'</span><span class="p">;</span>
+</span><span id="__span-24-4"><a id="__codelineno-24-4" name="__codelineno-24-4" href="#__codelineno-24-4"></a>
+</span><span id="__span-24-5"><a id="__codelineno-24-5" name="__codelineno-24-5" href="#__codelineno-24-5"></a><span class="kd">class</span><span class="w"> </span><span class="nc">TaskTile</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">StatelessWidget</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-24-6"><a id="__codelineno-24-6" name="__codelineno-24-6" href="#__codelineno-24-6"></a><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">TaskTile</span><span class="p">({</span>
+</span><span id="__span-24-7"><a id="__codelineno-24-7" name="__codelineno-24-7" href="#__codelineno-24-7"></a><span class="w">    </span><span class="k">super</span><span class="p">.</span><span class="n">key</span><span class="p">,</span>
+</span><span id="__span-24-8"><a id="__codelineno-24-8" name="__codelineno-24-8" href="#__codelineno-24-8"></a><span class="w">    </span><span class="kd">required</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">task</span><span class="p">,</span>
+</span><span id="__span-24-9"><a id="__codelineno-24-9" name="__codelineno-24-9" href="#__codelineno-24-9"></a><span class="w">    </span><span class="kd">required</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">onToggle</span><span class="p">,</span>
+</span><span id="__span-24-10"><a id="__codelineno-24-10" name="__codelineno-24-10" href="#__codelineno-24-10"></a><span class="w">    </span><span class="kd">required</span><span class="w"> </span><span class="k">this</span><span class="p">.</span><span class="n">onDelete</span><span class="p">,</span>
+</span><span id="__span-24-11"><a id="__codelineno-24-11" name="__codelineno-24-11" href="#__codelineno-24-11"></a><span class="w">  </span><span class="p">});</span>
+</span><span id="__span-24-12"><a id="__codelineno-24-12" name="__codelineno-24-12" href="#__codelineno-24-12"></a>
+</span><span id="__span-24-13"><a id="__codelineno-24-13" name="__codelineno-24-13" href="#__codelineno-24-13"></a><span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="n">Task</span><span class="w"> </span><span class="n">task</span><span class="p">;</span>
+</span><span id="__span-24-14"><a id="__codelineno-24-14" name="__codelineno-24-14" href="#__codelineno-24-14"></a><span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="n">VoidCallback</span><span class="w"> </span><span class="n">onToggle</span><span class="p">;</span>
+</span><span id="__span-24-15"><a id="__codelineno-24-15" name="__codelineno-24-15" href="#__codelineno-24-15"></a><span class="w">  </span><span class="kd">final</span><span class="w"> </span><span class="n">VoidCallback</span><span class="w"> </span><span class="n">onDelete</span><span class="p">;</span>
+</span><span id="__span-24-16"><a id="__codelineno-24-16" name="__codelineno-24-16" href="#__codelineno-24-16"></a>
+</span><span id="__span-24-17"><a id="__codelineno-24-17" name="__codelineno-24-17" href="#__codelineno-24-17"></a><span class="w">  </span><span class="nd">@override</span>
+</span><span id="__span-24-18"><a id="__codelineno-24-18" name="__codelineno-24-18" href="#__codelineno-24-18"></a><span class="w">  </span><span class="n">Widget</span><span class="w"> </span><span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-24-19"><a id="__codelineno-24-19" name="__codelineno-24-19" href="#__codelineno-24-19"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">CheckboxListTile</span><span class="p">(</span>
+</span><span id="__span-24-20"><a id="__codelineno-24-20" name="__codelineno-24-20" href="#__codelineno-24-20"></a><span class="w">      </span><span class="nl">value:</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="n">isDone</span><span class="p">,</span>
+</span><span id="__span-24-21"><a id="__codelineno-24-21" name="__codelineno-24-21" href="#__codelineno-24-21"></a><span class="w">      </span><span class="nl">onChanged:</span><span class="w"> </span><span class="p">(</span><span class="n">_</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">onToggle</span><span class="p">(),</span>
+</span><span id="__span-24-22"><a id="__codelineno-24-22" name="__codelineno-24-22" href="#__codelineno-24-22"></a><span class="w">      </span><span class="nl">title:</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span>
+</span><span id="__span-24-23"><a id="__codelineno-24-23" name="__codelineno-24-23" href="#__codelineno-24-23"></a><span class="w">        </span><span class="n">task</span><span class="p">.</span><span class="n">title</span><span class="p">,</span>
+</span><span id="__span-24-24"><a id="__codelineno-24-24" name="__codelineno-24-24" href="#__codelineno-24-24"></a><span class="w">        </span><span class="nl">style:</span><span class="w"> </span><span class="n">task</span><span class="p">.</span><span class="n">isDone</span>
+</span><span id="__span-24-25"><a id="__codelineno-24-25" name="__codelineno-24-25" href="#__codelineno-24-25"></a><span class="w">            </span><span class="o">?</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">TextStyle</span><span class="p">(</span><span class="nl">decoration:</span><span class="w"> </span><span class="n">TextDecoration</span><span class="p">.</span><span class="n">lineThrough</span><span class="p">)</span>
+</span><span id="__span-24-26"><a id="__codelineno-24-26" name="__codelineno-24-26" href="#__codelineno-24-26"></a><span class="w">            </span><span class="o">:</span><span class="w"> </span><span class="kc">null</span><span class="p">,</span>
+</span><span id="__span-24-27"><a id="__codelineno-24-27" name="__codelineno-24-27" href="#__codelineno-24-27"></a><span class="w">      </span><span class="p">),</span>
+</span><span id="__span-24-28"><a id="__codelineno-24-28" name="__codelineno-24-28" href="#__codelineno-24-28"></a><span class="w">      </span><span class="nl">secondary:</span><span class="w"> </span><span class="n">IconButton</span><span class="p">(</span>
+</span><span id="__span-24-29"><a id="__codelineno-24-29" name="__codelineno-24-29" href="#__codelineno-24-29"></a><span class="w">        </span><span class="nl">icon:</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">delete_outline</span><span class="p">),</span>
+</span><span id="__span-24-30"><a id="__codelineno-24-30" name="__codelineno-24-30" href="#__codelineno-24-30"></a><span class="w">        </span><span class="nl">onPressed:</span><span class="w"> </span><span class="n">onDelete</span><span class="p">,</span>
+</span><span id="__span-24-31"><a id="__codelineno-24-31" name="__codelineno-24-31" href="#__codelineno-24-31"></a><span class="w">      </span><span class="p">),</span>
+</span><span id="__span-24-32"><a id="__codelineno-24-32" name="__codelineno-24-32" href="#__codelineno-24-32"></a><span class="w">    </span><span class="p">);</span>
+</span><span id="__span-24-33"><a id="__codelineno-24-33" name="__codelineno-24-33" href="#__codelineno-24-33"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-24-34"><a id="__codelineno-24-34" name="__codelineno-24-34" href="#__codelineno-24-34"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Repare que <code>TaskTile</code> <strong>não sabe que o Riverpod existe</strong>. Ele só recebe um <code>Task</code> e duas funções (<code>onToggle</code>, <code>onDelete</code>). Isso é bom: esse widget poderia ser reusado em outro contexto sem depender de nada de estado global.</p>
+<h3 id="passo-9-a-view-principal-featurestasksviewtask_list_viewdart">Passo 9 — A View principal (<code>features/tasks/view/task_list_view.dart</code>)</h3>
+<p>Aqui é onde a View efetivamente <strong>observa</strong> o ViewModel:</p>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-25-1"><a id="__codelineno-25-1" name="__codelineno-25-1" href="#__codelineno-25-1"></a><span class="k">import</span><span class="w"> </span><span class="s1">'package:flutter/material.dart'</span><span class="p">;</span>
+</span><span id="__span-25-2"><a id="__codelineno-25-2" name="__codelineno-25-2" href="#__codelineno-25-2"></a><span class="k">import</span><span class="w"> </span><span class="s1">'package:flutter_riverpod/flutter_riverpod.dart'</span><span class="p">;</span>
+</span><span id="__span-25-3"><a id="__codelineno-25-3" name="__codelineno-25-3" href="#__codelineno-25-3"></a>
+</span><span id="__span-25-4"><a id="__codelineno-25-4" name="__codelineno-25-4" href="#__codelineno-25-4"></a><span class="k">import</span><span class="w"> </span><span class="s1">'../viewmodel/task_list_viewmodel.dart'</span><span class="p">;</span>
+</span><span id="__span-25-5"><a id="__codelineno-25-5" name="__codelineno-25-5" href="#__codelineno-25-5"></a><span class="k">import</span><span class="w"> </span><span class="s1">'widgets/task_tile.dart'</span><span class="p">;</span>
+</span><span id="__span-25-6"><a id="__codelineno-25-6" name="__codelineno-25-6" href="#__codelineno-25-6"></a>
+</span><span id="__span-25-7"><a id="__codelineno-25-7" name="__codelineno-25-7" href="#__codelineno-25-7"></a><span class="kd">class</span><span class="w"> </span><span class="nc">TaskListView</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">ConsumerWidget</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-25-8"><a id="__codelineno-25-8" name="__codelineno-25-8" href="#__codelineno-25-8"></a><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">TaskListView</span><span class="p">({</span><span class="k">super</span><span class="p">.</span><span class="n">key</span><span class="p">});</span>
+</span><span id="__span-25-9"><a id="__codelineno-25-9" name="__codelineno-25-9" href="#__codelineno-25-9"></a>
+</span><span id="__span-25-10"><a id="__codelineno-25-10" name="__codelineno-25-10" href="#__codelineno-25-10"></a><span class="w">  </span><span class="nd">@override</span>
+</span><span id="__span-25-11"><a id="__codelineno-25-11" name="__codelineno-25-11" href="#__codelineno-25-11"></a><span class="w">  </span><span class="n">Widget</span><span class="w"> </span><span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">WidgetRef</span><span class="w"> </span><span class="n">ref</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-25-12"><a id="__codelineno-25-12" name="__codelineno-25-12" href="#__codelineno-25-12"></a><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">tasksAsync</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">ref</span><span class="p">.</span><span class="n">watch</span><span class="p">(</span><span class="n">taskListViewModelProvider</span><span class="p">);</span>
+</span><span id="__span-25-13"><a id="__codelineno-25-13" name="__codelineno-25-13" href="#__codelineno-25-13"></a>
+</span><span id="__span-25-14"><a id="__codelineno-25-14" name="__codelineno-25-14" href="#__codelineno-25-14"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">Scaffold</span><span class="p">(</span>
+</span><span id="__span-25-15"><a id="__codelineno-25-15" name="__codelineno-25-15" href="#__codelineno-25-15"></a><span class="w">      </span><span class="nl">appBar:</span><span class="w"> </span><span class="n">AppBar</span><span class="p">(</span><span class="nl">title:</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span><span class="s1">'Minhas Tarefas'</span><span class="p">)),</span>
+</span><span id="__span-25-16"><a id="__codelineno-25-16" name="__codelineno-25-16" href="#__codelineno-25-16"></a><span class="w">      </span><span class="nl">body:</span><span class="w"> </span><span class="n">tasksAsync</span><span class="p">.</span><span class="n">when</span><span class="p">(</span>
+</span><span id="__span-25-17"><a id="__codelineno-25-17" name="__codelineno-25-17" href="#__codelineno-25-17"></a><span class="w">        </span><span class="nl">data:</span><span class="w"> </span><span class="p">(</span><span class="n">tasks</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-25-18"><a id="__codelineno-25-18" name="__codelineno-25-18" href="#__codelineno-25-18"></a><span class="w">          </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">tasks</span><span class="p">.</span><span class="n">isEmpty</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-25-19"><a id="__codelineno-25-19" name="__codelineno-25-19" href="#__codelineno-25-19"></a><span class="w">            </span><span class="k">return</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Center</span><span class="p">(</span><span class="nl">child:</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span><span class="s1">'Nenhuma tarefa ainda.'</span><span class="p">));</span>
+</span><span id="__span-25-20"><a id="__codelineno-25-20" name="__codelineno-25-20" href="#__codelineno-25-20"></a><span class="w">          </span><span class="p">}</span>
+</span><span id="__span-25-21"><a id="__codelineno-25-21" name="__codelineno-25-21" href="#__codelineno-25-21"></a><span class="w">          </span><span class="k">return</span><span class="w"> </span><span class="n">ListView</span><span class="p">.</span><span class="n">builder</span><span class="p">(</span>
+</span><span id="__span-25-22"><a id="__codelineno-25-22" name="__codelineno-25-22" href="#__codelineno-25-22"></a><span class="w">            </span><span class="nl">itemCount:</span><span class="w"> </span><span class="n">tasks</span><span class="p">.</span><span class="n">length</span><span class="p">,</span>
+</span><span id="__span-25-23"><a id="__codelineno-25-23" name="__codelineno-25-23" href="#__codelineno-25-23"></a><span class="w">            </span><span class="nl">itemBuilder:</span><span class="w"> </span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">index</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-25-24"><a id="__codelineno-25-24" name="__codelineno-25-24" href="#__codelineno-25-24"></a><span class="w">              </span><span class="kd">final</span><span class="w"> </span><span class="n">task</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">tasks</span><span class="p">[</span><span class="n">index</span><span class="p">];</span>
+</span><span id="__span-25-25"><a id="__codelineno-25-25" name="__codelineno-25-25" href="#__codelineno-25-25"></a><span class="w">              </span><span class="k">return</span><span class="w"> </span><span class="n">TaskTile</span><span class="p">(</span>
+</span><span id="__span-25-26"><a id="__codelineno-25-26" name="__codelineno-25-26" href="#__codelineno-25-26"></a><span class="w">                </span><span class="nl">task:</span><span class="w"> </span><span class="n">task</span><span class="p">,</span>
+</span><span id="__span-25-27"><a id="__codelineno-25-27" name="__codelineno-25-27" href="#__codelineno-25-27"></a><span class="w">                </span><span class="nl">onToggle:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ref</span>
+</span><span id="__span-25-28"><a id="__codelineno-25-28" name="__codelineno-25-28" href="#__codelineno-25-28"></a><span class="w">                    </span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">taskListViewModelProvider</span><span class="p">.</span><span class="n">notifier</span><span class="p">)</span>
+</span><span id="__span-25-29"><a id="__codelineno-25-29" name="__codelineno-25-29" href="#__codelineno-25-29"></a><span class="w">                    </span><span class="p">.</span><span class="n">toggleDone</span><span class="p">(</span><span class="n">task</span><span class="p">),</span>
+</span><span id="__span-25-30"><a id="__codelineno-25-30" name="__codelineno-25-30" href="#__codelineno-25-30"></a><span class="w">                </span><span class="nl">onDelete:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">ref</span>
+</span><span id="__span-25-31"><a id="__codelineno-25-31" name="__codelineno-25-31" href="#__codelineno-25-31"></a><span class="w">                    </span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">taskListViewModelProvider</span><span class="p">.</span><span class="n">notifier</span><span class="p">)</span>
+</span><span id="__span-25-32"><a id="__codelineno-25-32" name="__codelineno-25-32" href="#__codelineno-25-32"></a><span class="w">                    </span><span class="p">.</span><span class="n">removeTask</span><span class="p">(</span><span class="n">task</span><span class="p">.</span><span class="n">id</span><span class="p">),</span>
+</span><span id="__span-25-33"><a id="__codelineno-25-33" name="__codelineno-25-33" href="#__codelineno-25-33"></a><span class="w">              </span><span class="p">);</span>
+</span><span id="__span-25-34"><a id="__codelineno-25-34" name="__codelineno-25-34" href="#__codelineno-25-34"></a><span class="w">            </span><span class="p">},</span>
+</span><span id="__span-25-35"><a id="__codelineno-25-35" name="__codelineno-25-35" href="#__codelineno-25-35"></a><span class="w">          </span><span class="p">);</span>
+</span><span id="__span-25-36"><a id="__codelineno-25-36" name="__codelineno-25-36" href="#__codelineno-25-36"></a><span class="w">        </span><span class="p">},</span>
+</span><span id="__span-25-37"><a id="__codelineno-25-37" name="__codelineno-25-37" href="#__codelineno-25-37"></a><span class="w">        </span><span class="nl">loading:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Center</span><span class="p">(</span><span class="nl">child:</span><span class="w"> </span><span class="n">CircularProgressIndicator</span><span class="p">()),</span>
+</span><span id="__span-25-38"><a id="__codelineno-25-38" name="__codelineno-25-38" href="#__codelineno-25-38"></a><span class="w">        </span><span class="nl">error:</span><span class="w"> </span><span class="p">(</span><span class="n">error</span><span class="p">,</span><span class="w"> </span><span class="n">stackTrace</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Center</span><span class="p">(</span><span class="nl">child:</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span><span class="s1">'Erro: </span><span class="si">$</span><span class="n">error</span><span class="s1">'</span><span class="p">)),</span>
+</span><span id="__span-25-39"><a id="__codelineno-25-39" name="__codelineno-25-39" href="#__codelineno-25-39"></a><span class="w">      </span><span class="p">),</span>
+</span><span id="__span-25-40"><a id="__codelineno-25-40" name="__codelineno-25-40" href="#__codelineno-25-40"></a><span class="w">      </span><span class="nl">floatingActionButton:</span><span class="w"> </span><span class="n">FloatingActionButton</span><span class="p">(</span>
+</span><span id="__span-25-41"><a id="__codelineno-25-41" name="__codelineno-25-41" href="#__codelineno-25-41"></a><span class="w">        </span><span class="nl">onPressed:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">_showAddTaskDialog</span><span class="p">(</span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">ref</span><span class="p">),</span>
+</span><span id="__span-25-42"><a id="__codelineno-25-42" name="__codelineno-25-42" href="#__codelineno-25-42"></a><span class="w">        </span><span class="nl">child:</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Icon</span><span class="p">(</span><span class="n">Icons</span><span class="p">.</span><span class="n">add</span><span class="p">),</span>
+</span><span id="__span-25-43"><a id="__codelineno-25-43" name="__codelineno-25-43" href="#__codelineno-25-43"></a><span class="w">      </span><span class="p">),</span>
+</span><span id="__span-25-44"><a id="__codelineno-25-44" name="__codelineno-25-44" href="#__codelineno-25-44"></a><span class="w">    </span><span class="p">);</span>
+</span><span id="__span-25-45"><a id="__codelineno-25-45" name="__codelineno-25-45" href="#__codelineno-25-45"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-25-46"><a id="__codelineno-25-46" name="__codelineno-25-46" href="#__codelineno-25-46"></a>
+</span><span id="__span-25-47"><a id="__codelineno-25-47" name="__codelineno-25-47" href="#__codelineno-25-47"></a><span class="w">  </span><span class="n">Future</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="w"> </span><span class="n">_showAddTaskDialog</span><span class="p">(</span><span class="n">BuildContext</span><span class="w"> </span><span class="n">context</span><span class="p">,</span><span class="w"> </span><span class="n">WidgetRef</span><span class="w"> </span><span class="n">ref</span><span class="p">)</span><span class="w"> </span><span class="kd">async</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-25-48"><a id="__codelineno-25-48" name="__codelineno-25-48" href="#__codelineno-25-48"></a><span class="w">    </span><span class="kd">final</span><span class="w"> </span><span class="n">controller</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">TextEditingController</span><span class="p">();</span>
+</span><span id="__span-25-49"><a id="__codelineno-25-49" name="__codelineno-25-49" href="#__codelineno-25-49"></a><span class="w">    </span><span class="kd">await</span><span class="w"> </span><span class="n">showDialog</span><span class="o">&lt;</span><span class="kt">void</span><span class="o">&gt;</span><span class="p">(</span>
+</span><span id="__span-25-50"><a id="__codelineno-25-50" name="__codelineno-25-50" href="#__codelineno-25-50"></a><span class="w">      </span><span class="nl">context:</span><span class="w"> </span><span class="n">context</span><span class="p">,</span>
+</span><span id="__span-25-51"><a id="__codelineno-25-51" name="__codelineno-25-51" href="#__codelineno-25-51"></a><span class="w">      </span><span class="nl">builder:</span><span class="w"> </span><span class="p">(</span><span class="n">dialogContext</span><span class="p">)</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">AlertDialog</span><span class="p">(</span>
+</span><span id="__span-25-52"><a id="__codelineno-25-52" name="__codelineno-25-52" href="#__codelineno-25-52"></a><span class="w">        </span><span class="nl">title:</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span><span class="s1">'Nova tarefa'</span><span class="p">),</span>
+</span><span id="__span-25-53"><a id="__codelineno-25-53" name="__codelineno-25-53" href="#__codelineno-25-53"></a><span class="w">        </span><span class="nl">content:</span><span class="w"> </span><span class="n">TextField</span><span class="p">(</span>
+</span><span id="__span-25-54"><a id="__codelineno-25-54" name="__codelineno-25-54" href="#__codelineno-25-54"></a><span class="w">          </span><span class="nl">controller:</span><span class="w"> </span><span class="n">controller</span><span class="p">,</span>
+</span><span id="__span-25-55"><a id="__codelineno-25-55" name="__codelineno-25-55" href="#__codelineno-25-55"></a><span class="w">          </span><span class="nl">autofocus:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span>
+</span><span id="__span-25-56"><a id="__codelineno-25-56" name="__codelineno-25-56" href="#__codelineno-25-56"></a><span class="w">          </span><span class="nl">decoration:</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">InputDecoration</span><span class="p">(</span><span class="nl">hintText:</span><span class="w"> </span><span class="s1">'Digite a tarefa'</span><span class="p">),</span>
+</span><span id="__span-25-57"><a id="__codelineno-25-57" name="__codelineno-25-57" href="#__codelineno-25-57"></a><span class="w">        </span><span class="p">),</span>
+</span><span id="__span-25-58"><a id="__codelineno-25-58" name="__codelineno-25-58" href="#__codelineno-25-58"></a><span class="w">        </span><span class="nl">actions:</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-25-59"><a id="__codelineno-25-59" name="__codelineno-25-59" href="#__codelineno-25-59"></a><span class="w">          </span><span class="n">TextButton</span><span class="p">(</span>
+</span><span id="__span-25-60"><a id="__codelineno-25-60" name="__codelineno-25-60" href="#__codelineno-25-60"></a><span class="w">            </span><span class="nl">onPressed:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="o">=&gt;</span><span class="w"> </span><span class="n">Navigator</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="n">dialogContext</span><span class="p">),</span>
+</span><span id="__span-25-61"><a id="__codelineno-25-61" name="__codelineno-25-61" href="#__codelineno-25-61"></a><span class="w">            </span><span class="nl">child:</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span><span class="s1">'Cancelar'</span><span class="p">),</span>
+</span><span id="__span-25-62"><a id="__codelineno-25-62" name="__codelineno-25-62" href="#__codelineno-25-62"></a><span class="w">          </span><span class="p">),</span>
+</span><span id="__span-25-63"><a id="__codelineno-25-63" name="__codelineno-25-63" href="#__codelineno-25-63"></a><span class="w">          </span><span class="n">FilledButton</span><span class="p">(</span>
+</span><span id="__span-25-64"><a id="__codelineno-25-64" name="__codelineno-25-64" href="#__codelineno-25-64"></a><span class="w">            </span><span class="nl">onPressed:</span><span class="w"> </span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-25-65"><a id="__codelineno-25-65" name="__codelineno-25-65" href="#__codelineno-25-65"></a><span class="w">              </span><span class="k">if</span><span class="w"> </span><span class="p">(</span><span class="n">controller</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="n">trim</span><span class="p">().</span><span class="n">isNotEmpty</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-25-66"><a id="__codelineno-25-66" name="__codelineno-25-66" href="#__codelineno-25-66"></a><span class="w">                </span><span class="n">ref</span>
+</span><span id="__span-25-67"><a id="__codelineno-25-67" name="__codelineno-25-67" href="#__codelineno-25-67"></a><span class="w">                    </span><span class="p">.</span><span class="n">read</span><span class="p">(</span><span class="n">taskListViewModelProvider</span><span class="p">.</span><span class="n">notifier</span><span class="p">)</span>
+</span><span id="__span-25-68"><a id="__codelineno-25-68" name="__codelineno-25-68" href="#__codelineno-25-68"></a><span class="w">                    </span><span class="p">.</span><span class="n">addTask</span><span class="p">(</span><span class="n">controller</span><span class="p">.</span><span class="n">text</span><span class="p">.</span><span class="n">trim</span><span class="p">());</span>
+</span><span id="__span-25-69"><a id="__codelineno-25-69" name="__codelineno-25-69" href="#__codelineno-25-69"></a><span class="w">              </span><span class="p">}</span>
+</span><span id="__span-25-70"><a id="__codelineno-25-70" name="__codelineno-25-70" href="#__codelineno-25-70"></a><span class="w">              </span><span class="n">Navigator</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="n">dialogContext</span><span class="p">);</span>
+</span><span id="__span-25-71"><a id="__codelineno-25-71" name="__codelineno-25-71" href="#__codelineno-25-71"></a><span class="w">            </span><span class="p">},</span>
+</span><span id="__span-25-72"><a id="__codelineno-25-72" name="__codelineno-25-72" href="#__codelineno-25-72"></a><span class="w">            </span><span class="nl">child:</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">Text</span><span class="p">(</span><span class="s1">'Adicionar'</span><span class="p">),</span>
+</span><span id="__span-25-73"><a id="__codelineno-25-73" name="__codelineno-25-73" href="#__codelineno-25-73"></a><span class="w">          </span><span class="p">),</span>
+</span><span id="__span-25-74"><a id="__codelineno-25-74" name="__codelineno-25-74" href="#__codelineno-25-74"></a><span class="w">        </span><span class="p">],</span>
+</span><span id="__span-25-75"><a id="__codelineno-25-75" name="__codelineno-25-75" href="#__codelineno-25-75"></a><span class="w">      </span><span class="p">),</span>
+</span><span id="__span-25-76"><a id="__codelineno-25-76" name="__codelineno-25-76" href="#__codelineno-25-76"></a><span class="w">    </span><span class="p">);</span>
+</span><span id="__span-25-77"><a id="__codelineno-25-77" name="__codelineno-25-77" href="#__codelineno-25-77"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-25-78"><a id="__codelineno-25-78" name="__codelineno-25-78" href="#__codelineno-25-78"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>Pontos-chave:</p>
+<ul>
+<li><code>ref.watch(taskListViewModelProvider)</code> dentro do <code>build()</code>: a View <strong>assina</strong> o estado — sempre que o ViewModel mudar, esse widget reconstrói sozinho.</li>
+<li><code>.when(data: ..., loading: ..., error: ...)</code>: como o ViewModel é um <code>AsyncNotifier</code>, o estado já vem "embrulhado" em <code>AsyncValue</code>, e <code>.when</code> obriga você a tratar os três casos possíveis — nada de esquecer de mostrar um spinner.</li>
+<li><code>ref.read(...).toggleDone(...)</code>: dentro de callbacks (não no <code>build()</code>), usamos <code>read</code>, não <code>watch</code> — só queremos <em>chamar um método</em>, não assinar mudanças ali.</li>
+</ul>
+<h3 id="passo-10-conectar-tudo-no-maindart">Passo 10 — Conectar tudo no <code>main.dart</code></h3>
+<div class="language-dart highlight"><pre><span></span><code><span id="__span-26-1"><a id="__codelineno-26-1" name="__codelineno-26-1" href="#__codelineno-26-1"></a><span class="k">import</span><span class="w"> </span><span class="s1">'package:flutter/material.dart'</span><span class="p">;</span>
+</span><span id="__span-26-2"><a id="__codelineno-26-2" name="__codelineno-26-2" href="#__codelineno-26-2"></a><span class="k">import</span><span class="w"> </span><span class="s1">'package:flutter_riverpod/flutter_riverpod.dart'</span><span class="p">;</span>
+</span><span id="__span-26-3"><a id="__codelineno-26-3" name="__codelineno-26-3" href="#__codelineno-26-3"></a>
+</span><span id="__span-26-4"><a id="__codelineno-26-4" name="__codelineno-26-4" href="#__codelineno-26-4"></a><span class="k">import</span><span class="w"> </span><span class="s1">'features/tasks/view/task_list_view.dart'</span><span class="p">;</span>
+</span><span id="__span-26-5"><a id="__codelineno-26-5" name="__codelineno-26-5" href="#__codelineno-26-5"></a>
+</span><span id="__span-26-6"><a id="__codelineno-26-6" name="__codelineno-26-6" href="#__codelineno-26-6"></a><span class="kt">void</span><span class="w"> </span><span class="n">main</span><span class="p">()</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-26-7"><a id="__codelineno-26-7" name="__codelineno-26-7" href="#__codelineno-26-7"></a><span class="w">  </span><span class="n">runApp</span><span class="p">(</span><span class="k">const</span><span class="w"> </span><span class="n">ProviderScope</span><span class="p">(</span><span class="nl">child:</span><span class="w"> </span><span class="n">MyApp</span><span class="p">()));</span>
+</span><span id="__span-26-8"><a id="__codelineno-26-8" name="__codelineno-26-8" href="#__codelineno-26-8"></a><span class="p">}</span>
+</span><span id="__span-26-9"><a id="__codelineno-26-9" name="__codelineno-26-9" href="#__codelineno-26-9"></a>
+</span><span id="__span-26-10"><a id="__codelineno-26-10" name="__codelineno-26-10" href="#__codelineno-26-10"></a><span class="kd">class</span><span class="w"> </span><span class="nc">MyApp</span><span class="w"> </span><span class="kd">extends</span><span class="w"> </span><span class="n">StatelessWidget</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-26-11"><a id="__codelineno-26-11" name="__codelineno-26-11" href="#__codelineno-26-11"></a><span class="w">  </span><span class="k">const</span><span class="w"> </span><span class="n">MyApp</span><span class="p">({</span><span class="k">super</span><span class="p">.</span><span class="n">key</span><span class="p">});</span>
+</span><span id="__span-26-12"><a id="__codelineno-26-12" name="__codelineno-26-12" href="#__codelineno-26-12"></a>
+</span><span id="__span-26-13"><a id="__codelineno-26-13" name="__codelineno-26-13" href="#__codelineno-26-13"></a><span class="w">  </span><span class="nd">@override</span>
+</span><span id="__span-26-14"><a id="__codelineno-26-14" name="__codelineno-26-14" href="#__codelineno-26-14"></a><span class="w">  </span><span class="n">Widget</span><span class="w"> </span><span class="n">build</span><span class="p">(</span><span class="n">BuildContext</span><span class="w"> </span><span class="n">context</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-26-15"><a id="__codelineno-26-15" name="__codelineno-26-15" href="#__codelineno-26-15"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span><span class="n">MaterialApp</span><span class="p">(</span>
+</span><span id="__span-26-16"><a id="__codelineno-26-16" name="__codelineno-26-16" href="#__codelineno-26-16"></a><span class="w">      </span><span class="nl">title:</span><span class="w"> </span><span class="s1">'MVVM + Riverpod Demo'</span><span class="p">,</span>
+</span><span id="__span-26-17"><a id="__codelineno-26-17" name="__codelineno-26-17" href="#__codelineno-26-17"></a><span class="w">      </span><span class="nl">theme:</span><span class="w"> </span><span class="n">ThemeData</span><span class="p">(</span><span class="nl">colorSchemeSeed:</span><span class="w"> </span><span class="n">Colors</span><span class="p">.</span><span class="n">indigo</span><span class="p">,</span><span class="w"> </span><span class="nl">useMaterial3:</span><span class="w"> </span><span class="kc">true</span><span class="p">),</span>
+</span><span id="__span-26-18"><a id="__codelineno-26-18" name="__codelineno-26-18" href="#__codelineno-26-18"></a><span class="w">      </span><span class="nl">home:</span><span class="w"> </span><span class="k">const</span><span class="w"> </span><span class="n">TaskListView</span><span class="p">(),</span>
+</span><span id="__span-26-19"><a id="__codelineno-26-19" name="__codelineno-26-19" href="#__codelineno-26-19"></a><span class="w">    </span><span class="p">);</span>
+</span><span id="__span-26-20"><a id="__codelineno-26-20" name="__codelineno-26-20" href="#__codelineno-26-20"></a><span class="w">  </span><span class="p">}</span>
+</span><span id="__span-26-21"><a id="__codelineno-26-21" name="__codelineno-26-21" href="#__codelineno-26-21"></a><span class="p">}</span>
+</span></code></pre></div>
+<p>O <code>ProviderScope</code> <strong>precisa</strong> envolver o app inteiro — é o container onde o estado de todos os providers vive. Sem ele, <code>ref.watch</code>/<code>ref.read</code> lançam erro.</p>
+<h3 id="passo-11-rodar-o-app">Passo 11 — Rodar o app</h3>
+<p>Com o <code>build_runner watch -d</code> já rodando em um terminal (Passo 7), abra outro terminal e rode:</p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-27-1"><a id="__codelineno-27-1" name="__codelineno-27-1" href="#__codelineno-27-1"></a>flutter<span class="w"> </span>run
+</span></code></pre></div>
+<p>Escolha o dispositivo/emulador quando solicitado. Você deve ver a lista com as duas tarefas iniciais, conseguir marcar como concluída (efeito de risco no texto), deletar e adicionar novas tarefas pelo botão "+".</p>
+<hr />
+<h2 id="7-como-os-dados-fluem-recapitulando">7. Como os dados fluem (recapitulando)</h2>
+<p>Quando você toca o botão "Adicionar" no diálogo:</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-28-1"><a id="__codelineno-28-1" name="__codelineno-28-1" href="#__codelineno-28-1"></a>1. View chama: ref.read(taskListViewModelProvider.notifier).addTask(texto)
+</span><span id="__span-28-2"><a id="__codelineno-28-2" name="__codelineno-28-2" href="#__codelineno-28-2"></a>2. ViewModel.addTask() pede o Repository via ref.read(taskRepositoryProvider)
+</span><span id="__span-28-3"><a id="__codelineno-28-3" name="__codelineno-28-3" href="#__codelineno-28-3"></a>3. ViewModel manda o Repository adicionar a tarefa na "base" em memória
+</span><span id="__span-28-4"><a id="__codelineno-28-4" name="__codelineno-28-4" href="#__codelineno-28-4"></a>4. ViewModel busca a lista atualizada e faz: state = novoEstado
+</span><span id="__span-28-5"><a id="__codelineno-28-5" name="__codelineno-28-5" href="#__codelineno-28-5"></a>5. Riverpod detecta a mudança de estado e notifica quem está "assinado" (watch)
+</span><span id="__span-28-6"><a id="__codelineno-28-6" name="__codelineno-28-6" href="#__codelineno-28-6"></a>6. A View, que tinha feito ref.watch(taskListViewModelProvider), reconstrói
+</span><span id="__span-28-7"><a id="__codelineno-28-7" name="__codelineno-28-7" href="#__codelineno-28-7"></a>   automaticamente e mostra a nova lista
+</span></code></pre></div>
+<p>Note que em nenhum momento a <code>TaskListView</code> fala diretamente com <code>TaskRepository</code> — ela só conhece o <code>TaskListViewModel</code>. E o <code>TaskListViewModel</code> nunca soube da existência de <code>Scaffold</code>, <code>ListView</code> ou qualquer widget. Essa é a separação MVVM funcionando na prática, com o Riverpod fazendo o papel do "binding" reativo.</p>
+<hr />
+<h2 id="8-proximos-passos-e-exercicios">8. Próximos passos e exercícios</h2>
+<p>Para aprofundar depois que esse exemplo estiver rodando:</p>
+<ol>
+<li><strong>Persistência real</strong>: troque o <code>TaskRepository</code> em memória por uma implementação usando <code>shared_preferences</code> ou <code>sqflite</code> — o ViewModel e a View não precisam mudar (esse é o poder de depender de uma interface/abstração no Model).</li>
+<li><strong>Testes de ViewModel</strong>: como o <code>TaskListViewModel</code> não depende de widget nenhum, dá pra testá-lo com <code>ProviderContainer.test()</code> do próprio Riverpod, sem montar UI. Ótimo tópico pra citar no TCC como vantagem da arquitetura.</li>
+<li><strong>Múltiplas features</strong>: crie uma segunda pasta em <code>features/</code> (ex: <code>features/auth/</code>) seguindo a mesma estrutura, pra treinar a organização feature-first em um projeto com mais de uma tela.</li>
+<li><strong><code>riverpod_lint</code></strong>: instale o pacote de lint oficial do Riverpod — ele avisa em tempo real, no editor, quando você usa <code>watch</code> no lugar errado ou esquece de tratar um caso do <code>AsyncValue</code>.</li>
+</ol>
+<p>Qualquer trecho que travar durante a montagem — erro de <code>build_runner</code>, import errado, provider não encontrado — me manda o erro que a gente debuga junto.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tabs", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
