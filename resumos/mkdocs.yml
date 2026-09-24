@@ -8,6 +8,7 @@ site_name: Docs Marianinha
 nav:
   - Home: index.md
   - Resumo Flutter: resumo-flutter.md
+  - Segurança em Redes: seg-redes.md
 theme:
   name: material
   language: pt
