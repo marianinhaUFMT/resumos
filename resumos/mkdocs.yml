@@ -1,0 +1,43 @@
+# site_name: Docs Mariana
+# nav:
+#   - Home: index.md
+#   - Resumo Flutter: resumo-flutter.md
+# theme: readthedocs
+
+site_name: Docs Marianinha
+nav:
+  - Home: index.md
+  - Resumo Flutter: resumo-flutter.md
+theme:
+  name: material
+  language: pt
+  palette:
+    # Alternador de modo claro/escuro
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Alternar para modo escuro
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Alternar para modo claro
+  features:
+    - navigation.instant
+    - navigation.tabs
+    - search.suggest
+    - search.highlight
+    
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.superfences
