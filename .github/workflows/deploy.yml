@@ -23,5 +23,6 @@ jobs:
           pip install mkdocs-material
 
       - name: Build e Deploy para o GitHub Pages
+        working-directory: resumos
         run: |
           mkdocs gh-deploy --force
