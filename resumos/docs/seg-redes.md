@@ -6,10 +6,10 @@
 
 ## Sumário
 
-1. [Unidade 1: Princípios de Segurança da Informação](#unidade-1-principios-de-segurança-da-informacao)
-2. [Unidade 2: Ameaças, Malwares e Controles](#unidade-2-ameacas-malwares-e-controles)
-3. [Unidade 3: Identificação de Vulnerabilidades](#unidade-3-identificacao-de-vulnerabilidades)
-4. [Unidade 4: Gerenciamento de Identidade e Acesso](#unidade-4-gerenciamento-de-identidade-e-acesso)
+- [Unidade 1: Princípios de Segurança da Informação](#unidade-1-princípios-de-segurança-da-informação)
+- [Unidade 2: Ameaças, Malwares e Controles](#unidade-2-ameaças-malwares-e-controles)
+- [Unidade 3: Identificação de Vulnerabilidades](#unidade-3-identificação-de-vulnerabilidades)
+- [Unidade 4: Gerenciamento de Identidade e Acesso](#unidade-4-gerenciamento-de-identidade-e-acesso)
 
 ---
 
@@ -28,9 +28,9 @@ Os dados podem estar vulneráveis devido à:
 
 Pilar de sustentação da segurança da informação:
 
-* **Confidencialidade:** Garantir que a informação seja acessível apenas a pessoas autorizadas.
-* **Integridade:** Garantir que a informação seja precisa e completa, e que não tenha sido alterada de forma não autorizada.
-* **Disponibilidade:** Garantir que a informação esteja disponível sempre que necessário.
+- **Confidencialidade:** Garantir que a informação seja acessível apenas a pessoas autorizadas.
+- **Integridade:** Garantir que a informação seja precisa e completa, e que não tenha sido alterada de forma não autorizada.
+- **Disponibilidade:** Garantir que a informação esteja disponível sempre que necessário.
 
 #### Outros Conceitos Fundamentais
 
@@ -51,15 +51,15 @@ Pilar de sustentação da segurança da informação:
 
 Trata-se de identificar as formas pelas quais os sistemas podem ser atacados através do mapeamento e da análise de:
 
-* **Vulnerabilidade:** Uma fraqueza ou deficiência em um sistema que pode ser explorada por uma ameaça.
-* **Ameaça:** Evento com o potencial de causar dano.
-* **Risco:** A probabilidade de uma ameaça explorar uma vulnerabilidade e causar dano.
+- **Vulnerabilidade:** Uma fraqueza ou deficiência em um sistema que pode ser explorada por uma ameaça.
+- **Ameaça:** Evento com o potencial de causar dano.
+- **Risco:** A probabilidade de uma ameaça explorar uma vulnerabilidade e causar dano.
 
 **Estratégias para gerenciamento de riscos:**
-* Aceitar
-* Mitigar
-* Transferir
-* Evitar
+- Aceitar
+- Mitigar
+- Transferir
+- Evitar
 
 ---
 
@@ -67,11 +67,35 @@ Trata-se de identificar as formas pelas quais os sistemas podem ser atacados atr
 
 A matriz de risco é uma ferramenta visual utilizada para classificar e priorizar os riscos de segurança com base na combinação da **probabilidade** e do **impacto** da ocorrência.
 
-| Probabilidade | Impacto: Alto | Impacto: Médio | Impacto: Baixo |
-| :--- | :---: | :---: | :---: |
-| **Alta** | **Elevado** | **Alto** | **Médio** |
-| **Média** | **Alto** | **Médio** | **Baixo** |
-| **Baixa** | **Médio** | **Baixo** | **Desprezível** |
+<table>
+  <tr>
+    <th rowspan="2">Probabilidade</th>
+    <th colspan="3">Valor</th>
+  </tr>
+  <tr>
+    <th>Alta</th>
+    <th>Média</th>
+    <th>Baixa</th>
+  </tr>
+  <tr>
+    <th>Alta</th>
+    <td style="background-color:#ff5555; color: black;">Elevado</td>
+    <td style="background-color:#ffe38a; color: black;">Alto</td>
+    <td style="background-color:#ffff75; color: black;">Medio</td>
+  </tr>
+  <tr>
+    <th>Média</th>
+    <td style="background-color:#ffe38a; color: black;">Alto</td>
+    <td style="background-color:#ffff75; color: black;">Medio</td>
+    <td style="background-color:#9bd58a; color: black;">Baixo</td>
+  </tr>
+  <tr>
+    <th>Baixa</th>
+    <td style="background-color:#ffff75; color: black;">Medio</td>
+    <td style="background-color:#9bd58a; color: black;">Baixo</td>
+    <td style="background-color:#e5f0e2; color: black;">Desprezável</td>
+  </tr>
+</table>
 
 ---
 
