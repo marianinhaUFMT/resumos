@@ -167,6 +167,73 @@ Os pontos de entrada podem incluir:
 
 # Unidade 2: Ameaças, Malwares e Controles
 
+### Classificação de Malware
+-> Tipos de Malware
+A classificação de malware não segue um padrão pré-estabelecido, pode haver sobreposição na classificação; algumas classificações concentram-se no vetor usado pelo malware, outras são baseadas na carga (payload) entregue pelo malware. Podem tamvém serem baseadas no seu propósito.
+
+- **Vírus**: entre os mais antigos, ocultados em um executável, documentos ou scripts, se espaçham quando são compartilhados. Se for ativado, pode infectar outros arquivos no mesmo sistema.
+  - Modo de operação:
+    - precisa de um hospedeiro para se propagar
+    - se anexam a arquivos executáveis ou documentos
+    - são ativados se o arquivo infectado for executado ou aberto
+    - pode infectar outros arquivos no mesmo sistema ou em sistemas conectados
+    - exemplos: Vírus ILOVEYOU em 2000 e Vírus Melissa
+- **Worms**: autônomos, não precisam de um hospedeiro para se propagar, exploram vulnerabilidades em sistemas e redes para se espalhar rapidamente.
+  - Modo de operação:
+    - projetados para se replicar por redes e sistemas
+    - não se anexam a arquivos existentes
+    - se transmitem pelas redes, dispositivos USB e Internet
+    - se ativado pode se replicar automaticamente e transmitir-se para outros sistemas na rede
+    - exemplos: Conficker e SQL Slammer
+- **Trojan Horses (Cavalos de Troia)**: se disfarçam como software legítimo, mas contêm código malicioso que pode comprometer a segurança do sistema.
+  - Modo de operação:
+    - enganam o usuário usando engenharia social
+    - disfarçam-se como software legítimo
+    - podem estar contidos em anexos maliciosos de e-mails
+    - links maliciosos que levam para a instalação do trojan
+    - exemplos: Zeus trojan RAT
+- **PUPs (Programas Potencialmente Indesejados)**: acompanham a instalação de software legítimo, realizam atividades indesejas, como anúncios. A presença de um PUP não é considerada maliciosa, mas pode afetar a experiência do usuário e a segurança do sistema.
+  - Modo de operação:
+    - instaladas como parte de um pacote de software legítimo
+    - descrito como grayware em vez de malware
+    - realizam ações intrusivas sem consentimento do usuário
+    - exemplos: barras de ferramentas de navegador, extensões suspeitas
+
+### Classificação de Malware pelo propósito
+- **Spyware**: coleta informações do usuário sem consentimento, como hábitos de navegação, dados pessoais e credenciais de login. Pode ser usado para fins de marketing ou espionagem.
+  - Exemplos:
+    - **Adware**: exibe anúncios indesejados e coleta informações sobre os hábitos de navegação do usuário.
+    - **Superfish**: um spyware que foi pré-instalado em alguns laptops Lenovo para fins de publicidade, acabou expondo os usuários a vulnerabilidades de segurança.
+- **Keyloggers**: registram teclas, um subconjunto de spyware. Visa registrar todas as teclas digitadas pelo usuário, esperando roubar informações como senhas ou dados do cartão de crédito.
+  - Exemplos:
+    - **Zeus**: roubo de informações bancárias e credenciais de login.
+    - **HawkEye Keylogger**: captura informações de login e credenciais sensíveis.
+- **Cookies de rastreamento**: criados por anúncios e widgets analíticos incorporados em muitos sites. Podem registrar páginas visitas, consultas de pesquisa, metadados e endereço IP.
+
+### Classificação de malware de acordo com o payload
+
+- **Backdoors e RAT**: abre "portas de fundo" para que um invasos controle e manipule o sistema remotamente. Se disfarçam como programas legítimos ou são instalados juntos. RAT é um malware backdoor que imita a funcionalidade de programas remotos legítimos.
+  - Exemplos:
+    - **Back Orifice**: um backdoor que permite controle remoto de sistemas Windows.
+    - **DarkComet**: um RAT que permite controle remoto e espionagem de sistemas infectados.
+- **Rootkits**: projetados para se enconder no sistema e se fixam no kernel. Conseguem manter-se ativos mesmo após reinicializações do sistema e atualizações de software. Dificultam a detecção por softwares de segurança, residem no firmware de placas e adaptadores.
+  - Exemplos:
+    - **DarkMatter e QuakMatter EFI**: direcionados ao firmware de laptos Apple Macbook
+    - **Sony BMG Rootkit**: um rootkit que se escondia em CDs de música da Sony BMG, permitindo acesso não autorizado ao sistema do usuário.
+    - **Tdl-4**: um rootkit notório usados para ocultar botnet e atividades maliciosas.
+- **Ransomware**: criptografa os arquivos ou sistemas tornando-os inacessíveis. Exigem um resgate financeiros pela chave de descriptografia, sem garantia de integridade dos dados. Infecação por meio de anexos de e-mails, downloads, sites infectados ou exploração de vulnerabilidades. Pagamento em moedas digitais.
+  - Exemplos:
+    - **WannaCry**: um ransomware que se espalhou rapidamente em 2017, explorando uma vulnerabilidade no Windows.
+    - **CrpytoLocker**: um dos primeiros, extorquiu muito dinheiro das vítimas.
+    - **Ryuk**: um ransomware direcionado a organizações, conhecido por ataques de alto perfil.
+- **Cripto-Malware**: utiliza técnicas de criptografia para prejudicar ou comprometer sistemas, arquivos ou informações. Não pede resgate mas visa prejudcar ou ocultar informações. Pode causar danos irreparáveis, a infecção ocorre da mesma forma que o ransomware.
+- **Bombas lógicas**: malware ativado a partir de um gatilho pré-determinado, causa danos deliberados aos sistemas, ocorre por meio de programa legítimo, código-fonte ou operação criminosa maior. Se ativada suas ações incluem exclusão de arquivos cŕiticos, corrupção de dados, disseminação adicional e outros.
+  - Exemplos:
+    - **Stuxnet**: usada para atacar sistemas de enriquecimento de urânio no Irã.
+    - **mydoom**: um worm que continha uma bomba lógica que se ativava em uma data específica lançando um ataque de negação de serviço (DDoS).
+
+### Análise de Indicadores e Prevenção de malware
+
 
 # Unidade 3: Identificação de Vunerabilidades
 
