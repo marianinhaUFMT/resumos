@@ -13,19 +13,22 @@ nav:
 theme:
   name: material
   language: pt
+  font:
+    text: Poppins
+    code: JetBrains Mono
   palette:
     # Alternador de modo claro/escuro
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: purple
-      accent: purple
+      primary: deep-purple
+      accent: deep-purple
       toggle:
         icon: material/brightness-7
         name: Alternar para modo escuro
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: purple
-      accent: purple
+      primary: deep-purple
+      accent: deep-purple
       toggle:
         icon: material/brightness-4
         name: Alternar para modo claro

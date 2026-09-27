@@ -18,9 +18,10 @@
 A **Segurança da Informação** é um conjunto de práticas, políticas, procedimentos e tecnologias projetadas para proteger os ativos de informação. Ela desempenha um papel vital na preservação da tríade CID.
 
 Os dados podem estar vulneráveis devido à:
-* Forma como são **armazenados**
-* Forma como são **transferidos**
-* Forma como são **processados**
+
+- Forma como são **armazenados**
+- Forma como são **transferidos**
+- Forma como são **processados**
 
 ---
 
@@ -56,6 +57,7 @@ Trata-se de identificar as formas pelas quais os sistemas podem ser atacados atr
 - **Risco:** A probabilidade de uma ameaça explorar uma vulnerabilidade e causar dano.
 
 **Estratégias para gerenciamento de riscos:**
+
 - Aceitar
 - Mitigar
 - Transferir
@@ -143,15 +145,16 @@ Diversos profissionais atuam em funções específicas dentro da segurança cibe
 
 ### Superfície de Ataque e Vetores de Ataque
 
-A **superfície de ataque** compreende o conjunto de todos os pontos de entrada e vulnerabilidades exploráveis por um invasor.
-* Ela é significativamente maior quando envolve ameaças internas (*insiders*) em relação a atores externos.
-* **Redução da superfície:** Implica em restringir privilégios, limitar endpoints, fechar portas/serviços desnecessários e controlar acessos.
+A **superfície de ataque** compreende o conjunto de todos os pontos de entrada e vulnerabilidades exploráveis por um invasor. Ela é significativamente maior quando envolve ameaças internas (*insiders*) em relação a atores externos. 
+
+- **Redução da superfície:** Implica em restringir privilégios, limitar endpoints, fechar portas/serviços desnecessários e controlar acessos.
 
 **Exemplos de pontos de entrada:**
-* Servidores
-* Aplicativos
-* Dispositivos (endpoints)
-* Usuários
+
+- Servidores
+- Aplicativos
+- Dispositivos (endpoints)
+- Usuários
 
 #### Vetores de Ataque
 
@@ -180,15 +183,15 @@ Técnica de manipulação psicológica utilizada para enganar indivíduos e obte
 
 #### Principais Métodos:
 
-* **Phishing:** Mensagens fraudulentas (e-mail, SMS ou sites falsos) para captura de dados confidenciais.
-  * **Spear Phishing:** Ataque personalizado e direcionado a um indivíduo ou grupo específico.
-  * **Whaling:** Phishing de alta precisão direcionado a executivos de alto nível (*C-level*).
-  * **Vishing:** Phishing realizado via chamadas telefônicas/voz.
-* **Ameaças Correlatas:**
-  * **Spam:** Envio em massa de conteúdo não solicitado ou malicioso.
-  * **Hoaxes:** Boatos ou mensagens enganosas desenhadas para espalhar pânico ou desinformação.
-  * **Coleta de Credenciais:** Obtenção indevida de acessos por meio de engenharia social.
-* **Campanhas de Influência:** Manipulação psicológica e comunicação persuasiva para moldar percepções e comportamentos em grande escala.
+- **Phishing:** Mensagens fraudulentas (e-mail, SMS ou sites falsos) para captura de dados confidenciais.
+    - **Spear Phishing:** Ataque personalizado e direcionado a um indivíduo ou grupo específico.
+    - **Whaling:** Phishing de alta precisão direcionado a executivos de alto nível (*C-level*).
+    - **Vishing:** Phishing realizado via chamadas telefônicas/voz.
+- **Ameaças Correlatas:**
+    - **Spam:** Envio em massa de conteúdo não solicitado ou malicioso.
+    - **Hoaxes:** Boatos ou mensagens enganosas desenhadas para espalhar pânico ou desinformação.
+    - **Coleta de Credenciais:** Obtenção indevida de acessos por meio de engenharia social.
+- **Campanhas de Influência:** Manipulação psicológica e comunicação persuasiva para moldar percepções e comportamentos em grande escala.
 
 ---
 
@@ -201,50 +204,139 @@ A classificação de malwares varia de acordo com seu **vetor de infecção**, s
 #### Principais Tipos:
 
 * **Vírus:** Dependem de um arquivo hospedeiro (executáveis, documentos, scripts) e da ação do usuário para execução e propagação.
-  * *Modo de Operação:* Anexam-se a arquivos válidos; propagam-se ao compartilhar o arquivo infectado.
-  * *Exemplos:* Vírus ILOVEYOU (2000), Vírus Melissa.
+    - *Modo de Operação:* Anexam-se a arquivos válidos; propagam-se ao compartilhar o arquivo infectado.
+    - *Exemplos:* Vírus ILOVEYOU (2000), Vírus Melissa.
 * **Worms:** Programas autônomos que se multiplicam automaticamente explorando falhas na rede.
-  * *Modo de Operação:* Não precisam de arquivos hospedeiros; varrem redes e USBs para infectar novos sistemas.
-  * *Exemplos:* Conficker, SQL Slammer.
+    - *Modo de Operação:* Não precisam de arquivos hospedeiros; varrem redes e USBs para infectar novos sistemas.
+    - *Exemplos:* Conficker, SQL Slammer.
 * **Trojan Horses (Cavalos de Tróia):** Disfarçam-se de softwares legítimos para enganar o usuário e executar funções maliciosas em segundo plano.
-  * *Modo de Operação:* Utilizam engenharia social, anexos de e-mail ou links maliciosos.
-  * *Exemplo:* Zeus Trojan, RATs diversos.
+    - *Modo de Operação:* Utilizam engenharia social, anexos de e-mail ou links maliciosos.
+    - *Exemplo:* Zeus Trojan, RATs diversos.
 * **PUPs (Programas Potencialmente Indesejados):** Instalados frequentemente em conjunto com softwares legítimos (*grayware*).
-  * *Modo de Operação:* Exibem anúncios intrusivos e alteram configurações do sistema sem autorização prévia.
-  * *Exemplos:* Adwares, barras de ferramentas maliciosas (*toolbars*).
+    - *Modo de Operação:* Exibem anúncios intrusivos e alteram configurações do sistema sem autorização prévia.
+    - *Exemplos:* Adwares, barras de ferramentas maliciosas (*toolbars*).
 
 ---
 
 ### Classificação pelo Propósito
 
 * **Spyware:** Coleta informações do usuário sem consentimento (dados de navegação, credenciais, hábitos pessoais).
-  * *Adware:* Exibe anúncios publicitários direcionados.
-  * *Superfish:* Software pré-instalado que injetava anúncios e quebrava a segurança HTTPS.
+    - *Adware:* Exibe anúncios publicitários direcionados.
+    - *Superfish:* Software pré-instalado que injetava anúncios e quebrava a segurança HTTPS.
 * **Keyloggers:** Subtipo de spyware projetado para registrar todas as teclas digitadas pelo usuário (captura de senhas e cartões).
-  * *Exemplos:* Módulos do Trojan Zeus, HawkEye Keylogger.
+    - *Exemplos:* Módulos do Trojan Zeus, HawkEye Keylogger.
 * **Cookies de Rastreamento:** Mapeiam navegação e consultas entre múltiplos sites para perfilamento de dados.
 
 ---
 
 ### Classificação pelo Payload (Carga Útil)
 
-* **Backdoors e RATs (*Remote Access Trojans*):** Abrem portas de comunicação ocultas para permitir o controle remoto do sistema por um invasor.
-  * *Exemplos:* Back Orifice, DarkComet RAT.
-* **Rootkits:** Projetados para se ocultar nas camadas mais profundas do sistema operacional (Kernel/Firmware), dificultando a detecção por antivírus.
-  * *Exemplos:* DarkMatter EFI, Sony BMG Rootkit, TDL-4.
-* **Ransomware:** Criptografa arquivos ou bloqueia o acesso ao sistema, exigindo resgate (geralmente em criptomoedas) para a liberação da chave de decodificação.
-  * *Exemplos:* WannaCry, CryptoLocker, Ryuk.
-* **Cripto-Malware:** Utiliza criptografia de forma destrutiva para danificar ou ocultar dados de forma irreversível, sem solicitação de resgate.
-* **Bombas Lógicas (*Logic Bombs*):** Códigos maliciosos inseridos em aplicações legítimas que são disparados apenas quando condições específicas são atendidas (datas, eventos ou ações do usuário).
-  * *Exemplos:* Stuxnet, Worm MyDoom.
+- **Backdoors e RATs (*Remote Access Trojans*):** Abrem portas de comunicação ocultas para permitir o controle remoto do sistema por um invasor.
+    - *Exemplos:* Back Orifice, DarkComet RAT.
+- **Rootkits:** Projetados para se ocultar nas camadas mais profundas do sistema operacional (Kernel/Firmware), dificultando a detecção por antivírus.
+    - *Exemplos:* DarkMatter EFI, Sony BMG Rootkit, TDL-4.
+- **Ransomware:** Criptografa arquivos ou bloqueia o acesso ao sistema, exigindo resgate (geralmente em criptomoedas) para a liberação da chave de decodificação.
+    - *Exemplos:* WannaCry, CryptoLocker, Ryuk.
+- **Cripto-Malware:** Utiliza criptografia de forma destrutiva para danificar ou ocultar dados de forma irreversível, sem solicitação de resgate.
+- **Bombas Lógicas (*Logic Bombs*):** Códigos maliciosos inseridos em aplicações legítimas que são disparados apenas quando condições específicas são atendidas (datas, eventos ou ações do usuário).
+    - *Exemplos:* Stuxnet, Worm MyDoom.
 
 ---
 
 ### Análise de Indicadores e Prevenção de Malware
 
-*(Conteúdo a ser adicionado)*
+**Indicadores de Malware**: representam traços, pistas ou evidências deixadas pelo software malicioso, usadas como impresões digitais virtuais. Os formatos são:
 
----
+- Notificações de antivírus
+- Execução de sandbox
+- Consumo de recursos
+- Mudanças no sistema de arquivos
+
+**Notificações de antivírus**: sempre que um antivírus identifica um malware, ele envia um alerta ao usuário, informando sobre a ameaça detectada e as ações recomendadas para mitigá-la.
+
+- Falso positivo: arquivo legítimo identificado erroneamente como malware.
+- Falso negativo: malware não detectado pelo antivírus, permanecendo ativo no sistema.
+
+**Execução de sandbox**: ambiente isolado e controlado onde o malware é executado para observar seu comportamento sem risco de infecção ao sistema principal.
+
+- Permite analisar a forma como o malware se propaga, quais arquivos ele altera e quais conexões de rede ele tenta estabelecer.
+- Ferramentas como Cuckoo Sandbox e Any.Run são exemplos de plataformas de análise de malware.
+
+**Consumo de recursos**: monitoramento do uso de CPU, memória e rede para identificar atividades suspeitas que podem indicar a presença de malware.
+
+- Picos de uso de CPU ou memória sem motivo aparente podem ser sinais de malware em execução.
+- Ferramentas como Process Explorer e Resource Monitor ajudam a identificar processos suspeitos.
+
+**Mudanças no sistema de arquivos**: monitoramento de alterações em arquivos e diretórios do sistema, como criação de arquivos desconhecidos, modificação de arquivos críticos ou exclusão de arquivos importantes.
+
+- Ferramentas como Tripwire e File Integrity Monitoring (FIM) ajudam a detectar alterações não autorizadas no sistema de arquivos.
+
+### Análise de Processos
+Técnica para examinar o comportamento de programas e processos em execução. Necessidade de conhecer o comportamento de apps, processos e serviços. São ações que auxiliam na detecção de malware, como:
+
+- Análise de tráfego de rede
+- Análise de registros
+- Monitoramento e comportamento
+
+> Ferramentas de análise: Wireshark, Systinternals Suite
+
+### Prevenção de Malware
+A prevenção de malware envolve a implementação de medidas proativas para reduzir o risco de infecção por malware, com potencial de reduzir a superfície de ataque e aumentar a resiliência do sistema. Algumas estratégias incluem:
+
+- Atualizações de software
+- Políticas de acesso
+- Conscientização do usuário
+
+**Mitigação de Riscos**
+Visa minimizar o impacto de uma infecção por malware, caso ocorra. Ações de mitigação:
+
+- Estratégias de isolamento e contenção
+- Recuperação e restauração
+- Investigção pós-incidente
+
+### Categorias de Controles de Segurança
+Refere-se a um conjunto de políticas, procedimentos, processos, atividades e ferramentas que moldam as estruturas de serviços na organização. Um controle de segurança é projetado para garantir confidencialidade, integridade, disponibilidade e não repúdio a um sistema ou ativo de dados. Os controles se dividem em:
+
+- **Controles Técnicos**: também chamados de controles lógicos, implementados por meio de sistemas, dispositivos e softwares, e operam em tempo real com respostas rápidas a ameaças e ataques. Exemplos incluem firewalls, antivírus, sistemas de detecção de intrusão (IDS) e criptografia.
+- **Controles Operacionais**: refere-se às práticas, procedimentos e ações diárias para garantir a segurança da informação, garante a implementação das políticas de segurança. Garante que os funcionários estejam cientes das melhores práticas de segurança. Exemplos:
+    - Políticas de senhas: regras para criação e gerenciamento de senhas
+    - Gerenciamento de acesso de usuário: controle de quem tem acesso a determinado sistemas e dados
+    - Treinamento em segurança da informação: proporcionar treinamento aos funcionários sobre ameaças cibernéticas
+- **Controles Gerenciais**: desenvolvimento de estratégias de longo prazo para lidar com ameaças e risco, foco na alta administração. Contempla a definição de políticas e diretrizes gerais de segurança, estabelecem a estrutura e a governança da informação. Exemplos:
+    - Políticas de segurança da informação: definição de regras e diretrizes gerais da segurança da organização
+    - Análise de risco: define avaliações periódicas e regulares de riscos
+    - Plano de continuidade de negócios: estabelece planos para garantir a continuidade das operações
+
+Além dessas 3 catergorias, também existem os tipos funcionais, que contém abordagens específicas para a proteção de ativos e a gestão de riscos:
+
+- **Controles Preventivos**: projetados para impedir que incidentes de segurança ocorram, como firewalls, antivírus e políticas de acesso.
+- **Controles Detectivos**: projetados para identificar e alertar sobre incidentes de segurança em tempo real, como sistemas de detecção de intrusão (IDS) e monitoramento de logs.
+- **Controles Corretivos**: projetados para corrigir ou mitigar os efeitos de incidentes de segurança após sua ocorrência, como backups, planos de recuperação de desastres e atualizações de software.
+- **Outros tipos**: são aqueles controles quenão se encaixam claramente como preventivos, detectivos ou corretivos, podem ser utilizadospara reforçar outros tipos de controle. Nessa classificação são os seguintes: físicos, dissuasores, controle de compensação.
+
+### Seleção de controles de segurança
+A seleção de controles de segurança envolve a identificação e implementação de medidas específicas para proteger os ativos de informação de uma organização. A escolha dos controles deve ser baseada em uma análise de risco, considerando a probabilidade e o impacto de ameaças potenciais.
+
+As etapas para seleção dos controles:
+
+1. **Avaliação de riscos**
+2. **Definição de requisistos de segurança**
+3. **Seleção de controles adequados**
+4. **Implementação e testes**
+
+Critérios de seleção:
+
+1. **Relevância para riscos**
+2. **Custo-benefício**
+3. **Conformidade regulatória**
+4. **Viabilidade técnica e operacional**
+
+Revisão contínua
+
+1. **Mudanças no ambiente de ameaças**
+2. **Mudanças na organização**
+3. **Resultados de testes e incidentes**
+4. **Alterações em regulamentações**
 
 ## Unidade 3: Identificação de Vulnerabilidades
 
