@@ -155,6 +155,7 @@ Os pontos de entrada podem incluir:
 
 ### Engenharia Social
 -> A engenharia social é uma técnica de manipulação psicológica usada por atacantes para enganar indivíduos e obter acesso não autorizado a informações, sistemas ou recursos. Os ataques de engenharia social exploram a confiança, a curiosidade ou o medo das pessoas para induzi-las a revelar informações confidenciais ou realizar ações que comprometam a segurança. Alguns métodos são:
+
 - **Phishing**: utiliza do envio de mensagens fraudulentas (e-mail ou SMS) ou a criação de sites falsos para enganar pessoas e fazê-las fornecer informações confidenciais, como senhas ou dados bancários.
     - **Spear Phishing**: é uma forma mais direcionada de phishing, onde o atacante personaliza a mensagem para um indivíduo ou grupo específico, aumentando a probabilidade de sucesso.
     - **Whaling**: é uma forma de phishing que visa executivos ou pessoas de alto nível em uma organização, geralmente com mensagens sofisticadas e convincentes.
