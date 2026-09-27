@@ -17,15 +17,15 @@ theme:
     # Alternador de modo claro/escuro
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: indigo
-      accent: indigo
+      primary: purple
+      accent: purple
       toggle:
         icon: material/brightness-7
         name: Alternar para modo escuro
     - media: "(prefers-color-scheme: dark)"
       scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: purple
+      accent: purple
       toggle:
         icon: material/brightness-4
         name: Alternar para modo claro
