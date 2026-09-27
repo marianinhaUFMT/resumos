@@ -338,6 +338,41 @@ Revisão contínua
 3. **Resultados de testes e incidentes**
 4. **Alterações em regulamentações**
 
+### Fontes de ameaça
+Representam os pontos de onde as ameaças podem surgir, podendo ser internas ou externas à organização. A identificação das fontes de ameaça é essencial para a implementação de controles de segurança eficazes.
+
+- **Ameaças internas:** originam-se de dentro da organização, como funcionários, contratados ou parceiros. Podem ser intencionais (roubo de dados, sabotagem) ou acidentais (erros humanos, falhas de procedimento).
+    - Atributos dos atores internos
+        - Motivação: financeira, política, pessoal ou coerção por terceiros
+        - Nível de sofisticação: depende do conhecimento e autorizações do funcionário
+        - Recursos: nível de acesso aos sistemas ou apoio de fontes externas
+        - Estratégias comuns: abuso de privilégios de acesso, roubo, destruição, divulgação e vazamento de dados
+- **Ameaças externas:** originam-se de fora da organização, como hackers, grupos de cibercriminosos, concorrentes ou agentes patrocinados por estados. Podem ser motivadas por lucro, espionagem, ativismo ou sabotagem.
+    - Representadas por atores externos
+        - Hackers individuais
+        - Grupos de cibercriminosos
+        - Concorrentes
+        - Hackativistas
+        - Governos estrangeiros
+    - Atributos dos atores externos
+        - Motivação: financeira, política, pessoal
+        - Nível de sofisticação: pode variar significativamente, desde amadores até grupos altamente organizados
+        - Recursos: hackers individuais podem ter recursos limitados, enquanto grupos organizados podem ter acesso a financiamentos
+        - Estratégias comuns: ataques de engenharia social, malware, roubo de identidade, ransomware, DDoS e outros
+
+### Deep Web, Dark Web e Dark Net
+
+- **Surface Web**: parte visível da internet, indexada por mecanismos de busca comuns.
+- **Deep Web**: parte substancial, porém menos visível da internet, não indexada por mecanismos de busca comuns, tem um papel na ciberseurança e atividade legítimas, exige conhecimento técnico para acessar e navegar.
+- **Dark Web**: parte da Deep Web, utiliza redes criptografadas e sistemas de anonimato, costuma hospedar mercados clandestinos, fóruns de hackers e atividades ilegais, mas também pode ser usada para comunicação segura e proteção da privacidade.
+---
+- **Funcionamento/Acesso a Dark Web**: Trede de anonimato que permite acessar a Dark Web, utilizando o navegador Tor com roteamento criptografado, difícil rastreabilidade.
+- **Organização da Dark Web**: descentralizada e baseada em comunidades, composta por várias redes independentes (dark nets) como a rede Onion
+- **Potencial de utilização como contra-ameaças**: Pode ser usada de forma legítima para uma comunicação segura
+
+### Dark Web
+Opera por meio de redes privadas e sistemas criptografados, garante um alto grau de anonimato, organização descentralizada e tem potencial tanto para atividades maliciosas quanto para ações legítimas.
+
 ## Unidade 3: Identificação de Vulnerabilidades
 
 *(Conteúdo a ser adicionado)*
