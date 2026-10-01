@@ -419,9 +419,10 @@ Controle de versões, mudanças e integração contínua para assegurar a confor
 ## Unidade 4: Gerenciamento de Identidade e Acesso
 
 ### Conceito de IAM
-IAM (Identity and Access Management) é um conjutno de controles técnicos que estabelecem como os sujeitos (usuários, processos ou dispositivos) interagem com os objetos (recursos como redes, servidores e arquivos).
+IAM (Identity and Access Management) é um conjunto de controles técnicos que estabelecem como os sujeitos (usuários, processos ou dispositivos) interagem com os objetos (recursos como redes, servidores e arquivos).
 
-** Os 4 processos principais do IAM**:
+**Os 4 processos principais do IAM**:
+
 1. **Identificação**: atribuição de uma conta ou ID exclusivo para diferenciar o sujeito na rede
 2. **Autenticação**: verificação da legitimidade da identidade declarada (comprova que o sujeito é quem diz ser)
 3. **Autorização**: concessão de permissões e privilégios específicos com base nas políticas da organização.
