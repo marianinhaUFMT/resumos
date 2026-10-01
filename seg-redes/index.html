@@ -1,0 +1,2062 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../ipi/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Segurança em Redes - Docs Marianinha</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Poppins";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#seguranca-em-redes-de-computadores" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="Docs Marianinha" class="md-header__button md-logo" aria-label="Docs Marianinha" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Docs Marianinha
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Segurança em Redes
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple"  aria-label="Alternar para modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Alternar para modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple"  aria-label="Alternar para modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Alternar para modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../resumo-flutter/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Resumo Flutter
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../ipi/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Processamento de Imagens
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Segurança em Redes
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Docs Marianinha" class="md-nav__button md-logo" aria-label="Docs Marianinha" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Docs Marianinha
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resumo-flutter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resumo Flutter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ipi/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Processamento de Imagens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Segurança em Redes
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Segurança em Redes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sumário
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unidade-1-principios-de-seguranca-da-informacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unidade 1: Princípios de Segurança da Informação
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unidade 1: Princípios de Segurança da Informação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#triade-cid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tríade CID
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tríade CID">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#outros-conceitos-fundamentais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outros Conceitos Fundamentais
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relacao-entre-vulnerabilidade-ameaca-e-risco" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relação Entre Vulnerabilidade, Ameaça e Risco
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matriz-de-risco" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matriz de Risco
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principais-tarefas-de-seguranca-cibernetica-nist-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principais Tarefas de Segurança Cibernética (NIST Framework)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competencias-em-seguranca-da-informacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Competências em Segurança da Informação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unidades-de-negocios-e-equipes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unidades de Negócios e Equipes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unidades de Negócios e Equipes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#divisao-de-equipes-de-testes-teams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Divisão de Equipes de Testes (Teams)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#superficie-de-ataque-e-vetores-de-ataque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Superfície de Ataque e Vetores de Ataque
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Superfície de Ataque e Vetores de Ataque">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vetores-de-ataque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vetores de Ataque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inteligencia-de-ameacas-threat-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inteligência de Ameaças (Threat Intelligence)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ia-analise-preditiva-e-machine-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IA, Análise Preditiva e Machine Learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engenharia-social" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Engenharia Social
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Engenharia Social">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principais-metodos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principais Métodos:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unidade-2-ameacas-malwares-e-controles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unidade 2: Ameaças, Malwares e Controles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unidade 2: Ameaças, Malwares e Controles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classificacao-de-malware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classificação de Malware
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classificação de Malware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principais-tipos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principais Tipos:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classificacao-pelo-proposito" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classificação pelo Propósito
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classificacao-pelo-payload-carga-util" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classificação pelo Payload (Carga Útil)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analise-de-indicadores-e-prevencao-de-malware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Análise de Indicadores e Prevenção de Malware
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analise-de-processos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Análise de Processos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prevencao-de-malware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prevenção de Malware
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#categorias-de-controles-de-seguranca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Categorias de Controles de Segurança
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selecao-de-controles-de-seguranca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seleção de controles de segurança
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fontes-de-ameaca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fontes de ameaça
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-web-dark-web-e-dark-net" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deep Web, Dark Web e Dark Net
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dark-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dark Web
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unidade-3-identificacao-de-vulnerabilidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unidade 3: Identificação de Vulnerabilidades
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unidade 3: Identificação de Vulnerabilidades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avaliacoes-de-seguranca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avaliações de Segurança
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cve-common-vulnerabilities-and-exposures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CVE (Common Vulnerabilities and Exposures)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abordagens-de-varredura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Abordagens de Varredura
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defesa-em-profundidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Defesa em profundidade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estrategias-de-engano" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estratégias de engano
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gerencia-de-configuracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gerência de configuração
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unidade-4-gerenciamento-de-identidade-e-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unidade 4: Gerenciamento de Identidade e Acesso
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unidade 4: Gerenciamento de Identidade e Acesso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conceito-de-iam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conceito de IAM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mecanismos-e-boas-praticas-de-auth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mecanismos e boas práticas de auth
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autenticacao-em-sos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autenticação em SOs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autenticação em SOs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#protocolos-de-autenticacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protocolos de Autenticação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ataques-a-senhas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ataques a senhas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#sumario" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sumário
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unidade-1-principios-de-seguranca-da-informacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unidade 1: Princípios de Segurança da Informação
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unidade 1: Princípios de Segurança da Informação">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#triade-cid" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tríade CID
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Tríade CID">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#outros-conceitos-fundamentais" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Outros Conceitos Fundamentais
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#relacao-entre-vulnerabilidade-ameaca-e-risco" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Relação Entre Vulnerabilidade, Ameaça e Risco
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#matriz-de-risco" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Matriz de Risco
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#principais-tarefas-de-seguranca-cibernetica-nist-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principais Tarefas de Segurança Cibernética (NIST Framework)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#competencias-em-seguranca-da-informacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Competências em Segurança da Informação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#unidades-de-negocios-e-equipes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unidades de Negócios e Equipes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unidades de Negócios e Equipes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#divisao-de-equipes-de-testes-teams" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Divisão de Equipes de Testes (Teams)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#superficie-de-ataque-e-vetores-de-ataque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Superfície de Ataque e Vetores de Ataque
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Superfície de Ataque e Vetores de Ataque">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vetores-de-ataque" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vetores de Ataque
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#inteligencia-de-ameacas-threat-intelligence" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inteligência de Ameaças (Threat Intelligence)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ia-analise-preditiva-e-machine-learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IA, Análise Preditiva e Machine Learning
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#engenharia-social" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Engenharia Social
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Engenharia Social">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principais-metodos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principais Métodos:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unidade-2-ameacas-malwares-e-controles" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unidade 2: Ameaças, Malwares e Controles
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unidade 2: Ameaças, Malwares e Controles">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#classificacao-de-malware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classificação de Malware
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Classificação de Malware">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#principais-tipos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Principais Tipos:
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classificacao-pelo-proposito" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classificação pelo Propósito
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#classificacao-pelo-payload-carga-util" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Classificação pelo Payload (Carga Útil)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analise-de-indicadores-e-prevencao-de-malware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Análise de Indicadores e Prevenção de Malware
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#analise-de-processos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Análise de Processos
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#prevencao-de-malware" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prevenção de Malware
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#categorias-de-controles-de-seguranca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Categorias de Controles de Segurança
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#selecao-de-controles-de-seguranca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Seleção de controles de segurança
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fontes-de-ameaca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fontes de ameaça
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#deep-web-dark-web-e-dark-net" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deep Web, Dark Web e Dark Net
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dark-web" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dark Web
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unidade-3-identificacao-de-vulnerabilidades" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unidade 3: Identificação de Vulnerabilidades
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unidade 3: Identificação de Vulnerabilidades">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#avaliacoes-de-seguranca" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Avaliações de Segurança
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#cve-common-vulnerabilities-and-exposures" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CVE (Common Vulnerabilities and Exposures)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#abordagens-de-varredura" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Abordagens de Varredura
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#defesa-em-profundidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Defesa em profundidade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#estrategias-de-engano" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Estratégias de engano
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gerencia-de-configuracao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gerência de configuração
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#unidade-4-gerenciamento-de-identidade-e-acesso" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Unidade 4: Gerenciamento de Identidade e Acesso
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Unidade 4: Gerenciamento de Identidade e Acesso">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#conceito-de-iam" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conceito de IAM
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mecanismos-e-boas-praticas-de-auth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mecanismos e boas práticas de auth
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#autenticacao-em-sos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Autenticação em SOs
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Autenticação em SOs">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#protocolos-de-autenticacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protocolos de Autenticação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ataques-a-senhas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ataques a senhas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="seguranca-em-redes-de-computadores">Segurança em Redes de Computadores</h1>
+<blockquote>
+<p>Este documento apresenta os conceitos fundamentais de segurança em redes de computadores, incluindo protocolos, técnicas e práticas recomendadas para proteger a integridade e a confidencialidade dos dados transmitidos.</p>
+</blockquote>
+<hr />
+<h2 id="sumario">Sumário</h2>
+<ul>
+<li><a href="#unidade-1-principios-de-seguranca-da-informacao">Unidade 1: Princípios de Segurança da Informação</a></li>
+<li><a href="#unidade-2-ameacas-malwares-e-controles">Unidade 2: Ameaças, Malwares e Controles</a></li>
+<li><a href="#unidade-3-identificacao-de-vulnerabilidades">Unidade 3: Identificação de Vulnerabilidades</a></li>
+<li><a href="#unidade-4-gerenciamento-de-identidade-e-acesso">Unidade 4: Gerenciamento de Identidade e Acesso</a></li>
+</ul>
+<hr />
+<h2 id="unidade-1-principios-de-seguranca-da-informacao">Unidade 1: Princípios de Segurança da Informação</h2>
+<p>A <strong>Segurança da Informação</strong> é um conjunto de práticas, políticas, procedimentos e tecnologias projetadas para proteger os ativos de informação. Ela desempenha um papel vital na preservação da tríade CID.</p>
+<p>Os dados podem estar vulneráveis devido à:</p>
+<ul>
+<li>Forma como são <strong>armazenados</strong></li>
+<li>Forma como são <strong>transferidos</strong></li>
+<li>Forma como são <strong>processados</strong></li>
+</ul>
+<hr />
+<h3 id="triade-cid">Tríade CID</h3>
+<p>Pilar de sustentação da segurança da informação:</p>
+<ul>
+<li><strong>Confidencialidade:</strong> Garantir que a informação seja acessível apenas a pessoas autorizadas.</li>
+<li><strong>Integridade:</strong> Garantir que a informação seja precisa e completa, e que não tenha sido alterada de forma não autorizada.</li>
+<li><strong>Disponibilidade:</strong> Garantir que a informação esteja disponível sempre que necessário.</li>
+</ul>
+<h4 id="outros-conceitos-fundamentais">Outros Conceitos Fundamentais</h4>
+<ol>
+<li>Não repúdio</li>
+<li>Autenticidade</li>
+<li>Controle de acesso</li>
+<li>Autenticação e Autorização</li>
+<li>Princípio do menor privilégio (<em>Least Privilege</em>)</li>
+<li>Gestão de riscos</li>
+<li>Ativos de informação</li>
+<li>Ameaças à segurança da informação</li>
+<li>Ataques cibernéticos</li>
+<li>Criptografia</li>
+</ol>
+<hr />
+<h3 id="relacao-entre-vulnerabilidade-ameaca-e-risco">Relação Entre Vulnerabilidade, Ameaça e Risco</h3>
+<p>Trata-se de identificar as formas pelas quais os sistemas podem ser atacados através do mapeamento e da análise de:</p>
+<ul>
+<li><strong>Vulnerabilidade:</strong> Uma fraqueza ou deficiência em um sistema que pode ser explorada por uma ameaça.</li>
+<li><strong>Ameaça:</strong> Evento com o potencial de causar dano.</li>
+<li><strong>Risco:</strong> A probabilidade de uma ameaça explorar uma vulnerabilidade e causar dano.</li>
+</ul>
+<p><strong>Estratégias para gerenciamento de riscos:</strong></p>
+<ul>
+<li>Aceitar</li>
+<li>Mitigar</li>
+<li>Transferir</li>
+<li>Evitar</li>
+</ul>
+<hr />
+<h3 id="matriz-de-risco">Matriz de Risco</h3>
+<p>A matriz de risco é uma ferramenta visual utilizada para classificar e priorizar os riscos de segurança com base na combinação da <strong>probabilidade</strong> e do <strong>impacto</strong> da ocorrência.</p>
+<table>
+  <tr>
+    <th rowspan="2">Probabilidade</th>
+    <th colspan="3">Valor</th>
+  </tr>
+  <tr>
+    <th>Alta</th>
+    <th>Média</th>
+    <th>Baixa</th>
+  </tr>
+  <tr>
+    <th>Alta</th>
+    <td style="background-color:#ff5555; color: black;">Elevado</td>
+    <td style="background-color:#ffe38a; color: black;">Alto</td>
+    <td style="background-color:#ffff75; color: black;">Medio</td>
+  </tr>
+  <tr>
+    <th>Média</th>
+    <td style="background-color:#ffe38a; color: black;">Alto</td>
+    <td style="background-color:#ffff75; color: black;">Medio</td>
+    <td style="background-color:#9bd58a; color: black;">Baixo</td>
+  </tr>
+  <tr>
+    <th>Baixa</th>
+    <td style="background-color:#ffff75; color: black;">Medio</td>
+    <td style="background-color:#9bd58a; color: black;">Baixo</td>
+    <td style="background-color:#e5f0e2; color: black;">Desprezável</td>
+  </tr>
+</table>
+
+<hr />
+<h3 id="principais-tarefas-de-seguranca-cibernetica-nist-framework">Principais Tarefas de Segurança Cibernética (NIST Framework)</h3>
+<p>Abordagem institucional para auxílio no gerenciamento da segurança cibernética através de cinco funções centrais:</p>
+<ol>
+<li><strong>Identificar:</strong> Reconhecer e catalogar os ativos de informação e os riscos associados.</li>
+<li><strong>Proteger:</strong> Implementar medidas de salvaguarda para prevenir acessos não autorizados.</li>
+<li><strong>Detectar:</strong> Monitorar o ambiente continuamente para identificar incidentes de segurança.</li>
+<li><strong>Responder:</strong> Desenvolver planos e procedimentos para conter e tratar incidentes.</li>
+<li><strong>Recuperar:</strong> Restaurar os sistemas e dados afetados após um incidente.</li>
+</ol>
+<hr />
+<h3 id="competencias-em-seguranca-da-informacao">Competências em Segurança da Informação</h3>
+<p>Diversos profissionais atuam em funções específicas dentro da segurança cibernética:</p>
+<ul>
+<li><strong>CISO (<em>Chief Information Security Officer</em>):</strong> Responsável pela estratégia geral de segurança.</li>
+<li><strong>DPO (<em>Data Protection Officer</em>):</strong> Responsável pela proteção de dados pessoais e conformidade regulatória.</li>
+<li><strong>Hacker Ético:</strong> Realiza testes de penetração (<em>pentests</em>) para identificar vulnerabilidades.</li>
+<li><strong>Especialista em Segurança na Nuvem:</strong> Protege dados e aplicações em ambientes de nuvem.</li>
+<li><strong>Analista de Forense Digital:</strong> Investiga incidentes e coleta evidências digitais.</li>
+<li><strong>Cientista de Dados em Segurança:</strong> Analisa grandes volumes de dados para identificar padrões de ameaças.</li>
+<li><strong>Analista de Resposta a Incidentes:</strong> Coordena a contenção e mitigação de incidentes.</li>
+<li><strong>QA Security (Testador de Software):</strong> Valida a segurança de aplicações durante o desenvolvimento.</li>
+</ul>
+<hr />
+<h3 id="unidades-de-negocios-e-equipes">Unidades de Negócios e Equipes</h3>
+<ul>
+<li><strong>NOC (<em>Network Operations Center</em>):</strong> Monitora e gerencia a infraestrutura de rede.</li>
+<li><strong>SOC (<em>Security Operations Center</em>):</strong> Monitora eventos e responde a incidentes de segurança.</li>
+<li><strong>CSIRT (<em>Computer Security Incident Response Team</em>):</strong> Equipe especializada no tratamento imediato de incidentes cibernéticos.</li>
+</ul>
+<h4 id="divisao-de-equipes-de-testes-teams">Divisão de Equipes de Testes (<em>Teams</em>)</h4>
+<ul>
+<li><strong>Blue Team:</strong> Foco em monitoramento, defesa e proteção dos sistemas.</li>
+<li><strong>Red Team:</strong> Simulação de ataques reais para identificar falhas de segurança.</li>
+<li><strong>Purple Team:</strong> Integração entre Red e Blue teams para otimização de defesas.</li>
+<li><strong>White Team:</strong> Gestão, mediação e validação dos resultados dos testes.</li>
+</ul>
+<hr />
+<h3 id="superficie-de-ataque-e-vetores-de-ataque">Superfície de Ataque e Vetores de Ataque</h3>
+<p>A <strong>superfície de ataque</strong> compreende o conjunto de todos os pontos de entrada e vulnerabilidades exploráveis por um invasor. Ela é significativamente maior quando envolve ameaças internas (<em>insiders</em>) em relação a atores externos. </p>
+<ul>
+<li><strong>Redução da superfície:</strong> Implica em restringir privilégios, limitar endpoints, fechar portas/serviços desnecessários e controlar acessos.</li>
+</ul>
+<p><strong>Exemplos de pontos de entrada:</strong></p>
+<ul>
+<li>Servidores</li>
+<li>Aplicativos</li>
+<li>Dispositivos (endpoints)</li>
+<li>Usuários</li>
+</ul>
+<h4 id="vetores-de-ataque">Vetores de Ataque</h4>
+<p>Métodos e técnicas utilizados para explorar a superfície de ataque:</p>
+<ul>
+<li>Vetores baseados em software</li>
+<li>Vetores sociais e psicológicos</li>
+<li>Vetores de rede e tráfego</li>
+<li>Vetores de autenticação e senhas</li>
+</ul>
+<blockquote>
+<h4 id="inteligencia-de-ameacas-threat-intelligence">Inteligência de Ameaças (<em>Threat Intelligence</em>)</h4>
+<ul>
+<li><strong>Recursos:</strong> Ferramentas dedicadas, plataformas de TI e compartilhamento comunitário de dados de ameaças.</li>
+<li><strong>Agentes:</strong> Equipes internas de segurança, fornecedores cibernéticos, agências de inteligência e pesquisadores independentes.</li>
+</ul>
+</blockquote>
+<hr />
+<h3 id="ia-analise-preditiva-e-machine-learning">IA, Análise Preditiva e Machine Learning</h3>
+<p>A aplicação de Inteligência Artificial e Machine Learning otimiza a segurança ao analisar grandes volumes de dados em tempo real, identificar comportamentos anômalos, prever padrões de ataques cibernéticos e automatizar ações de resposta a incidentes.</p>
+<hr />
+<h3 id="engenharia-social">Engenharia Social</h3>
+<p>Técnica de manipulação psicológica utilizada para enganar indivíduos e obter acesso não autorizado a sistemas ou dados sigilosos.</p>
+<h4 id="principais-metodos">Principais Métodos:</h4>
+<ul>
+<li><strong>Phishing:</strong> Mensagens fraudulentas (e-mail, SMS ou sites falsos) para captura de dados confidenciais.<ul>
+<li><strong>Spear Phishing:</strong> Ataque personalizado e direcionado a um indivíduo ou grupo específico.</li>
+<li><strong>Whaling:</strong> Phishing de alta precisão direcionado a executivos de alto nível (<em>C-level</em>).</li>
+<li><strong>Vishing:</strong> Phishing realizado via chamadas telefônicas/voz.</li>
+</ul>
+</li>
+<li><strong>Ameaças Correlatas:</strong><ul>
+<li><strong>Spam:</strong> Envio em massa de conteúdo não solicitado ou malicioso.</li>
+<li><strong>Hoaxes:</strong> Boatos ou mensagens enganosas desenhadas para espalhar pânico ou desinformação.</li>
+<li><strong>Coleta de Credenciais:</strong> Obtenção indevida de acessos por meio de engenharia social.</li>
+</ul>
+</li>
+<li><strong>Campanhas de Influência:</strong> Manipulação psicológica e comunicação persuasiva para moldar percepções e comportamentos em grande escala.</li>
+</ul>
+<hr />
+<h2 id="unidade-2-ameacas-malwares-e-controles">Unidade 2: Ameaças, Malwares e Controles</h2>
+<h3 id="classificacao-de-malware">Classificação de Malware</h3>
+<p>A classificação de malwares varia de acordo com seu <strong>vetor de infecção</strong>, seu <strong>payload</strong> (carga útil) ou seu <strong>propósito final</strong>.</p>
+<h4 id="principais-tipos">Principais Tipos:</h4>
+<ul>
+<li><strong>Vírus:</strong> Dependem de um arquivo hospedeiro (executáveis, documentos, scripts) e da ação do usuário para execução e propagação.<ul>
+<li><em>Modo de Operação:</em> Anexam-se a arquivos válidos; propagam-se ao compartilhar o arquivo infectado.</li>
+<li><em>Exemplos:</em> Vírus ILOVEYOU (2000), Vírus Melissa.</li>
+</ul>
+</li>
+<li><strong>Worms:</strong> Programas autônomos que se multiplicam automaticamente explorando falhas na rede.<ul>
+<li><em>Modo de Operação:</em> Não precisam de arquivos hospedeiros; varrem redes e USBs para infectar novos sistemas.</li>
+<li><em>Exemplos:</em> Conficker, SQL Slammer.</li>
+</ul>
+</li>
+<li><strong>Trojan Horses (Cavalos de Tróia):</strong> Disfarçam-se de softwares legítimos para enganar o usuário e executar funções maliciosas em segundo plano.<ul>
+<li><em>Modo de Operação:</em> Utilizam engenharia social, anexos de e-mail ou links maliciosos.</li>
+<li><em>Exemplo:</em> Zeus Trojan, RATs diversos.</li>
+</ul>
+</li>
+<li><strong>PUPs (Programas Potencialmente Indesejados):</strong> Instalados frequentemente em conjunto com softwares legítimos (<em>grayware</em>).<ul>
+<li><em>Modo de Operação:</em> Exibem anúncios intrusivos e alteram configurações do sistema sem autorização prévia.</li>
+<li><em>Exemplos:</em> Adwares, barras de ferramentas maliciosas (<em>toolbars</em>).</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="classificacao-pelo-proposito">Classificação pelo Propósito</h3>
+<ul>
+<li><strong>Spyware:</strong> Coleta informações do usuário sem consentimento (dados de navegação, credenciais, hábitos pessoais).<ul>
+<li><em>Adware:</em> Exibe anúncios publicitários direcionados.</li>
+<li><em>Superfish:</em> Software pré-instalado que injetava anúncios e quebrava a segurança HTTPS.</li>
+</ul>
+</li>
+<li><strong>Keyloggers:</strong> Subtipo de spyware projetado para registrar todas as teclas digitadas pelo usuário (captura de senhas e cartões).<ul>
+<li><em>Exemplos:</em> Módulos do Trojan Zeus, HawkEye Keylogger.</li>
+</ul>
+</li>
+<li><strong>Cookies de Rastreamento:</strong> Mapeiam navegação e consultas entre múltiplos sites para perfilamento de dados.</li>
+</ul>
+<hr />
+<h3 id="classificacao-pelo-payload-carga-util">Classificação pelo Payload (Carga Útil)</h3>
+<ul>
+<li><strong>Backdoors e RATs (<em>Remote Access Trojans</em>):</strong> Abrem portas de comunicação ocultas para permitir o controle remoto do sistema por um invasor.<ul>
+<li><em>Exemplos:</em> Back Orifice, DarkComet RAT.</li>
+</ul>
+</li>
+<li><strong>Rootkits:</strong> Projetados para se ocultar nas camadas mais profundas do sistema operacional (Kernel/Firmware), dificultando a detecção por antivírus.<ul>
+<li><em>Exemplos:</em> DarkMatter EFI, Sony BMG Rootkit, TDL-4.</li>
+</ul>
+</li>
+<li><strong>Ransomware:</strong> Criptografa arquivos ou bloqueia o acesso ao sistema, exigindo resgate (geralmente em criptomoedas) para a liberação da chave de decodificação.<ul>
+<li><em>Exemplos:</em> WannaCry, CryptoLocker, Ryuk.</li>
+</ul>
+</li>
+<li><strong>Cripto-Malware:</strong> Utiliza criptografia de forma destrutiva para danificar ou ocultar dados de forma irreversível, sem solicitação de resgate.</li>
+<li><strong>Bombas Lógicas (<em>Logic Bombs</em>):</strong> Códigos maliciosos inseridos em aplicações legítimas que são disparados apenas quando condições específicas são atendidas (datas, eventos ou ações do usuário).<ul>
+<li><em>Exemplos:</em> Stuxnet, Worm MyDoom.</li>
+</ul>
+</li>
+</ul>
+<hr />
+<h3 id="analise-de-indicadores-e-prevencao-de-malware">Análise de Indicadores e Prevenção de Malware</h3>
+<p><strong>Indicadores de Malware</strong>: representam traços, pistas ou evidências deixadas pelo software malicioso, usadas como impresões digitais virtuais. Os formatos são:</p>
+<ul>
+<li>Notificações de antivírus</li>
+<li>Execução de sandbox</li>
+<li>Consumo de recursos</li>
+<li>Mudanças no sistema de arquivos</li>
+</ul>
+<p><strong>Notificações de antivírus</strong>: sempre que um antivírus identifica um malware, ele envia um alerta ao usuário, informando sobre a ameaça detectada e as ações recomendadas para mitigá-la.</p>
+<ul>
+<li>Falso positivo: arquivo legítimo identificado erroneamente como malware.</li>
+<li>Falso negativo: malware não detectado pelo antivírus, permanecendo ativo no sistema.</li>
+</ul>
+<p><strong>Execução de sandbox</strong>: ambiente isolado e controlado onde o malware é executado para observar seu comportamento sem risco de infecção ao sistema principal.</p>
+<ul>
+<li>Permite analisar a forma como o malware se propaga, quais arquivos ele altera e quais conexões de rede ele tenta estabelecer.</li>
+<li>Ferramentas como Cuckoo Sandbox e Any.Run são exemplos de plataformas de análise de malware.</li>
+</ul>
+<p><strong>Consumo de recursos</strong>: monitoramento do uso de CPU, memória e rede para identificar atividades suspeitas que podem indicar a presença de malware.</p>
+<ul>
+<li>Picos de uso de CPU ou memória sem motivo aparente podem ser sinais de malware em execução.</li>
+<li>Ferramentas como Process Explorer e Resource Monitor ajudam a identificar processos suspeitos.</li>
+</ul>
+<p><strong>Mudanças no sistema de arquivos</strong>: monitoramento de alterações em arquivos e diretórios do sistema, como criação de arquivos desconhecidos, modificação de arquivos críticos ou exclusão de arquivos importantes.</p>
+<ul>
+<li>Ferramentas como Tripwire e File Integrity Monitoring (FIM) ajudam a detectar alterações não autorizadas no sistema de arquivos.</li>
+</ul>
+<h3 id="analise-de-processos">Análise de Processos</h3>
+<p>Técnica para examinar o comportamento de programas e processos em execução. Necessidade de conhecer o comportamento de apps, processos e serviços. São ações que auxiliam na detecção de malware, como:</p>
+<ul>
+<li>Análise de tráfego de rede</li>
+<li>Análise de registros</li>
+<li>Monitoramento e comportamento</li>
+</ul>
+<blockquote>
+<p>Ferramentas de análise: Wireshark, Systinternals Suite</p>
+</blockquote>
+<h3 id="prevencao-de-malware">Prevenção de Malware</h3>
+<p>A prevenção de malware envolve a implementação de medidas proativas para reduzir o risco de infecção por malware, com potencial de reduzir a superfície de ataque e aumentar a resiliência do sistema. Algumas estratégias incluem:</p>
+<ul>
+<li>Atualizações de software</li>
+<li>Políticas de acesso</li>
+<li>Conscientização do usuário</li>
+</ul>
+<p><strong>Mitigação de Riscos</strong>
+Visa minimizar o impacto de uma infecção por malware, caso ocorra. Ações de mitigação:</p>
+<ul>
+<li>Estratégias de isolamento e contenção</li>
+<li>Recuperação e restauração</li>
+<li>Investigção pós-incidente</li>
+</ul>
+<h3 id="categorias-de-controles-de-seguranca">Categorias de Controles de Segurança</h3>
+<p>Refere-se a um conjunto de políticas, procedimentos, processos, atividades e ferramentas que moldam as estruturas de serviços na organização. Um controle de segurança é projetado para garantir confidencialidade, integridade, disponibilidade e não repúdio a um sistema ou ativo de dados. Os controles se dividem em:</p>
+<ul>
+<li><strong>Controles Técnicos</strong>: também chamados de controles lógicos, implementados por meio de sistemas, dispositivos e softwares, e operam em tempo real com respostas rápidas a ameaças e ataques. Exemplos incluem firewalls, antivírus, sistemas de detecção de intrusão (IDS) e criptografia.</li>
+<li><strong>Controles Operacionais</strong>: refere-se às práticas, procedimentos e ações diárias para garantir a segurança da informação, garante a implementação das políticas de segurança. Garante que os funcionários estejam cientes das melhores práticas de segurança. Exemplos:<ul>
+<li>Políticas de senhas: regras para criação e gerenciamento de senhas</li>
+<li>Gerenciamento de acesso de usuário: controle de quem tem acesso a determinado sistemas e dados</li>
+<li>Treinamento em segurança da informação: proporcionar treinamento aos funcionários sobre ameaças cibernéticas</li>
+</ul>
+</li>
+<li><strong>Controles Gerenciais</strong>: desenvolvimento de estratégias de longo prazo para lidar com ameaças e risco, foco na alta administração. Contempla a definição de políticas e diretrizes gerais de segurança, estabelecem a estrutura e a governança da informação. Exemplos:<ul>
+<li>Políticas de segurança da informação: definição de regras e diretrizes gerais da segurança da organização</li>
+<li>Análise de risco: define avaliações periódicas e regulares de riscos</li>
+<li>Plano de continuidade de negócios: estabelece planos para garantir a continuidade das operações</li>
+</ul>
+</li>
+</ul>
+<p>Além dessas 3 catergorias, também existem os tipos funcionais, que contém abordagens específicas para a proteção de ativos e a gestão de riscos:</p>
+<ul>
+<li><strong>Controles Preventivos</strong>: projetados para impedir que incidentes de segurança ocorram, como firewalls, antivírus e políticas de acesso.</li>
+<li><strong>Controles Detectivos</strong>: projetados para identificar e alertar sobre incidentes de segurança em tempo real, como sistemas de detecção de intrusão (IDS) e monitoramento de logs.</li>
+<li><strong>Controles Corretivos</strong>: projetados para corrigir ou mitigar os efeitos de incidentes de segurança após sua ocorrência, como backups, planos de recuperação de desastres e atualizações de software.</li>
+<li><strong>Outros tipos</strong>: são aqueles controles quenão se encaixam claramente como preventivos, detectivos ou corretivos, podem ser utilizadospara reforçar outros tipos de controle. Nessa classificação são os seguintes: físicos, dissuasores, controle de compensação.</li>
+</ul>
+<h3 id="selecao-de-controles-de-seguranca">Seleção de controles de segurança</h3>
+<p>A seleção de controles de segurança envolve a identificação e implementação de medidas específicas para proteger os ativos de informação de uma organização. A escolha dos controles deve ser baseada em uma análise de risco, considerando a probabilidade e o impacto de ameaças potenciais.</p>
+<p>As etapas para seleção dos controles:</p>
+<ol>
+<li><strong>Avaliação de riscos</strong></li>
+<li><strong>Definição de requisistos de segurança</strong></li>
+<li><strong>Seleção de controles adequados</strong></li>
+<li><strong>Implementação e testes</strong></li>
+</ol>
+<p>Critérios de seleção:</p>
+<ol>
+<li><strong>Relevância para riscos</strong></li>
+<li><strong>Custo-benefício</strong></li>
+<li><strong>Conformidade regulatória</strong></li>
+<li><strong>Viabilidade técnica e operacional</strong></li>
+</ol>
+<p>Revisão contínua</p>
+<ol>
+<li><strong>Mudanças no ambiente de ameaças</strong></li>
+<li><strong>Mudanças na organização</strong></li>
+<li><strong>Resultados de testes e incidentes</strong></li>
+<li><strong>Alterações em regulamentações</strong></li>
+</ol>
+<h3 id="fontes-de-ameaca">Fontes de ameaça</h3>
+<p>Representam os pontos de onde as ameaças podem surgir, podendo ser internas ou externas à organização. A identificação das fontes de ameaça é essencial para a implementação de controles de segurança eficazes.</p>
+<ul>
+<li><strong>Ameaças internas:</strong> originam-se de dentro da organização, como funcionários, contratados ou parceiros. Podem ser intencionais (roubo de dados, sabotagem) ou acidentais (erros humanos, falhas de procedimento).<ul>
+<li>Atributos dos atores internos<ul>
+<li>Motivação: financeira, política, pessoal ou coerção por terceiros</li>
+<li>Nível de sofisticação: depende do conhecimento e autorizações do funcionário</li>
+<li>Recursos: nível de acesso aos sistemas ou apoio de fontes externas</li>
+<li>Estratégias comuns: abuso de privilégios de acesso, roubo, destruição, divulgação e vazamento de dados</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>Ameaças externas:</strong> originam-se de fora da organização, como hackers, grupos de cibercriminosos, concorrentes ou agentes patrocinados por estados. Podem ser motivadas por lucro, espionagem, ativismo ou sabotagem.<ul>
+<li>Representadas por atores externos<ul>
+<li>Hackers individuais</li>
+<li>Grupos de cibercriminosos</li>
+<li>Concorrentes</li>
+<li>Hackativistas</li>
+<li>Governos estrangeiros</li>
+</ul>
+</li>
+<li>Atributos dos atores externos<ul>
+<li>Motivação: financeira, política, pessoal</li>
+<li>Nível de sofisticação: pode variar significativamente, desde amadores até grupos altamente organizados</li>
+<li>Recursos: hackers individuais podem ter recursos limitados, enquanto grupos organizados podem ter acesso a financiamentos</li>
+<li>Estratégias comuns: ataques de engenharia social, malware, roubo de identidade, ransomware, DDoS e outros</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="deep-web-dark-web-e-dark-net">Deep Web, Dark Web e Dark Net</h3>
+<ul>
+<li><strong>Surface Web</strong>: parte visível da internet, indexada por mecanismos de busca comuns.</li>
+<li><strong>Deep Web</strong>: parte substancial, porém menos visível da internet, não indexada por mecanismos de busca comuns, tem um papel na ciberseurança e atividade legítimas, exige conhecimento técnico para acessar e navegar.</li>
+<li><strong>Dark Web</strong>: parte da Deep Web, utiliza redes criptografadas e sistemas de anonimato, costuma hospedar mercados clandestinos, fóruns de hackers e atividades ilegais, mas também pode ser usada para comunicação segura e proteção da privacidade.</li>
+</ul>
+<hr />
+<ul>
+<li><strong>Funcionamento/Acesso a Dark Web</strong>: Trede de anonimato que permite acessar a Dark Web, utilizando o navegador Tor com roteamento criptografado, difícil rastreabilidade.</li>
+<li><strong>Organização da Dark Web</strong>: descentralizada e baseada em comunidades, composta por várias redes independentes (dark nets) como a rede Onion</li>
+<li><strong>Potencial de utilização como contra-ameaças</strong>: Pode ser usada de forma legítima para uma comunicação segura</li>
+</ul>
+<h3 id="dark-web">Dark Web</h3>
+<p>Opera por meio de redes privadas e sistemas criptografados, garante um alto grau de anonimato, organização descentralizada e tem potencial tanto para atividades maliciosas quanto para ações legítimas.</p>
+<h2 id="unidade-3-identificacao-de-vulnerabilidades">Unidade 3: Identificação de Vulnerabilidades</h2>
+<h3 id="avaliacoes-de-seguranca">Avaliações de Segurança</h3>
+<p>Primeiro a varredura identifica hosts, topologia da rede e serviços/portas. É estabelecida uma superfície de ataque geral. As avaliações são utilizadas para testar vulnerabilidades do ambiente. O NIST identificou três atividades principais:</p>
+<ul>
+<li>Testear o objeto em avaliação</li>
+<li>Examinar objetos de avaliação</li>
+<li>Entrevistar pessoal</li>
+</ul>
+<p>Os principais tipos são:</p>
+<ul>
+<li>Verificação de vulnerabilidade</li>
+<li>Caça a ameaças</li>
+<li>Testes de penetração</li>
+</ul>
+<p>A verificação de vulnerabilidades trata-se do processo de identificação, avaliação e análise das fraquezas e falhas de segurança. Podem ser manuais ou automatizadas. Apontam para a necessidade de ajustes na segurança e correções de software.</p>
+<p>Suas técnicas incluem:</p>
+<ul>
+<li>Varreduras automatizadas: wireshark, burp suite, nessus, etc</li>
+<li>Testes manuais: análise minuciosa feita por profissionais especializados, utilizando ferramentas automáticas, úteis para avaliar a segurança de sistemas complexos.</li>
+</ul>
+<h3 id="cve-common-vulnerabilities-and-exposures">CVE (Common Vulnerabilities and Exposures)</h3>
+<p>Mantido pela MITRE Corporation, o CVE é um banco de dados público que fornece uma lista padronizada de vulnerabilidades conhecidas em softwares e sistemas. Cada vulnerabilidade recebe um identificador único (CVE ID) para facilitar a comunicação e o rastreamento.</p>
+<h3 id="abordagens-de-varredura">Abordagens de Varredura</h3>
+<ul>
+<li><strong>Intrusiva</strong>: realiza conexões diretas e explorações reais que podem causar travamentos (deve ser feita em ambiente controlado).</li>
+<li><strong>Não intrusiva</strong>: analisa apenas evidências indiretas (como dados públicos e análise de tráfego), sendo segura contra interrupções</li>
+<li><strong>Credenciada</strong>: utiliza senhas de acesso fornecidos pelos proprietários para auditar configurações profundas e atualizações internas.</li>
+<li><strong>Não credenciada</strong>: examina a rede externamente, simulando a visão de um atacante sem privilégios</li>
+</ul>
+<h3 id="defesa-em-profundidade">Defesa em profundidade</h3>
+<p>Estratégia de proteção estruturada em múltiplas camadas (segurança física, identidade/acesso, perimetro, rede, computação, aplicação e dados), garantindo que o comprometimento de um nível não exponha o sistema completo.</p>
+<h3 id="estrategias-de-engano">Estratégias de engano</h3>
+<p>Uso de iscas e chamarizes para atrair e detectar invasores, dividadas em Honeypot (sistema isolado), Honeynet (rede simulada) e Honeyfile (arquivo falso).</p>
+<h3 id="gerencia-de-configuracao">Gerência de configuração</h3>
+<p>Controle de versões, mudanças e integração contínua para assegurar a conformidade e correção de falhas.</p>
+<hr />
+<h2 id="unidade-4-gerenciamento-de-identidade-e-acesso">Unidade 4: Gerenciamento de Identidade e Acesso</h2>
+<h3 id="conceito-de-iam">Conceito de IAM</h3>
+<p>IAM (Identity and Access Management) é um conjunto de controles técnicos que estabelecem como os sujeitos (usuários, processos ou dispositivos) interagem com os objetos (recursos como redes, servidores e arquivos).</p>
+<p><strong>Os 4 processos principais do IAM</strong>:</p>
+<ol>
+<li><strong>Identificação</strong>: atribuição de uma conta ou ID exclusivo para diferenciar o sujeito na rede</li>
+<li><strong>Autenticação</strong>: verificação da legitimidade da identidade declarada (comprova que o sujeito é quem diz ser)</li>
+<li><strong>Autorização</strong>: concessão de permissões e privilégios específicos com base nas políticas da organização.</li>
+<li><strong>Contabilidade</strong>: registro e rastreamento das ações e consumo de recursos efetuados pelo usuário.</li>
+</ol>
+<h3 id="mecanismos-e-boas-praticas-de-auth">Mecanismos e boas práticas de auth</h3>
+<ul>
+<li>Aplicação da tríade CID no login: confidencialidade das credencias, integridade contra acessos forjados e disponibilidade do serviço</li>
+<li>Emprego de MDA combinando dois ou mais fatores de verificação (ex.: senha + token ou biometria)</li>
+<li>Armazenamento de senhas em bancos de dados exclusivamente na forma de hashes criptográficos.</li>
+</ul>
+<h2 id="autenticacao-em-sos">Autenticação em SOs</h2>
+<ul>
+<li><strong>Windows</strong>: gerenciada pelo Local Security Authority (LSA), localmente e pelo Active Directory (AD) com protocolos Kerberos na rede, utilizando SSTP e certificados para acessos remotos via VPN.</li>
+<li><strong>Linux</strong>: guarda contas no arquivo <code>/etc/passwd</code> e os hashes de senhas no <code>/etc/shadow</code>. Para rede e acesso remoto, emprega SSH com chaves criptográficas, PAM (Pluggable Authentication Modules) para flexibilidade e integração com LDAP.</li>
+</ul>
+<h3 id="protocolos-de-autenticacao">Protocolos de Autenticação</h3>
+<ul>
+<li><strong>PAP</strong>: envia credenciais em texto puro (obsoleto e inseguro)</li>
+<li><strong>CHAP</strong>: utiliza esquema de desafio e resposta criptografada</li>
+<li><strong>MS-CHAP</strong>: variante desenvolvida pela Microsoft com suporte à troca de senhas criptogradas em ambientes Windows e VPNs.</li>
+</ul>
+<h3 id="ataques-a-senhas">Ataques a senhas</h3>
+<p>Interceptação de dados em texto simples (como em conexões HTTP/Telnet sem criptografia) e ataques online (força bruta ou dicionário diretamente na interface de login)</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tabs", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
