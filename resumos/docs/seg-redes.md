@@ -375,10 +375,73 @@ Opera por meio de redes privadas e sistemas criptografados, garante um alto grau
 
 ## Unidade 3: Identificação de Vulnerabilidades
 
-*(Conteúdo a ser adicionado)*
+### Avaliações de Segurança
+Primeiro a varredura identifica hosts, topologia da rede e serviços/portas. É estabelecida uma superfície de ataque geral. As avaliações são utilizadas para testar vulnerabilidades do ambiente. O NIST identificou três atividades principais:
+
+- Testear o objeto em avaliação
+- Examinar objetos de avaliação
+- Entrevistar pessoal
+
+Os principais tipos são:
+
+- Verificação de vulnerabilidade
+- Caça a ameaças
+- Testes de penetração
+
+A verificação de vulnerabilidades trata-se do processo de identificação, avaliação e análise das fraquezas e falhas de segurança. Podem ser manuais ou automatizadas. Apontam para a necessidade de ajustes na segurança e correções de software.
+
+Suas técnicas incluem:
+
+- Varreduras automatizadas: wireshark, burp suite, nessus, etc
+- Testes manuais: análise minuciosa feita por profissionais especializados, utilizando ferramentas automáticas, úteis para avaliar a segurança de sistemas complexos.
+
+### CVE (Common Vulnerabilities and Exposures)
+
+Mantido pela MITRE Corporation, o CVE é um banco de dados público que fornece uma lista padronizada de vulnerabilidades conhecidas em softwares e sistemas. Cada vulnerabilidade recebe um identificador único (CVE ID) para facilitar a comunicação e o rastreamento.
+
+### Abordagens de Varredura
+- **Intrusiva**: realiza conexões diretas e explorações reais que podem causar travamentos (deve ser feita em ambiente controlado).
+- **Não intrusiva**: analisa apenas evidências indiretas (como dados públicos e análise de tráfego), sendo segura contra interrupções
+- **Credenciada**: utiliza senhas de acesso fornecidos pelos proprietários para auditar configurações profundas e atualizações internas.
+- **Não credenciada**: examina a rede externamente, simulando a visão de um atacante sem privilégios
+
+### Defesa em profundidade
+Estratégia de proteção estruturada em múltiplas camadas (segurança física, identidade/acesso, perimetro, rede, computação, aplicação e dados), garantindo que o comprometimento de um nível não exponha o sistema completo.
+
+### Estratégias de engano
+Uso de iscas e chamarizes para atrair e detectar invasores, dividadas em Honeypot (sistema isolado), Honeynet (rede simulada) e Honeyfile (arquivo falso).
+
+### Gerência de configuração
+Controle de versões, mudanças e integração contínua para assegurar a conformidade e correção de falhas.
 
 ---
 
 ## Unidade 4: Gerenciamento de Identidade e Acesso
 
-*(Conteúdo a ser adicionado)*
+### Conceito de IAM
+IAM (Identity and Access Management) é um conjutno de controles técnicos que estabelecem como os sujeitos (usuários, processos ou dispositivos) interagem com os objetos (recursos como redes, servidores e arquivos).
+
+** Os 4 processos principais do IAM**:
+1. **Identificação**: atribuição de uma conta ou ID exclusivo para diferenciar o sujeito na rede
+2. **Autenticação**: verificação da legitimidade da identidade declarada (comprova que o sujeito é quem diz ser)
+3. **Autorização**: concessão de permissões e privilégios específicos com base nas políticas da organização.
+4. **Contabilidade**: registro e rastreamento das ações e consumo de recursos efetuados pelo usuário.
+
+### Mecanismos e boas práticas de auth
+
+- Aplicação da tríade CID no login: confidencialidade das credencias, integridade contra acessos forjados e disponibilidade do serviço
+- Emprego de MDA combinando dois ou mais fatores de verificação (ex.: senha + token ou biometria)
+- Armazenamento de senhas em bancos de dados exclusivamente na forma de hashes criptográficos.
+
+## Autenticação em SOs
+
+- **Windows**: gerenciada pelo Local Security Authority (LSA), localmente e pelo Active Directory (AD) com protocolos Kerberos na rede, utilizando SSTP e certificados para acessos remotos via VPN.
+- **Linux**: guarda contas no arquivo ```/etc/passwd``` e os hashes de senhas no ```/etc/shadow```. Para rede e acesso remoto, emprega SSH com chaves criptográficas, PAM (Pluggable Authentication Modules) para flexibilidade e integração com LDAP.
+
+### Protocolos de Autenticação
+- **PAP**: envia credenciais em texto puro (obsoleto e inseguro)
+- **CHAP**: utiliza esquema de desafio e resposta criptografada
+- **MS-CHAP**: variante desenvolvida pela Microsoft com suporte à troca de senhas criptogradas em ambientes Windows e VPNs.
+
+### Ataques a senhas
+Interceptação de dados em texto simples (como em conexões HTTP/Telnet sem criptografia) e ataques online (força bruta ou dicionário diretamente na interface de login)
