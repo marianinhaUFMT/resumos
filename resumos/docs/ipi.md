@@ -1,9 +1,3 @@
-Aqui está o seu texto formatado e limpo em Markdown.
-
-Foram corrigidos os erros de digitação e ortografia (como *"visivelmnte"*, *"entr"*, *"amtrizes"*, *" sitesma"*, *"acroma´tico"*, *"propridades"*), ajustada a hierarquia dos títulos (`#`, `##`, `###`) e padronizadas as renderizações de equações com LaTeX.
-
----
-
 # Introdução ao Processamento de Imagens
 
 > Você sabia que quando vemos um quadrado cinza sobre um fundo preto, nosso cérebro te engana fazendo-o perceber que ele é visivelmente mais brilhante do que o mesmo quadrado colocado sobre um fundo branco? Ou que antes mesmo que um único sinal visual atinja o córtex visual do seu cérebro, a retina do seu olho já realizou uma filtragem espacial complexa nos raios de luz que atingem a sua fóvea? O processamento digital de imagens preenche a lacuna entre a percepção humana e os algoritmos computacionais, permitindo que as máquinas limpem, transformem e analisem dados visuais.
