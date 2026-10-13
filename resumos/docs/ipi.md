@@ -1,345 +1,378 @@
+Aqui está o seu texto formatado e limpo em Markdown.
+
+Foram corrigidos os erros de digitação e ortografia (como *"visivelmnte"*, *"entr"*, *"amtrizes"*, *" sitesma"*, *"acroma´tico"*, *"propridades"*), ajustada a hierarquia dos títulos (`#`, `##`, `###`) e padronizadas as renderizações de equações com LaTeX.
+
+---
+
 # Introdução ao Processamento de Imagens
 
-> Você sabia que quando vemos um quadrado cinza sobre um fundo preto, seu cérebro na verdade te engana fazendo-o perceber que ele é visivelmnte mais brilhante do que o mesmo quadrado colocado sobre um fundo branco? Ou que antes mesmo que um único sinal visual atinja o córtex visual do seu cérebro, a retina do seu olho já realizou uma filtragem espacial complexa nos raios de luz que atingem a sua fóvea? O processamento digital de imagens preenche a lacuna entre a percepção humana e os algoritmos computacionais, permitindo que as máquinas limpem, transforme e analisem dados visuais.
+> Você sabia que quando vemos um quadrado cinza sobre um fundo preto, nosso cérebro te engana fazendo-o perceber que ele é visivelmente mais brilhante do que o mesmo quadrado colocado sobre um fundo branco? Ou que antes mesmo que um único sinal visual atinja o córtex visual do seu cérebro, a retina do seu olho já realizou uma filtragem espacial complexa nos raios de luz que atingem a sua fóvea? O processamento digital de imagens preenche a lacuna entre a percepção humana e os algoritmos computacionais, permitindo que as máquinas limpem, transformem e analisem dados visuais.
 
 ---
 
 Nesta lição, exploraremos os princípios fundamentais do processamento de imagens comparando como os humanos percebem a luz visual com a forma como os computadores digitalizam e manipulam imagens. Ao final desta lição, você será capaz de:
 
-- **Diferenciar** entr Processamento Digital de Imagens e Visão Computacional com base em suas entradas, saídas e objetivos analíticos.
-- **Analisar** a mecânica da percepção visual humana, incluindo a funcionalidade dos fotorreceptores (cones vs. bastonetes) e fenômenos perceptivos, como bandas de Mach e contraste simultâneo.
-- **Comparar** os modelos de cores RGB e HSI para explicar por que desacoplar a intensidade da informação cromática simplifica o aprimoramento da imagem.
-- **Avaliar** os processos matemáticos de amostragem espacial e quantização de intensidade, identificando os artefatos visuais causados pela degradação da resolução.
+* **Diferenciar** entre Processamento Digital de Imagens e Visão Computacional com base em suas entradas, saídas e objetivos analíticos.
+* **Analisar** a mecânica da percepção visual humana, incluindo a funcionalidade dos fotorreceptores (cones vs. bastonetes) e fenômenos perceptivos, como bandas de Mach e contraste simultâneo.
+* **Comparar** os modelos de cores RGB e HSI para explicar por que desacoplar a intensidade da informação cromática simplifica o aprimoramento da imagem.
+* **Avaliar** os processos matemáticos de amostragem espacial e quantização de intensidade, identificando os artefatos visuais causados pela degradação da resolução.
 
-## Processamento de imagens vs. visão computacional e arquitetura de sistemas
+---
+
+## 1. Processamento de Imagens vs. Visão Computacional e Arquitetura de Sistemas
 
 Para construir uma base sólida, precisamos primeiro esclarecer uma fonte comum de confusão: **Qual a diferença entre Processamento Digital de Imagens e Visão Computacional?**
 
 Embora esses campos estejam intimamente interligados, eles desempenham papéis distintos no pipeline da computação visual:
 
-- **Processamento Digital de Imagens**: Fconcentra-se em algoritmos onde ambos **entrada** e **saída são imagens**. O objetivo principal é transformar ou melhorar uma imagem para posterior visualização humana ou análise de máquina. Exemplos incluem remover ruído de fundo, afiar bordas borradas, inverter valores de pixels para criar mamografias negativas ou ajustar o contraste geral.
-- **Visão Computacional**: por outro lado, concentra-se emm **interpretar** e **compreender** o conteúdo de imagem ou vídeo. A entrada é uma imagem visual, mas a saída é informação de alto nível ou metadados. Exemplos incluem detectar pontos de referência faciais, dirigir veículos autônomos identificando obstáculos na estrada ou realizar classificação binária para determinar se uma imagem contém um gato ou um cachorro.
+* **Processamento Digital de Imagens:** Concentra-se em algoritmos onde **a entrada e a saída são imagens**. O objetivo principal é transformar ou melhorar uma imagem para posterior visualização humana ou análise de máquina. Exemplos incluem remover ruído de fundo, afiar bordas borradas, inverter valores de pixels para criar mamografias negativas ou ajustar o contraste geral.
+* **Visão Computacional:** Concentra-se em **interpretar** e **compreender** o conteúdo de uma imagem ou vídeo. A entrada é uma imagem visual, mas a saída é informação de alto nível ou metadados. Exemplos incluem detectar pontos de referência faciais, dirigir veículos autônomos identificando obstáculos na estrada ou realizar classificação binária para determinar se uma imagem contém um gato ou um cachorro.
 
-### O pipeline de hardware e software
+### O Pipeline de Hardware e Software
 
-Como uma cena visual abstrata se transforma em uma matriz digital na tela do seu computador? Um completo **sistema de processamento de imagens** depende de seis componentes principais interconectados:
+Como uma cena visual abstrata se transforma em uma matriz digital na tela do seu computador? Um **sistema completo de processamento de imagens** depende de seis componentes principais interconectados:
 
-1. **Sensores**: dispositivos físicos que capturam a energia eletromagnética recebida (luz) refletida em uma cena.
-2. **Hardwares especializados**: módulos de hardware dedicados que lidam com conversão analógico-digital, captura rápida de quadros e supressão preliminar de ruído em nível de hardware
-3. **Computador**: o mecanismo de processamento, que vai de computadores pessoais a servidores distribuídos em nuvem, executa lógica algorítmica.
-4. **Software**: bibliotecas ambientais, como CV aberto, Numpy e Matplotlib em Python, que realizam operações matemáticas em matrizes de imagens.
-5. **Armazenamento em massa e memória**: infraestrutura de armazenamento de alta capacidade necessária para lidar com amtrizes massivas de pixels não compactados.
-6. **Exibições e dispositivos de saída**: monitores de alta resolução ou sistemas de impressão calibrados para exibir resultados visuais a observadores humanos.
+1. **Sensores:** Dispositivos físicos que capturam a energia eletromagnética recebida (luz) refletida em uma cena.
+2. **Hardwares especializados:** Módulos de hardware dedicados que lidam com conversão analógico-digital, captura rápida de quadros e supressão preliminar de ruído em nível de hardware.
+3. **Computador:** O mecanismo de processamento, que vai de computadores pessoais a servidores distribuídos em nuvem, executa a lógica algorítmica.
+4. **Software:** Bibliotecas de desenvolvimento, como OpenCV, NumPy e Matplotlib em Python, que realizam operações matemáticas em matrizes de imagens.
+5. **Armazenamento em massa e memória:** Infraestrutura de armazenamento de alta capacidade necessária para lidar com matrizes massivas de pixels não compactados.
+6. **Exibições e dispositivos de saída:** Monitores de alta resolução ou sistemas de impressão calibrados para exibir resultados visuais a observadores humanos.
 
-Crucialmente, o aprimoramento da imagem é subjetivo e dependente do contexto. O que conta como uma imagem **melhorada** depende inteiramente de quem ou o que está consumindo a saída final. Na mamografia digital, o aprimoramento signfica aumentar o contraste em torno das microcalcificações para que um radiologista possa detectar lesões precoces; na fotografia do consumidor, pode significar simplesmente fazer com que o azul do céu pareça mais vívido.
+Crucialmente, o aprimoramento da imagem é subjetivo e dependente do contexto. O que conta como uma imagem **melhorada** depende inteiramente de quem ou do que está consumindo a saída final. Na mamografia digital, o aprimoramento significa aumentar o contraste em torno das microcalcificações para que um radiologista possa detectar lesões precoces; na fotografia de consumo, pode significar simplesmente fazer com que o azul do céu pareça mais vívido.
 
-## O sistema visual humano e os fenômenos da percepção visual
-Como as imagens digitais são, em última análise, projetadas para o consumo humano, algoritmos eficazes de processamento de imagens devem levar me conta a mecânica biológica da visão humana.
+---
 
-### Arquitetura anatômica do olho
-A luz entra no olho humano através da córnea e passa pela pupila, uma abertura cujo diâmetro é expandido ou contraído dinamicamente pela íris. O cristalino em seguida refrata os raios de luz incidentes, concentrando-os na retina na parte de trás do globo ocular. A maior concentração de nitidez visual ocorre em uma pequena região especializada da retina chamada retina fóvea.
+## 2. O Sistema Visual Humano e Fenômenos da Percepção Visual
 
-### Fotorreceptores: cones vs. bastonetes
+Como as imagens digitais são, em última análise, projetadas para o consumo humano, algoritmos eficazes de processamento de imagens devem levar em conta a mecânica biológica da visão humana.
+
+### Arquitetura Anatômica do Olho
+
+A luz entra no olho humano através da córnea e passa pela pupila, uma abertura cujo diâmetro é expandido ou contraído dinamicamente pela íris. O cristalino em seguida refrata os raios de luz incidentes, concentrando-os na retina na parte de trás do globo ocular. A maior concentração de nitidez visual ocorre em uma pequena região especializada da retina chamada **fóvea**.
+
+### Fotorreceptores: Cones vs. Bastonetes
+
 A retina contém dois tipos distintos de células fotorreceptoras que convertem energia luminosa em sinais neurais elétricos:
 
-- **Cones (Visão fotópica)**: funcionam em luz brilhante, mediam a visão de cores e fornecem alta acuidade espacial porque cada cone se conecta individualmente à sua própria terminação nervosa dedicada.
-- **Bastonetes (Visão escotópica)**: as hastes lidam com visão em pouca luz e percepção periférica. Eles não conseguem distinguir cores e fornecem detalhes espaciais muito menores porque vários bastonetes compartilham uma única fibra nervosa.
+* **Cones (Visão fotópica):** Funcionam em luz brilhante, mediam a visão de cores e fornecem alta acuidade espacial porque cada cone se conecta individualmente à sua própria terminação nervosa dedicada.
+* **Bastonetes (Visão escotópica):** Lidam com visão em pouca luz e percepção periférica. Eles não conseguem distinguir cores e fornecem detalhes espaciais muito menores porque vários bastonetes compartilham uma única fibra nervosa.
 
 Antes que os sinais viajem pelo nervo óptico para o córtex visual no cérebro, os neurônios locais (células bipolares e ganglionares) realizam a integração preliminar do sinal e a filtragem diretamente na retina.
 
-### Ilusões psicológicas e perceptivas
-Como a visão humana depende do processamento neural em vez de simples medidores de luz, nosso sitesma visual é suscetível a distorções perceptivas previsíveis:
+### Ilusões Psicológicas e Perceptivas
 
-- **Adaptação de brilho logarítmico**: o olho humano se adapta a uma vasta gama de intensidades de luz, mas nossa percepção de brilho (B) é logarítmico e não linear em relação à energia luminosa incidente. Abaixo de um certo limite de adaptação(Bb), todos os estímulos escuros são eprcebidos como pretos indistinguívies.
-- **Bandas Mach**: ao visualizar barras verticais adjacentes de cinza uniforme com aumento gradual da intensidade, o sistema visual humano ultrapassa e compreende o brilho nos limites. Isso cria faixas brilhantes e escuras percebidas ao longo das bordas, demonstrando que nossos olhos melhoram ativamente o contraste das bordas.
-- **Contraste simultâneo**: o brilho percebido de um objeto é fortemente influenciado pelo seu fundo. Um quadrado cinza médio fixo parece significativamente mais claro quando cercado por um fundo escuro e mais escuro quando colocado sobre um fundo brilhante.
+Como a visão humana depende do processamento neural em vez de simples medidores de luz, nosso sistema visual é suscetível a distorções perceptivas previsíveis:
 
-## Física da luz e modelos de cores: RGB vs. HSI
+* **Adaptação de brilho logarítmico:** O olho humano se adapta a uma vasta gama de intensidades de luz, mas nossa percepção de brilho ($B$) é logarítmica e não linear em relação à energia luminosa incidente. Abaixo de um certo limite de adaptação ($B_b$), todos os estímulos escuros são percebidos como pretos indistinguíveis.
+* **Bandas de Mach:** Ao visualizar barras verticais adjacentes de cinza uniforme com aumento gradual da intensidade, o sistema visual humano exagera o brilho nos limites. Isso cria faixas brilhantes e escuras percebidas ao longo das bordas, demonstrando que nossos olhos melhoram ativamente o contraste das bordas.
+* **Contraste simultâneo:** O brilho percebido de um objeto é fortemente influenciado pelo seu fundo. Um quadrado cinza médio fixo parece significativamente mais claro quando cercado por um fundo escuro e mais escuro quando colocado sobre um fundo brilhante.
+
+---
+
+## 3. Física da Luz e Modelos de Cores: RGB vs. HSI
+
 Compreender as cores requer combinar a mecânica física das ondas com a percepção visual.
 
-### A física da luz visível
+### A Física da Luz Visível
 
-A luz visível é a radiação eletromagnética dentro de uma estreita faixa de comprimento de onda, entre aproximadamente 430nm e 790nm. Exposições leves dualidade onda-partícula:
-- É propridades das ondas explicar comportamento físico, como reflexão, refração e interferência.
-- É propriedades das partículas explicar a quantização da energia dos fótons através da equação de Planck:
+A luz visível é a radiação eletromagnética dentro de uma estreita faixa de comprimento de onda, entre aproximadamente $430\text{ nm}$ e $790\text{ nm}$. A luz exibe dualidade onda-partícula:
+
+* As **propriedades ondulatórias** explicam comportamentos físicos como reflexão, refração e interferência.
+* As **propriedades corpusculares** explicam a quantização da energia dos fótons através da equação de Planck:
 
 $$E = h \cdot \nu$$
 
-onde $h = 6.63 \times 10^{-34} \text{ m}^2\text{kg/s}$  (constante de Planck) e  $\nu$ é a frequência, relacionada a velocidade da onda $c \approx 2.998 \times 10^8 \text{ m/s}$ com $c = \lambda \cdot \nu$.
+onde $h = 6{,}63 \times 10^{-34} \text{ m}^2\text{kg/s}$ (constante de Planck) e $\nu$ é a frequência, relacionada à velocidade da onda $c \approx 2{,}998 \times 10^8 \text{ m/s}$ por $c = \lambda \cdot \nu$.
 
-**Luz branca** consiste em uma mistura equilibrada de todos os comprimentos de onda visíveis (como um acorde musical completo). Quando a luz atinge um objeto, os comprimentos de onda refletidos determinam a cor percebida do objeto. Se um objeto reflete a luz uniformemente em todos os comprimentos de onda, ele aparece acroma´tico (branco, cinza ou preto dependendo da intensidade refletida).
+A **luz branca** consiste em uma mistura equilibrada de todos os comprimentos de onda visíveis. Quando a luz atinge um objeto, os comprimentos de onda refletidos determinam a cor percebida do objeto. Se um objeto reflete a luz uniformemente em todos os comprimentos de onda, ele aparece **acromático** (branco, cinza ou preto, dependendo da intensidade refletida).
 
-A visão humana das cores depende de três tipos distintos de cones sensíveis a ondas curtas, médias e longas: Cones S (2% dos cones, sensíveis ao azul), Cones M (33% dos cones, sensíveis ao verde) e Cones L (65% dos cones, sensíveis ao vermelho). Mesmo queos cones S sejam suficientes em número, eles exibem a maior sensibilidade.
+A visão humana das cores depende de três tipos distintos de cones sensíveis a ondas curtas, médias e longas:
 
-### O modelo RGB aditivo
+* **Cones S:** ~2% dos cones (sensíveis ao azul)
+* **Cones M:** ~33% dos cones (sensíveis ao verde)
+* **Cones L:** ~65% dos cones (sensíveis ao vermelho)
+
+Mesmo que os cones S estejam em menor número, eles exibem a maior sensibilidade.
+
+### O Modelo RGB Aditivo
+
 Os computadores modelam a mistura de aditivos primários coloridos usando o modelo de cores RGB, que representa cores dentro de um cubo cartesiano 3D:
 
-- Os eixos primários representam vermelho (R), verde (G) e azul (B) normalizado de 0,0 para 1,0 (ou inteiros 0 para 255).
-- A origem (0, 0, 0) representa preto.
-- O vértice oposto (1, 1, 1) representa branco.
-- As cores secundárias ficam nos vértices restantes: ciano (0, 1, 1), magenta (1, 0, 1) e amarelo (1, 1, 0).
-- A linha diagonal reta que conecta o preto ao branco representa o Espectro em escala de cinza.
+* Os eixos primários representam **Vermelho (R)**, **Verde (G)** e **Azul (B)** normalizados de $0{,}0$ a $1{,}0$ (ou inteiros de $0$ a $255$).
+* A origem $(0, 0, 0)$ representa o preto.
+* O vértice oposto $(1, 1, 1)$ representa o branco.
+* As cores secundárias ficam nos vértices restantes: **Ciano** $(0, 1, 1)$, **Magenta** $(1, 0, 1)$ e **Amarelo** $(1, 1, 0)$.
+* A linha diagonal reta que conecta o preto ao branco representa o **espectro em escala de cinza**.
 
-### O modelo HSI (Hue, Saturation, Intensity): desacoplando intensidade de cor
-Embora o RGB seja ótimo para hardware de exibição, ele não é intuitivo para interpretação humana. Os humanos não descrevem um carro vermelho especificando porcentagens de luz vermelha, verde e azul; nós descrevemos sua tonalidade, saturação e brilho. O modelo de cores HSI resolve isso desacoplando a intensidade do conteúdo cromático:
-- **Matiz (H)**: descreve o tom da cor pura (um ângulo representa vermelho, amarelo, verde, ciano, azul ou magenta).
-- **Saturação (S)**: mede a pureza da cor ou a quantidade de luz branca que dilui o tom puro.
-- **Intensidade (I)**: a medida acromática do brilho geral.
+### O Modelo HSI (Hue, Saturation, Intensity)
 
-## Digitalização: Amostragem, quantização e representação de imagens
-Para processa uma cena física e contínua em um computador, devemos converter sinais ópticos contínuos em uma matriz matemática discreta.
+Embora o RGB seja ótimo para hardware de exibição, ele não é intuitivo para interpretação humana. Não descrevemos um carro vermelho especificando porcentagens de luz vermelha, verde e azul; descrevemos sua tonalidade, saturação e brilho. O modelo de cores HSI resolve isso desacoplando a intensidade do conteúdo cromático:
 
-### Amostragem espacial e quantização de intensidade
+* **Matiz ($H$ - Hue):** Descreve o tom da cor pura (um ângulo que representa vermelho, amarelo, verde, ciano, azul ou magenta).
+* **Saturação ($S$ - Saturation):** Mede a pureza da cor ou a quantidade de luz branca que dilui o tom puro.
+* **Intensidade ($I$ - Intensity):** A medida acromática do brilho geral.
+
+---
+
+## 4. Digitalização: Amostragem, Quantização e Representação de Imagens
+
+Para processar uma cena física e contínua em um computador, devemos converter sinais ópticos contínuos em uma matriz matemática discreta.
+
+### Amostragem Espacial e Quantização de Intensidade
+
 A digitalização envolve duas operações fundamentais:
 
-1. **Amostragem**: discretiza as coordenadas espaciais contínuas $(x, y)$ de uma cena em uma grade regular de pontos discretos chamados **pixels**. A amostragem determina a resolução espacial da imagem (por exemplo, 1920 x 1080 pixels).
-2. **Quantização**: discretiza os valores contínuos de intensidade luminosa (amplitude) em cada pixel em um conjunto finito de níveis discretos. A quantização determina a resolução de intensidade ou profundidade de bits (por exemplo, a quantização de 8 bits produz $2^8 = 256$ níveis de cinza variando de 0 a 255).
+1. **Amostragem:** Discretiza as coordenadas espaciais contínuas $(x, y)$ de uma cena em uma grade regular de pontos discretos chamados **pixels**. A amostragem determina a resolução espacial da imagem (por exemplo, $1920 \times 1080$ pixels).
+2. **Quantização:** Discretiza os valores contínuos de intensidade luminosa (amplitude) em cada pixel em um conjunto finito de níveis discretos. A quantização determina a resolução de intensidade ou profundidade de bits (por exemplo, a quantização de 8 bits produz $2^8 = 256$ níveis de cinza variando de $0$ a $255$).
 
-### Artefatos de degradação
+### Artefatos de Degradação
+
 O que acontece quando a taxa de amostragem ou os níveis de quantização são reduzidos em excesso?
-- **Resolução espacial reduzida**: causa serrilhamento espacial, bordas irregulares em forma de "dente de serra" em curvas/diagonais, perda de detalhes finos de textura e pixelização perceptível quando ampliada usando interpolação de vizinho mais próximo.
-- **Quantização de intensidade reduzida**: causa contornos falsos, limites abruptos e não naturais em gradientes suaves (como céus ou tons de pele) porque o sistema não possui níveis de intensidade intermediários suficientes para renderizar transições contínuas.
 
-### Representação matemática em código
-Matematicamente , uma imagem acromática 2D (monocromática/em tons de cinza) é representada como uma função matricial escalar. $f(x, y)$, onde $x$ representa o índice da linha e $y$ representa o índice da coluna, retornando um único valor de nível de cinza.
+* **Resolução espacial reduzida:** Causa serrilhamento espacial (*aliasing*), bordas irregulares em forma de "dente de serra" em curvas e diagonais, perda de detalhes finos de textura e pixelização perceptível quando ampliada por interpolação do vizinho mais próximo.
+* **Quantização de intensidade reduzida:** Causa contornos falsos, limites abruptos e não naturais em gradientes suaves (como céus ou tons de pele) porque o sistema não possui níveis de intensidade intermediários suficientes para renderizar transições contínuas.
+
+### Representação Matemática em Código
+
+Matematicamente, uma imagem acromática 2D (monocromática/escala de cinza) é representada como uma função matricial escalar $f(x, y)$, onde $x$ representa o índice da linha e $y$ o índice da coluna, retornando um único valor de nível de cinza.
 
 Uma imagem colorida (RGB) é representada matematicamente como uma função vetorial:
+
 $$f(x, y) = \big(f_r(x, y), \, f_g(x, y), \, f_b(x, y)\big)$$
 
-Em código (como Python com NumPy e OpenCV), isso corresponde a uma matriz tensorial 3D de formato $(height, width, 3)$.
+Em código (como Python com NumPy e OpenCV), isso corresponde a uma matriz tensorial 3D de formato `(altura, largura, 3)`.
 
-### Barros de pixel
+### Vizinhança de Pixel
+
 Ao aplicar filtros espaciais (como suavização, nitidez ou detecção de bordas), os algoritmos operam em um pixel $p$ nas coordenadas $(x, y)$ utilizando seus vizinhos espaciais circundantes:
 
-- **4-vizinhos ($N_4(p)$)**: os 4 pixels ortogonais que compartilham uma aresta:$(x+1, y)$, $(x-1, y)$, $(x, y+1)$, e $(x, y-1)$.
-- **Bairro diagonal ($N_d(p)$)**: os 4 pixels dos cantos se tocam diagonalmente:$(x+1, y+1)$, $(x+1, y-1)$, $(x-1, y+1)$, and $(x-1, y-1)$.
-- **8-vizinhos ($N_8(p)$)**: a união de $N_4(p)$ e $N_d(p)$, formando o completo $3x3$, totalizando 8 pixels circundantes.
+* **4-vizinhos ($N_4(p)$):** Os 4 pixels ortogonais que compartilham uma aresta: $(x+1, y)$, $(x-1, y)$, $(x, y+1)$ e $(x, y-1)$.
+* **Vizinhos diagonais ($N_d(p)$):** Os 4 pixels nos cantos que se tocam diagonalmente: $(x+1, y+1)$, $(x+1, y-1)$, $(x-1, y+1)$ e $(x-1, y-1)$.
+* **8-vizinhos ($N_8(p)$):** A união de $N_4(p)$ e $N_d(p)$, formando a vizinhança completa $3 \times 3$, totalizando 8 pixels circundantes.
 
-# Guia de revisão – Processamento de Imagens (Aulas 1–6)
+---
 
-Oct 12, 2026 · @Mariana
+# Guia de Revisão – Processamento de Imagens (Aulas 1–6)
 
-## Como priorizar
+*12 de outubro de 2026*
 
-Foque em entender, para cada técnica, o objetivo, como funciona, quando usar e como interpretar o resultado. Os Capítulos 3 e 6 do Gonzalez & Woods cobrem as Aulas 2 a 6 (transformações de intensidade, histogramas, filtragem espacial) e a parte de cor (Aula 1 e tonalidade de imagens coloridas); os slides e o cronograma são o guia, o livro é complemento.
+## Como Priorizar
+
+Foque em entender, para cada técnica: **o objetivo, como funciona, quando usar e como interpretar o resultado.** Os Capítulos 3 e 6 do *Gonzalez & Woods* cobrem as Aulas 2 a 6 (transformações de intensidade, histogramas, filtragem espacial) e a parte de cores (Aula 1 e tonalidade de imagens coloridas). Os slides e o cronograma são o guia principal; o livro é o complemento.
 
 | Nível | O que estudar | Onde |
 | --- | --- | --- |
-| Prioridade alta | Transformações pontuais (negativo, brilho, log, exponencial, gamma, lineares por partes), limiarização, histograma e equalização, reamostragem (vizinho mais próximo e bilinear), filtragem espacial linear (correlação, convolução, padding, separabilidade), box, gaussiano, mediana, laplaciano, gradiente/Sobel | Aulas 2 a 6 |
-| Entender sem decorar | Modelo HSI: o que são H, S e I, por que separar intensidade de cor e quando usar. **Não** memorizar as contas RGB ↔ HSI | Aulas 1 e 2 |
-| Menor aprofundamento | Especificação de histogramas | Aula 3 |
-| Contexto | Sistema visual humano, espectro, sensores, bibliotecas (NumPy, Matplotlib, OpenCV) | Aula 1 |
+| **Prioridade Alta** | Transformações pontuais (negativo, brilho, log, exponencial, gamma, lineares por partes), limiarização, histograma e equalização, reamostragem (vizinho mais próximo e bilinear), filtragem espacial linear (correlação, convolução, padding, separabilidade), filtros box, gaussiano, mediana, laplaciano, gradiente/Sobel. | Aulas 2 a 6 |
+| **Entender sem decorar** | Modelo HSI: o que são H, S e I, por que separar intensidade de cor e quando usar. **Não** memorizar as equações de conversão RGB $\leftrightarrow$ HSI. | Aulas 1 e 2 |
+| **Menor aprofundamento** | Especificação de histogramas. | Aula 3 |
+| **Contexto** | Sistema visual humano, espectro eletromagnético, sensores, bibliotecas (NumPy, Matplotlib, OpenCV). | Aula 1 |
 
-Revise também os exemplos passo a passo feitos em aula: a tabela de equalização (imagem 64×64 com 3 bits), a filtragem com o kernel de Sobel, correlação × convolução (285 × 165), o kernel separável e a mediana de 3×3. O que cai é o procedimento e a interpretação do resultado.
+Revise também os exercícios resolvidos em aula:
 
-## Aula 1 – Fundamentos, visão, cor e representação de imagens
+* Tabela de equalização (imagem $64 \times 64$ com 3 bits).
+* Filtragem com o kernel de Sobel.
+* Correlação vs. Convolução ($285$ vs. $165$).
+* Decomposição de kernel separável.
+* Filtro da mediana $3 \times 3$.
 
-Aula de contexto: o que importa para a prova é o vocabulário e a base conceitual que as aulas seguintes usam.
+---
 
-- **Processamento de imagens × visão computacional.** Processamento recebe imagem e devolve imagem (contraste, ruído, bordas). Visão computacional interpreta o conteúdo (detectar faces, classificar gato/cachorro).
-- **Sistema visual humano.** Cones (6–7 milhões, cor, visão fotópica, concentrados na fóvea) × bastonetes (75–150 milhões, sem cor, visão periférica e escotópica). O brilho percebido é uma função logarítmica da intensidade, o que justifica as transformações log e gamma.
-- **Ilusões que importam para realce.** Bandas de Mach (o olho exagera diferenças perto de bordas) e contraste simultâneo (o brilho percebido depende do fundo). Por isso a avaliação de realce é subjetiva.
-- **Cor.** A cor percebida vem da ativação relativa de 3 tipos de cone (L \~65%, M \~33%, S \~2%), daí R, G, B como primárias.
-- **RGB.** Cubo com preto em (0,0,0), branco em (1,1,1) e cinzas na diagonal; ciano, magenta e amarelo são as secundárias.
-- **HSI (entender, não decorar a conta).** Matiz (cor pura), saturação (quão diluída em branco) e intensidade (brilho). Sua utilidade: **desacopla intensidade de cor**, então dá para mexer em brilho e contraste sem alterar as cores.
-- **Amostragem × quantização.** Amostragem discretiza o espaço (resolução espacial, grade de pixels); quantização discretiza a intensidade (profundidade de bits). Reduzir a primeira pixeliza; reduzir a segunda causa falsos contornos.
-- **Vizinhança de pixel:** 4, d (diagonais) e 8. Reaparece em toda filtragem.
-- **Ferramentas:** NumPy (arrays), Matplotlib (exibir), OpenCV (ler e processar). Imagem como matriz f(x, y).
+## Aula 1 – Fundamentos, Visão, Cor e Representação de Imagens
 
-## Aula 2 – Transformações pontuais (intensidade e brilho)
+*Aula de contexto: focar no vocabulário e na base conceitual.*
 
-**Ideia central:** no domínio espacial, cada pixel de saída depende só do pixel de entrada na mesma posição. Para imagens em cinza:
+* **Processamento de imagens vs. Visão computacional:** Processamento recebe imagem e devolve imagem (contraste, ruído, bordas). Visão computacional interpreta o conteúdo (detectar faces, classificar gato/cachorro).
+* **Sistema visual humano:** Cones (6–7 milhões, cor, visão fotópica, concentrados na fóvea) vs. Bastonetes (75–150 milhões, sem cor, visão periférica e escotópica). O brilho percebido é uma função logarítmica da intensidade, justificando as transformações logarítmicas e gamma.
+* **Ilusões relevantes para realce:** Bandas de Mach (o olho exagera diferenças perto de bordas) e contraste simultâneo (o brilho percebido depende do fundo). Por isso, a avaliação do realce é subjetiva.
+* **Cor:** A percepção de cor vem da ativação relativa de 3 tipos de cones (L ~65%, M ~33%, S ~2%), definindo R, G, B como cores primárias.
+* **Modelo RGB:** Cubo cartesiano com preto em $(0,0,0)$, branco em $(1,1,1)$ e escala de cinza na diagonal principal. Ciano, magenta e amarelo são as cores secundárias.
+* **Modelo HSI:** Matiz ($H$), Saturação ($S$) e Intensidade ($I$). Sua principal utilidade é **desacoplar a intensidade da cor**, permitindo alterar brilho e contraste sem distorcer os tons.
+* **Amostragem vs. Quantização:** Amostragem discretiza o espaço (resolução espacial, grade de pixels); quantização discretiza a intensidade (profundidade de bits). Reduzir a primeira causa pixelização; reduzir a segunda gera falsos contornos.
+* **Vizinhança de pixel:** 4-vizinhos, vizinhos diagonais ($d$) e 8-vizinhos.
+* **Ferramentas:** NumPy (manipulação de matrizes), Matplotlib (exibição) e OpenCV (leitura e processamento).
 
-```latex
-g(x,y) = T[f(x,y)] \quad\Longleftrightarrow\quad s = T(r)
-```
+---
 
-O objetivo aqui é **melhoramento para visualização**, e o julgamento do resultado é subjetivo e depende da aplicação (realce de estruturas em imagem médica, correção de fotos escuras ou claras).
+## Aula 2 – Transformações Pontuais (Intensidade e Brilho)
 
-| Técnica | Como funciona | Quando usar / como interpretar |
+**Ideia central:** No domínio espacial, cada pixel de saída depende exclusivamente do pixel de entrada na mesma posição:
+
+$$g(x,y) = T[f(x,y)] \quad\Longleftrightarrow\quad s = T(r)$$
+
+O objetivo é o **melhoramento para visualização** (subjetivo e dependente da aplicação).
+
+| Técnica | Como funciona | Quando usar / Interpretação |
 | --- | --- | --- |
-| Negativo | s = 255 − r (0↔255). Em RGB, aplicado em cada canal: vermelho vira ciano, azul vira amarelo, verde vira magenta | Realçar detalhes escondidos em regiões escuras |
-| Brilho (soma/subtração) | s = r ± c | Mantém a diferença absoluta entre pixels; em RGB pode alterar a cor |
-| Brilho (multiplicação) | s = c · r | Amplia a diferença proporcional; em RGB preserva a cor |
-| Brilho em HSI | Altera só o canal I | Preserva matiz e saturação, por isso a cor não muda |
-| Logarítmica | s = c · log(1 + r) | Expande tons escuros e comprime claros: clareia imagem **escura** |
-| Exponencial | s = c · r^γ com expoente que comprime escuros | Efeito oposto: escurece, recupera detalhe em imagem **clara** |
-| Gamma | s = c · r^γ | γ < 1 clareia (como log); γ > 1 escurece (como exponencial) |
-| Linear por partes | Combina trechos lineares (pontos (r1,s1), (r2,s2)…) | Expande contraste só numa faixa e comprime o resto; forma arbitrária |
+| **Negativo** | $s = 255 - r$. Em RGB, aplica-se a cada canal (vermelho $\leftrightarrow$ ciano, azul $\leftrightarrow$ amarelo, verde $\leftrightarrow$ magenta). | Realçar detalhes claros em regiões predominantemente escuras. |
+| **Brilho (Soma/Subtração)** | $s = r \pm c$ | Mantém a diferença absoluta entre pixels. Em RGB, pode alterar a tonalidade das cores. |
+| **Brilho (Multiplicação)** | $s = c \cdot r$ | Amplia a diferença proporcional. Em RGB, preserva as relações de cor. |
+| **Brilho em HSI** | Altera apenas o canal $I$. | Preserva matiz ($H$) e saturação ($S$), evitando distorção de cor. |
+| **Logarítmica** | $s = c \cdot \log(1 + r)$ | Expande tons escuros e comprime tons claros (clareia imagens **escuras**). |
+| **Exponencial** | $s = c \cdot r^\gamma$ (com $\gamma > 1$) | Comprime tons escuros e expande claros (escurece imagens **claras**). |
+| **Gamma** | $s = c \cdot r^\gamma$ | $\gamma < 1$ clareia (efeito log); $\gamma > 1$ escurece (efeito exponencial). |
+| **Linear por partes** | Combina trechos lineares mapeados por pontos $(r_1, s_1), (r_2, s_2)$. | Expande o contraste em uma faixa específica e comprime no restante. |
 
-Caminho de leitura do gráfico T(r): curva **acima** da diagonal clareia, **abaixo** escurece, trecho **mais inclinado que 1** aumenta o contraste naquela faixa, **mais plano** reduz.
+> **Leitura do gráfico $T(r)$:** Curva **acima** da diagonal clareia a imagem; **abaixo** escurece. Trecho com **inclinação $> 1$** aumenta o contraste naquela faixa; **inclinação $< 1$** reduz.
 
-**Exercício da aula (alargamento de contraste).** Mapear \[r\_min, r\_max\] para \[0, 255\] com uma reta:
+**Exercício da aula (Alargamento de contraste):** Mapear $[r_{\min}, r_{\max}]$ para $[0, 255]$ através de uma reta:
 
-```latex
-s = \frac{255}{r_{max}-r_{min}}\,(r - r_{min})
-```
+$$s = \frac{255}{r_{\max} - r_{\min}} \cdot (r - r_{\min})$$
 
-Se a imagem usava só parte da faixa, o resultado usa os 256 níveis e o contraste sobe.
+---
 
-**Modelo HSI nesta aula:** a conversão RGB↔HSI aparece, mas você só precisa saber que existe, que separa I de H e S, e por que isso permite ajustar brilho sem distorcer a cor.
+## Aula 3 – Cor, Limiarização e Histogramas
 
-## Aula 3 – Cor, limiarização e histogramas
+* **Correções tonais em imagens coloridas:** Para ajustar brilho/contraste preservando as cores, em RGB deve-se aplicar a **mesma transformação nos três canais**; em HSI, modifica-se **apenas o canal $I$**.
+* **Limiarização de intensidade:**
+* *Binária:* Transforma uma faixa de interesse em branco e o restante em preto.
+* *Não-binária:* Altera apenas a faixa de interesse e preserva os demais níveis de cinza.
 
-**Correções tonais em imagem colorida.** Antes de mexer em saturação, equilibre brilho e contraste preservando a matiz. Em RGB aplica-se a **mesma transformação nos três canais**; em HSI modifica-se **só o canal I**. Padrões típicos: imagem opaca (baixo contraste) → curva sigmoide; imagem clara → exponencial/gamma > 1; imagem escura → logarítmica/gamma < 1.
 
-**Limiarização de intensidade.** Destaca uma faixa de interesse. Método 1: faixa vira um tom (branco), o resto outro (preto), gerando imagem **binária**. Método 2: clareia ou escurece a faixa e **mantém** os demais níveis. Exemplo da aula: angiografia, para isolar vasos sanguíneos.
+* **Limiarização de cor:** Define uma região no espaço RGB delimitada por um **cubo** (largura $W$) ou **esfera** (raio $R$ via distância euclidiana).
+* **Histograma:** Contagem da frequência de pixels por nível de intensidade. A versão normalizada representa a PMF: $p(r_k) = \frac{n_k}{M \cdot N}$.
+* *Imagem escura:* Histograma deslocado para a esquerda.
+* *Imagem clara:* Histograma deslocado para a direita.
+* *Baixo contraste:* Histograma concentrado/estreito.
+* *Alto contraste:* Histograma bem distribuído e aproximadamente uniforme.
 
-**Limiarização de cor.** Define-se uma região do espaço RGB com centro e tamanho: um **cubo** (largura W) ou uma **esfera** (raio R). Pixels dentro da região são mantidos; fora, descartados. A esfera usa distância euclidiana até a cor de referência.
 
-**Histograma.** Contagem de pixels por nível de intensidade; normalizado vira a PMF p(r\_k) = n\_k / (M·N). Em RGB, um histograma por canal.
 
-- Imagem escura: histograma deslocado para a esquerda. Clara: para a direita. Baixo contraste: estreito. **Alto contraste: espalhado e aproximadamente uniforme.**
-- Cuidado: imagens muito diferentes podem ter o mesmo histograma (o histograma não diz onde estão os pixels).
+### Equalização de Histograma
 
-**Equalização de histograma (alta prioridade).** Objetivo: automatizar o ganho de contraste levando a distribuição para algo próximo do uniforme. A transformação é a CDF escalada:
+Aumenta o contraste distribuindo os níveis de intensidade de forma aproximadamente uniforme usando a CDF escalada:
 
-```latex
-s_k = T(r_k) = (L-1)\sum_{j=0}^{k} p_r(r_j)
-```
+$$s_k = T(r_k) = (L-1) \sum_{j=0}^{k} p_r(r_j)$$
 
-Procedimento (o que a prova cobra):
+**Passo a passo do cálculo:**
 
-1. Calcule p(r\_k) = n\_k / total.
-2. Some cumulativamente (CDF).
-3. Multiplique por L−1 (aqui L = 8, então × 7).
-4. Arredonde para o inteiro mais próximo.
+1. Calcular $p(r_k) = \frac{n_k}{\text{total}}$.
+2. Acumular os valores (CDF).
+3. Multiplicar por $L-1$ (para 3 bits, $L-1 = 7$).
+4. Arredondar para o inteiro mais próximo.
 
-Exemplo da aula (imagem 64×64, 3 bits, total 4096 pixels):
+#### Exemplo Prático (Imagem $64 \times 64$, 3 bits, total = 4096 pixels):
 
-| r | n\_r | p(r) | CDF | 7·CDF | Arredondado |
+| $r$ | $n_r$ | $p(r)$ | CDF | $7 \times \text{CDF}$ | Nível Arredondado |
 | --- | --- | --- | --- | --- | --- |
-| 0 | 790 | 0,19 | 0,19 | 1,33 | 1 |
-| 1 | 1023 | 0,25 | 0,44 | 3,08 | 3 |
-| 2 | 850 | 0,21 | 0,65 | 4,55 | 5 |
-| 3 | 656 | 0,16 | 0,81 | 5,67 | 6 |
-| 4 | 329 | 0,08 | 0,89 | 6,23 | 6 |
-| 5 | 245 | 0,06 | 0,95 | 6,65 | 7 |
-| 6 | 122 | 0,03 | 0,98 | 6,86 | 7 |
-| 7 | 81 | 0,02 | 1,00 | 7,00 | 7 |
+| **0** | 790 | 0,19 | 0,19 | 1,33 | **1** |
+| **1** | 1023 | 0,25 | 0,44 | 3,08 | **3** |
+| **2** | 850 | 0,21 | 0,65 | 4,55 | **5** |
+| **3** | 656 | 0,16 | 0,81 | 5,67 | **6** |
+| **4** | 329 | 0,08 | 0,89 | 6,23 | **6** |
+| **5** | 245 | 0,06 | 0,95 | 6,65 | **7** |
+| **6** | 122 | 0,03 | 0,98 | 6,86 | **7** |
+| **7** | 81 | 0,02 | 1,00 | 7,00 | **7** |
 
-Interpretação: níveis diferentes podem se fundir (4 e 3 viram 6; 5, 6 e 7 viram 7), então o histograma resultante **não fica perfeitamente plano** em imagens discretas, mas fica mais espalhado. Os níveis mais frequentes ganham mais espaço.
+*Interpretação:* Níveis adjacentes podem se fundir (ex: $3$ e $4$ viram $6$). Em dados discretos, o resultado não fica perfeitamente plano, mas sim melhor distribuído.
 
-**Equalização em imagem colorida.** Não equalize R, G e B separadamente (as cores ficam erradas). Converta para HSI, equalize só **I** e mantenha H e S.
+* **Equalização em cores:** Converter para HSI, equalizar apenas o canal $I$ e reconstruir o RGB.
+* **Equalização localizada:** Processa vizinhanças locais ($5 \times 5$, $11 \times 11$) usando janelas deslizantes para preservar detalhes em regiões menores.
 
-**Equalização localizada.** A global usa todos os pixels e pode amplificar ruído ou não revelar detalhes pequenos. A local equaliza em uma vizinhança (5×5, 11×11…) percorrendo pixel a pixel; nas bordas precisa de padding.
+---
 
-**Especificação de histograma (baixa prioridade).** Em vez de uma distribuição uniforme, força a imagem a ter o histograma de uma referência (ou de uma curva desejada). Saiba a ideia: equalizar a imagem, equalizar a referência e compor as duas transformações. Não precisa de mais profundidade que isso.
+## Aula 4 – Reamostragem e Fundamentos da Filtragem Espacial
 
-## Aula 4 – Reamostragem e fundamentos da filtragem espacial
+### Reamostragem (Interpolação)
 
-### Reamostragem (interpolação)
+Processo de alterar a dimensão da imagem (zoom, redução ou transformações geométricas).
 
-Reamostrar é aumentar ou diminuir o número de pixels (zoom, redução, correções geométricas). Como não há dado nas posições novas, **interpola-se** a partir dos vizinhos conhecidos. Procedimento geral: para cada pixel (r\_o, c\_o) da imagem de saída, mapeie para a posição correspondente (r\_m, c\_m) na imagem de entrada (proporcional ao fator de escala) e estime o valor ali.
-
-| Método | Como estima | Prós e contras |
+| Método | Funcionamento | Vantagens e Desvantagens |
 | --- | --- | --- |
-| Vizinho mais próximo | Copia o valor do pixel mais próximo de (r\_m, c\_m) | Rápido e simples; causa serrilhado (aliasing), pixelização em ampliação e perda de detalhe em redução |
-| Bilinear | Média ponderada dos 4 vizinhos (r0,c0), (r0,c0+1), (r0+1,c0), (r0+1,c0+1) | Transições suaves, melhor qualidade visual; leve borramento |
-| Bicúbico | Usa 16 vizinhos | Citado como o terceiro método principal (OpenCV: INTER\_CUBIC) |
+| **Vizinho Mais Próximo** | Copia o valor do pixel mais próximo da coordenada mapeada. | Rápido e simples; gera serrilhamento (*aliasing*) e pixelização. |
+| **Bilinear** | Média ponderada dos 4 vizinhos mais próximos. | Transições suaves e boa qualidade; causa leve borramento. |
+| **Bicúbica** | Utiliza uma janela de 16 vizinhos. | Maior precisão e nitidez; maior custo computacional (`INTER_CUBIC`). |
 
-**Como a bilinear funciona (passo a passo):** interpole linearmente na direção x entre os pares superiores e inferiores, depois interpole linearmente na direção y entre esses dois resultados. Com a = r\_m − r0 e b = c\_m − c0 (frações entre 0 e 1):
+**Equação da Interpolação Bilinear:**
+Com $a = r_m - r_0$ e $b = c_m - c_0$ (deslocamentos fracionários):
 
-```latex
-J = (1-a)(1-b)\,I_{00} + (1-a)\,b\,I_{01} + a\,(1-b)\,I_{10} + a\,b\,I_{11}
-```
+$$J = (1-a)(1-b)I_{00} + (1-a)b I_{01} + a(1-b)I_{10} + ab I_{11}$$
 
-Interpretação: quanto mais perto o ponto está de um vizinho, maior o peso dele; no centro exato o resultado é a média dos quatro. Os valores novos ficam sobre as retas que ligam os originais.
+### Filtragem Espacial
 
-**OpenCV:** `cv2.resize(src, dsize, fx=, fy=, interpolation=)`, com flags `INTER_NEAREST`, `INTER_LINEAR` (bilinear), `INTER_AREA` (boa para reduzir) e `INTER_CUBIC`. Pode-se passar `dsize` (tamanho final) ou fatores `fx`, `fy`.
+Substitui o valor de um pixel por uma função calculada sobre sua vizinhança.
 
-### Filtragem espacial (início)
+* **Filtros Passa-Baixas:** Suavizam/borram a imagem; atenuam altas frequências (ruído e bordas).
+* **Filtros Passa-Altas:** Destacam variações abruptas (bordas e detalhes).
+* **Tratamento de Bordas (Padding):** Zero padding, replicação de borda (*replicate*), espelhamento (*reflect*) e valor constante.
 
-- **Transformação pontual × filtragem:** a pontual usa 1 pixel; a filtragem é uma operação **local**, que substitui o pixel por uma função dele e de seus vizinhos.
-- **Passa-baixas:** suavizam (borram); atenuam altas frequências (bordas, ruído, detalhe fino). **Passa-altas:** realçam bordas, detalhes e ruído.
-- **Linear × não linear:** box, gaussiano, Sobel e laplaciano são lineares; a mediana é não linear (estatística de ordem).
-- **Mecânica da filtragem linear:** posicione o kernel (matriz de pesos) sobre a vizinhança, multiplique elemento a elemento e some. Exemplo da aula, kernel de Sobel horizontal no canto superior esquerdo:
+---
 
-```latex
-(-1)(10)+0+(1)(22)+(-2)(20)+0+(2)(21)+(-1)(50)+0+(1)(8) = -28
-```
+## Aula 5 – Correlação, Convolução, Separabilidade e Filtro Box
 
-- **Padding** (pixels extras em volta): preserva o tamanho da saída e trata as bordas. Tipos: zero, replicate (repete a borda), reflect (espelha) e constant (valor definido). A escolha afeta principalmente as bordas.
+### Correlação vs. Convolução
 
-## Aula 5 – Correlação, convolução, separabilidade e filtro box
+* **Correlação:** Deslocamento do kernel sobre a imagem multiplicando e somando os elementos correspondentes.
+* **Convolução:** Idêntica à correlação, porém com o kernel **rotacionado em 180°**.
+* **Kernels Simétricos:** A correlação e a convolução produzem resultados idênticos (ex: Box, Gaussiano).
 
-**Para que filtrar:** reduzir ruído sem destruir estruturas, atenuar detalhes irrelevantes e preparar a imagem para etapas como detecção de bordas ou segmentação.
+> **Propriedade fundamental:** A resposta ao impulso de uma convolução gera uma cópia idêntica do kernel na posição do impulso; na correlação, gera uma cópia rotacionada.
 
-**Correlação × convolução.**
+### Kernels Separáveis
 
-- O procedimento da aula passada (deslizar o kernel e somar produtos) é a **correlação**.
-- A **convolução** é igual, mas com o kernel **rotacionado 180°**.
-- Com kernel **simétrico** os dois dão o mesmo resultado (box, gaussiano).
-- Exemplo da aula: região e kernel com valores 1 a 9. Correlação = 1·1 + 2·2 + … + 9·9 = **285**. Convolução = 1·9 + 2·8 + … + 9·1 = **165**.
-- Resposta ao impulso: a convolução deixa uma cópia **idêntica** do kernel na posição do impulso; a correlação deixa uma cópia **rotacionada**.
-- Propriedades: a convolução é comutativa, associativa e distributiva; a correlação não é comutativa, então a ordem importa nela.
+Um kernel $W$ de dimensões $m \times n$ é separável se puder ser decomposto no produto de um vetor coluna por um vetor linha:
 
-**Kernels separáveis.** Um kernel W (m×n) é separável se for o produto de um vetor coluna por um vetor linha: W = v₁ v₂ᵀ. Filtrar com ele equivale a **duas convoluções 1D** (uma por linhas, outra por colunas), o que reduz o custo de m·n multiplicações por pixel para m + n.
+$$W = v_1 \cdot v_2^T$$
 
-Exercício resolvido: o kernel \[1 0 3; 2 0 6; 3 0 9\] é separável porque as linhas são múltiplas da primeira. Decomposição: v₁ = \[1 2 3\]ᵀ e v₂ᵀ = \[1 0 3\]. A decomposição não é única, basta o produto reconstruir W. Teste prático: todas as linhas são múltiplas de uma só (posto 1).
+Isso reduz a complexidade computacional de $m \cdot n$ operações por pixel para $m + n$.
 
-**OpenCV:** `cv2.filter2D(src, ddepth, kernel, borderType)` e `cv2.sepFilter2D(src, ddepth, kernelX, kernelY, borderType)`. Com `ddepth = -1` a saída mantém a precisão da entrada.
+### Filtro Box (Média)
 
-**Filtros de suavização em geral.** Atenuam transições bruscas (ruído, detalhe, falsos contornos). São passa-baixas: regiões uniformes = baixa frequência; bordas, ruído e detalhe fino = alta frequência.
+Kernel com todos os coeficientes iguais a $1$, normalizado pela soma (ex: $1/9$ em um kernel $3 \times 3$).
 
-**Filtro box.** Kernel com todos os pesos iguais, normalizado para somar 1 (por exemplo 3×3 com 1/9 em cada posição): cada pixel vira a **média** da vizinhança.
+* Aumentar o tamanho da janela aumenta o borramento e reduz detalhes finos.
+* Apresenta limitações direcionais (favorece eixos horizontais/verticais).
 
-- Quanto maior o kernel (3×3, 11×11, 21×21), maior o borramento e maior a perda de detalhe.
-- Em imagem colorida, aplica-se **independentemente em cada canal**.
-- O padding altera as bordas: zero padding escurece as bordas da imagem filtrada; espelhado (reflect) evita isso.
-- Limitação: a resposta em frequência favorece as direções horizontal e vertical e modela mal imagens desfocadas por lente. Isso motiva o gaussiano.
+---
 
-## Aula 6 – Gaussiano, mediana e filtros passa-altas
+## Aula 6 – Filtro Gaussiano, Mediana e Filtros Passa-Altas
 
-### Passa-baixas (continuação)
+### Filtros Passa-Baixas (Continuação)
 
-**Gaussiano.** Média ponderada em que pixels mais próximos do centro pesam mais:
+#### Filtro Gaussiano
 
-```latex
-G(x,y) = K\,e^{-\frac{x^2+y^2}{2\sigma^2}}
-```
+Média ponderada baseada em uma distribuição normal 2D centrada:
 
-- σ controla a distribuição dos pesos (σ pequeno concentra no centro, σ grande suaviza mais); o tamanho do kernel só define a janela. Exemplo: σ = 0,8 dá peso 0,64 ao centro; σ = 2,0 dá 0,16.
-- Regra prática: kernel de ⌈ 6σ ⌉ × ⌈ 6σ ⌉, pois além de 3σ os valores são desprezíveis.
-- É **separável** e **circularmente simétrico**; a convolução de duas gaussianas é outra gaussiana.
-- Versus box: não favorece horizontal/vertical, modela melhor o desfoque de lente e suaviza de forma mais natural. Por isso é o mais usado.
+$$G(x,y) = K \cdot e^{-\frac{x^2+y^2}{2\sigma^2}}$$
 
-**Mediana (não linear).** Troca o pixel pela mediana da vizinhança ordenada. Exemplo da aula: janela 3×3 com o valor 255 isolado; ordenando 9, 10, 10, 10, 11, 11, 12, 12, 255, a mediana é **11**, o extremo não domina. Ótimo contra **ruído impulsivo** (sal e pimenta), preservando bordas melhor que box e gaussiano. OpenCV: `cv2.medianBlur(src, ksize)` (padding por replicação).
+* $\sigma$ (desvio padrão) controla o grau de suavização.
+* Regra prática para o tamanho da janela: $N = \lceil 6\sigma \rceil$.
+* É **separável**, **circularmente simétrico** e suaviza a imagem de forma mais natural que o filtro Box.
 
-### Passa-altas: derivadas
+#### Filtro da Mediana (Não Linear)
 
-Passa-baixas são integrativos (médias); passa-altas são **derivativos**, enfatizam variações rápidas (bordas, detalhes, ruído).
+Substitui o pixel central pelo valor mediano da vizinhança ordenada.
 
-|  | 1ª derivada | 2ª derivada |
+* **Aplicação principal:** Remoção de ruído do tipo "sal e pimenta" (impulsivo).
+* Preserva bordas com muito mais precisão do que os filtros de média e Gaussiano.
+
+---
+
+### Filtros Passa-Altas (Derivativos)
+
+| Propriedade | 1ª Derivada | 2ª Derivada |
 | --- | --- | --- |
-| Discreta (h = 1) | f(x+1) − f(x) (progressiva), f(x) − f(x−1) (regressiva) ou centrada | f(x+1) + f(x−1) − 2f(x) |
-| Região constante | zero | zero |
-| Rampa | continua diferente de zero ao longo da rampa | zero ao longo da rampa; responde no início e no fim |
-| Efeito | bordas mais largas | detalhes finos; mais sensível a ruído |
+| **Expressão Discreta** | $f(x+1) - f(x)$ | $f(x+1) + f(x-1) - 2f(x)$ |
+| **Região Constante** | Zero | Zero |
+| **Rampa de Intensidade** | Valor constante não-zero longo da rampa | Responde apenas no início e no fim da rampa |
+| **Característica Visual** | Produz bordas mais largas | Destaca detalhes finos; mais sensível ao ruído |
 
-### Laplaciano (2ª ordem, aguçamento)
+#### Laplaciano (2ª Ordem - Aguçamento)
 
-Soma das segundas derivadas em x e y. Kernel clássico de vizinhança 4, e variantes com diagonais ou com sinais trocados:
+Operador isotrópico definido pela soma das segundas derivadas:
 
-```latex
-\nabla^2 f = f(x{+}1,y)+f(x{-}1,y)+f(x,y{+}1)+f(x,y{-}1)-4f(x,y)
-```
+$$\nabla^2 f = f(x+1,y) + f(x-1,y) + f(x,y+1) + f(x,y-1) - 4f(x,y)$$
 
-Para **aguçar**, soma-se o Laplaciano à original: g = f + c·∇²f, com c = −1 se o centro do kernel é negativo e c = +1 se positivo. A imagem laplaciana sozinha mostra só bordas e detalhes (a maior parte é zero ou próxima disso); somada à original, realça os detalhes sem perder o fundo.
+Para aguçar uma imagem usando o Laplaciano:
 
-**Máscara de nitidez (alternativa com suavização).** Máscara = original − suavizada; aguçada = original + k · máscara. Ideia: o que o borramento removeu são os detalhes, e somar de volta os realça.
+$$g(x,y) = f(x,y) + c \cdot \nabla^2 f(x,y)$$
 
-### Gradiente (1ª ordem, bordas)
+*(onde $c = -1$ se o elemento central do kernel for negativo, e $c = +1$ se for positivo).*
 
-- O vetor gradiente (derivadas parciais gx e gy) aponta para a **direção de maior aumento** de intensidade; sua **magnitude** mede a força da variação:
+#### Operador de Gradiente (1ª Ordem - Sobel)
 
-```latex
-M(x,y) = \sqrt{g_x^2 + g_y^2} \approx |g_x| + |g_y|
-```
+Mede a variação espacial de intensidade por meio da magnitude do vetor gradiente:
 
-- **Sobel:** aproxima gx e gy com diferenças centradas e suavização perpendicular (kernel \[−1 0 1; −2 0 2; −1 0 1\] e sua versão girada). É separável.
-- Em imagem colorida há um gradiente por canal.
+$$M(x,y) = \sqrt{g_x^2 + g_y^2} \approx \vert{}g_x\vert{} + \vert{}g_y\vert{}$$
 
-**Laplaciano × gradiente para aguçar.** Em geral o Laplaciano é preferido; o gradiente reforça bordas espessas, que às vezes desagradam visualmente. O gradiente brilha em **inspeção industrial** (realce de defeitos e remoção de fundo que varia devagar), tipicamente como pré-processamento.
-
-**Combinação de métodos (exemplo do raio-x).** Imagem com faixa dinâmica estreita e muito ruído: usa-se Laplaciano para detalhes finos, gradiente para bordas proeminentes e depois transformação de intensidade para o contraste final. A lição: nenhuma técnica resolve sozinha, e cada uma cuida de um aspecto.
+* O operador **Sobel** utiliza máscaras $3 \times 3$ com ponderação central para aproximar as derivadas parciais $g_x$ e $g_y$, integrando uma leve suavização perpendicular para mitigar o ruído.
