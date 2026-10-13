@@ -89,6 +89,31 @@ Embora o RGB seja ótimo para hardware de exibição, ele não é intuitivo para
 ## Digitalização: Amostragem, quantização e representação de imagens
 Para processa uma cena física e contínua em um computador, devemos converter sinais ópticos contínuos em uma matriz matemática discreta.
 
+### Amostragem espacial e quantização de intensidade
+A digitalização envolve duas operações fundamentais:
+
+1. **Amostragem**: discretiza as coordenadas espaciais contínuas $(x, y)$ de uma cena em uma grade regular de pontos discretos chamados **pixels**. A amostragem determina a resolução espacial da imagem (por exemplo, 1920 x 1080 pixels).
+2. **Quantização**: discretiza os valores contínuos de intensidade luminosa (amplitude) em cada pixel em um conjunto finito de níveis discretos. A quantização determina a resolução de intensidade ou profundidade de bits (por exemplo, a quantização de 8 bits produz $2^8 = 256$ níveis de cinza variando de 0 a 255).
+
+### Artefatos de degradação
+O que acontece quando a taxa de amostragem ou os níveis de quantização são reduzidos em excesso?
+- **Resolução espacial reduzida**: causa serrilhamento espacial, bordas irregulares em forma de "dente de serra" em curvas/diagonais, perda de detalhes finos de textura e pixelização perceptível quando ampliada usando interpolação de vizinho mais próximo.
+- **Quantização de intensidade reduzida**: causa contornos falsos, limites abruptos e não naturais em gradientes suaves (como céus ou tons de pele) porque o sistema não possui níveis de intensidade intermediários suficientes para renderizar transições contínuas.
+
+### Representação matemática em código
+Matematicamente , uma imagem acromática 2D (monocromática/em tons de cinza) é representada como uma função matricial escalar. $f(x, y)$, onde $x$ representa o índice da linha e $y$ representa o índice da coluna, retornando um único valor de nível de cinza.
+
+Uma imagem colorida (RGB) é representada matematicamente como uma função vetorial:
+$$f(x, y) = \big(f_r(x, y), \, f_g(x, y), \, f_b(x, y)\big)$$
+
+Em código (como Python com NumPy e OpenCV), isso corresponde a uma matriz tensorial 3D de formato $(height, width, 3)$.
+
+### Barros de pixel
+Ao aplicar filtros espaciais (como suavização, nitidez ou detecção de bordas), os algoritmos operam em um pixel $p$ nas coordenadas $(x, y)$ utilizando seus vizinhos espaciais circundantes:
+
+- **4-vizinhos ($N_4(p)$)**: os 4 pixels ortogonais que compartilham uma aresta:$(x+1, y)$, $(x-1, y)$, $(x, y+1)$, e $(x, y-1)$.
+- **Bairro diagonal ($N_d(p)$)**: os 4 pixels dos cantos se tocam diagonalmente:$(x+1, y+1)$, $(x+1, y-1)$, $(x-1, y+1)$, and $(x-1, y-1)$.
+- **8-vizinhos ($N_8(p)$)**: a união de $N_4(p)$ e $N_d(p)$, formando o completo $3x3$, totalizando 8 pixels circundantes.
 
 # Guia de revisão – Processamento de Imagens (Aulas 1–6)
 
