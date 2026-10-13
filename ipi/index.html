@@ -1,0 +1,2079 @@
+
+<!doctype html>
+<html lang="pt" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../resumo-flutter/">
+      
+      
+        <link rel="next" href="../seg-redes/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Processamento de Imagens - Docs Marianinha</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,300i,400,400i,700,700i%7CJetBrains+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Poppins";--md-code-font:"JetBrains Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#introducao-ao-processamento-de-imagens" class="md-skip">
+          Ir para o conteúdo
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Cabeçalho">
+    <a href=".." title="Docs Marianinha" class="md-header__button md-logo" aria-label="Docs Marianinha" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Docs Marianinha
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Processamento de Imagens
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple"  aria-label="Alternar para modo escuro"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Alternar para modo escuro" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="deep-purple"  aria-label="Alternar para modo claro"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Alternar para modo claro" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Buscar" placeholder="Buscar" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Pesquisar">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Limpar" aria-label="Limpar" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Inicializando a pesquisa
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Abas" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../resumo-flutter/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Resumo Flutter
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Processamento de Imagens
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../seg-redes/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Segurança em Redes
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navegação" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Docs Marianinha" class="md-nav__button md-logo" aria-label="Docs Marianinha" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Docs Marianinha
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../resumo-flutter/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Resumo Flutter
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Processamento de Imagens
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Processamento de Imagens
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-processamento-de-imagens-vs-visao-computacional-e-arquitetura-de-sistemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Processamento de Imagens vs. Visão Computacional e Arquitetura de Sistemas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Processamento de Imagens vs. Visão Computacional e Arquitetura de Sistemas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#o-pipeline-de-hardware-e-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O Pipeline de Hardware e Software
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-o-sistema-visual-humano-e-fenomenos-da-percepcao-visual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. O Sistema Visual Humano e Fenômenos da Percepção Visual
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. O Sistema Visual Humano e Fenômenos da Percepção Visual">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arquitetura-anatomica-do-olho" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitetura Anatômica do Olho
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fotorreceptores-cones-vs-bastonetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fotorreceptores: Cones vs. Bastonetes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ilusoes-psicologicas-e-perceptivas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ilusões Psicológicas e Perceptivas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-fisica-da-luz-e-modelos-de-cores-rgb-vs-hsi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Física da Luz e Modelos de Cores: RGB vs. HSI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Física da Luz e Modelos de Cores: RGB vs. HSI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-fisica-da-luz-visivel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Física da Luz Visível
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#o-modelo-rgb-aditivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O Modelo RGB Aditivo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#o-modelo-hsi-hue-saturation-intensity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O Modelo HSI (Hue, Saturation, Intensity)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-digitalizacao-amostragem-quantizacao-e-representacao-de-imagens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Digitalização: Amostragem, Quantização e Representação de Imagens
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Digitalização: Amostragem, Quantização e Representação de Imagens">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amostragem-espacial-e-quantizacao-de-intensidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amostragem Espacial e Quantização de Intensidade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#artefatos-de-degradacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Artefatos de Degradação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#representacao-matematica-em-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Representação Matemática em Código
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vizinhanca-de-pixel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vizinhança de Pixel
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guia-de-revisao-processamento-de-imagens-aulas-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Guia de Revisão – Processamento de Imagens (Aulas 1–6)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-priorizar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Como Priorizar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aula-1-fundamentos-visao-cor-e-representacao-de-imagens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aula 1 – Fundamentos, Visão, Cor e Representação de Imagens
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aula-2-transformacoes-pontuais-intensidade-e-brilho" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aula 2 – Transformações Pontuais (Intensidade e Brilho)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aula-3-cor-limiarizacao-e-histogramas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aula 3 – Cor, Limiarização e Histogramas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aula 3 – Cor, Limiarização e Histogramas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#equalizacao-de-histograma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Equalização de Histograma
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Equalização de Histograma">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-pratico-imagem-64-times-64-3-bits-total-4096-pixels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo Prático (Imagem \(64 \times 64\), 3 bits, total = 4096 pixels):
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aula-4-reamostragem-e-fundamentos-da-filtragem-espacial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aula 4 – Reamostragem e Fundamentos da Filtragem Espacial
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aula 4 – Reamostragem e Fundamentos da Filtragem Espacial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reamostragem-interpolacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reamostragem (Interpolação)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtragem-espacial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtragem Espacial
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aula-5-correlacao-convolucao-separabilidade-e-filtro-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aula 5 – Correlação, Convolução, Separabilidade e Filtro Box
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aula 5 – Correlação, Convolução, Separabilidade e Filtro Box">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#correlacao-vs-convolucao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correlação vs. Convolução
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kernels-separaveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kernels Separáveis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtro-box-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtro Box (Média)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aula-6-filtro-gaussiano-mediana-e-filtros-passa-altas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aula 6 – Filtro Gaussiano, Mediana e Filtros Passa-Altas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aula 6 – Filtro Gaussiano, Mediana e Filtros Passa-Altas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filtros-passa-baixas-continuacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtros Passa-Baixas (Continuação)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Filtros Passa-Baixas (Continuação)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filtro-gaussiano" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtro Gaussiano
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtro-da-mediana-nao-linear" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtro da Mediana (Não Linear)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtros-passa-altas-derivativos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtros Passa-Altas (Derivativos)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Filtros Passa-Altas (Derivativos)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#laplaciano-2a-ordem-agucamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Laplaciano (2ª Ordem - Aguçamento)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operador-de-gradiente-1a-ordem-sobel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operador de Gradiente (1ª Ordem - Sobel)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../seg-redes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Segurança em Redes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Índice">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Índice
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-processamento-de-imagens-vs-visao-computacional-e-arquitetura-de-sistemas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Processamento de Imagens vs. Visão Computacional e Arquitetura de Sistemas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Processamento de Imagens vs. Visão Computacional e Arquitetura de Sistemas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#o-pipeline-de-hardware-e-software" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O Pipeline de Hardware e Software
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-o-sistema-visual-humano-e-fenomenos-da-percepcao-visual" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. O Sistema Visual Humano e Fenômenos da Percepção Visual
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. O Sistema Visual Humano e Fenômenos da Percepção Visual">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#arquitetura-anatomica-do-olho" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Arquitetura Anatômica do Olho
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fotorreceptores-cones-vs-bastonetes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fotorreceptores: Cones vs. Bastonetes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ilusoes-psicologicas-e-perceptivas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Ilusões Psicológicas e Perceptivas
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-fisica-da-luz-e-modelos-de-cores-rgb-vs-hsi" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Física da Luz e Modelos de Cores: RGB vs. HSI
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Física da Luz e Modelos de Cores: RGB vs. HSI">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#a-fisica-da-luz-visivel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Física da Luz Visível
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#o-modelo-rgb-aditivo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O Modelo RGB Aditivo
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#o-modelo-hsi-hue-saturation-intensity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        O Modelo HSI (Hue, Saturation, Intensity)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-digitalizacao-amostragem-quantizacao-e-representacao-de-imagens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Digitalização: Amostragem, Quantização e Representação de Imagens
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Digitalização: Amostragem, Quantização e Representação de Imagens">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#amostragem-espacial-e-quantizacao-de-intensidade" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amostragem Espacial e Quantização de Intensidade
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#artefatos-de-degradacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Artefatos de Degradação
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#representacao-matematica-em-codigo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Representação Matemática em Código
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#vizinhanca-de-pixel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Vizinhança de Pixel
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#guia-de-revisao-processamento-de-imagens-aulas-16" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Guia de Revisão – Processamento de Imagens (Aulas 1–6)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#como-priorizar" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Como Priorizar
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aula-1-fundamentos-visao-cor-e-representacao-de-imagens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aula 1 – Fundamentos, Visão, Cor e Representação de Imagens
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aula-2-transformacoes-pontuais-intensidade-e-brilho" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aula 2 – Transformações Pontuais (Intensidade e Brilho)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aula-3-cor-limiarizacao-e-histogramas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aula 3 – Cor, Limiarização e Histogramas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aula 3 – Cor, Limiarização e Histogramas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#equalizacao-de-histograma" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Equalização de Histograma
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Equalização de Histograma">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#exemplo-pratico-imagem-64-times-64-3-bits-total-4096-pixels" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exemplo Prático (Imagem \(64 \times 64\), 3 bits, total = 4096 pixels):
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aula-4-reamostragem-e-fundamentos-da-filtragem-espacial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aula 4 – Reamostragem e Fundamentos da Filtragem Espacial
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aula 4 – Reamostragem e Fundamentos da Filtragem Espacial">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#reamostragem-interpolacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reamostragem (Interpolação)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtragem-espacial" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtragem Espacial
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aula-5-correlacao-convolucao-separabilidade-e-filtro-box" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aula 5 – Correlação, Convolução, Separabilidade e Filtro Box
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aula 5 – Correlação, Convolução, Separabilidade e Filtro Box">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#correlacao-vs-convolucao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Correlação vs. Convolução
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#kernels-separaveis" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Kernels Separáveis
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtro-box-media" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtro Box (Média)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aula-6-filtro-gaussiano-mediana-e-filtros-passa-altas" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aula 6 – Filtro Gaussiano, Mediana e Filtros Passa-Altas
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Aula 6 – Filtro Gaussiano, Mediana e Filtros Passa-Altas">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filtros-passa-baixas-continuacao" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtros Passa-Baixas (Continuação)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Filtros Passa-Baixas (Continuação)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#filtro-gaussiano" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtro Gaussiano
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtro-da-mediana-nao-linear" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtro da Mediana (Não Linear)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#filtros-passa-altas-derivativos" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Filtros Passa-Altas (Derivativos)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Filtros Passa-Altas (Derivativos)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#laplaciano-2a-ordem-agucamento" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Laplaciano (2ª Ordem - Aguçamento)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#operador-de-gradiente-1a-ordem-sobel" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Operador de Gradiente (1ª Ordem - Sobel)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="introducao-ao-processamento-de-imagens">Introdução ao Processamento de Imagens</h1>
+<blockquote>
+<p>Você sabia que quando vemos um quadrado cinza sobre um fundo preto, nosso cérebro te engana fazendo-o perceber que ele é visivelmente mais brilhante do que o mesmo quadrado colocado sobre um fundo branco? Ou que antes mesmo que um único sinal visual atinja o córtex visual do seu cérebro, a retina do seu olho já realizou uma filtragem espacial complexa nos raios de luz que atingem a sua fóvea? O processamento digital de imagens preenche a lacuna entre a percepção humana e os algoritmos computacionais, permitindo que as máquinas limpem, transformem e analisem dados visuais.</p>
+</blockquote>
+<hr />
+<p>Nesta lição, exploraremos os princípios fundamentais do processamento de imagens comparando como os humanos percebem a luz visual com a forma como os computadores digitalizam e manipulam imagens. Ao final desta lição, você será capaz de:</p>
+<ul>
+<li>
+<p><strong>Diferenciar</strong> entre Processamento Digital de Imagens e Visão Computacional com base em suas entradas, saídas e objetivos analíticos.</p>
+</li>
+<li>
+<p><strong>Analisar</strong> a mecânica da percepção visual humana, incluindo a funcionalidade dos fotorreceptores (cones vs. bastonetes) e fenômenos perceptivos, como bandas de Mach e contraste simultâneo.</p>
+</li>
+<li>
+<p><strong>Comparar</strong> os modelos de cores RGB e HSI para explicar por que desacoplar a intensidade da informação cromática simplifica o aprimoramento da imagem.</p>
+</li>
+<li>
+<p><strong>Avaliar</strong> os processos matemáticos de amostragem espacial e quantização de intensidade, identificando os artefatos visuais causados pela degradação da resolução.</p>
+</li>
+</ul>
+<hr />
+<h2 id="1-processamento-de-imagens-vs-visao-computacional-e-arquitetura-de-sistemas">1. Processamento de Imagens vs. Visão Computacional e Arquitetura de Sistemas</h2>
+<p>Para construir uma base sólida, precisamos primeiro esclarecer uma fonte comum de confusão: <strong>Qual a diferença entre Processamento Digital de Imagens e Visão Computacional?</strong></p>
+<p>Embora esses campos estejam intimamente interligados, eles desempenham papéis distintos no pipeline da computação visual:</p>
+<ul>
+<li>
+<p><strong>Processamento Digital de Imagens:</strong> Concentra-se em algoritmos onde <strong>a entrada e a saída são imagens</strong>. O objetivo principal é transformar ou melhorar uma imagem para posterior visualização humana ou análise de máquina. Exemplos incluem remover ruído de fundo, afiar bordas borradas, inverter valores de pixels para criar mamografias negativas ou ajustar o contraste geral.</p>
+</li>
+<li>
+<p><strong>Visão Computacional:</strong> Concentra-se em <strong>interpretar</strong> e <strong>compreender</strong> o conteúdo de uma imagem ou vídeo. A entrada é uma imagem visual, mas a saída é informação de alto nível ou metadados. Exemplos incluem detectar pontos de referência faciais, dirigir veículos autônomos identificando obstáculos na estrada ou realizar classificação binária para determinar se uma imagem contém um gato ou um cachorro.</p>
+</li>
+</ul>
+<h3 id="o-pipeline-de-hardware-e-software">O Pipeline de Hardware e Software</h3>
+<p>Como uma cena visual abstrata se transforma em uma matriz digital na tela do seu computador? Um <strong>sistema completo de processamento de imagens</strong> depende de seis componentes principais interconectados:</p>
+<p>1. <strong>Sensores:</strong> Dispositivos físicos que capturam a energia eletromagnética recebida (luz) refletida em uma cena.</p>
+<p>2. <strong>Hardwares especializados:</strong> Módulos de hardware dedicados que lidam com conversão analógico-digital, captura rápida de quadros e supressão preliminar de ruído em nível de hardware.</p>
+<p>3. <strong>Computador:</strong> O mecanismo de processamento, que vai de computadores pessoais a servidores distribuídos em nuvem, executa a lógica algorítmica.</p>
+<p>4. <strong>Software:</strong> Bibliotecas de desenvolvimento, como OpenCV, NumPy e Matplotlib em Python, que realizam operações matemáticas em matrizes de imagens.</p>
+<p>5. <strong>Armazenamento em massa e memória:</strong> Infraestrutura de armazenamento de alta capacidade necessária para lidar com matrizes massivas de pixels não compactados.</p>
+<p>6. <strong>Exibições e dispositivos de saída:</strong> Monitores de alta resolução ou sistemas de impressão calibrados para exibir resultados visuais a observadores humanos.</p>
+<p>Crucialmente, o aprimoramento da imagem é subjetivo e dependente do contexto. O que conta como uma imagem <strong>melhorada</strong> depende inteiramente de quem ou do que está consumindo a saída final. Na mamografia digital, o aprimoramento significa aumentar o contraste em torno das microcalcificações para que um radiologista possa detectar lesões precoces; na fotografia de consumo, pode significar simplesmente fazer com que o azul do céu pareça mais vívido.</p>
+<hr />
+<h2 id="2-o-sistema-visual-humano-e-fenomenos-da-percepcao-visual">2. O Sistema Visual Humano e Fenômenos da Percepção Visual</h2>
+<p>Como as imagens digitais são, em última análise, projetadas para o consumo humano, algoritmos eficazes de processamento de imagens devem levar em conta a mecânica biológica da visão humana.</p>
+<h3 id="arquitetura-anatomica-do-olho">Arquitetura Anatômica do Olho</h3>
+<p>A luz entra no olho humano através da córnea e passa pela pupila, uma abertura cujo diâmetro é expandido ou contraído dinamicamente pela íris. O cristalino em seguida refrata os raios de luz incidentes, concentrando-os na retina na parte de trás do globo ocular. A maior concentração de nitidez visual ocorre em uma pequena região especializada da retina chamada <strong>fóvea</strong>.</p>
+<h3 id="fotorreceptores-cones-vs-bastonetes">Fotorreceptores: Cones vs. Bastonetes</h3>
+<p>A retina contém dois tipos distintos de células fotorreceptoras que convertem energia luminosa em sinais neurais elétricos:</p>
+<ul>
+<li>
+<p><strong>Cones (Visão fotópica):</strong> Funcionam em luz brilhante, mediam a visão de cores e fornecem alta acuidade espacial porque cada cone se conecta individualmente à sua própria terminação nervosa dedicada.</p>
+</li>
+<li>
+<p><strong>Bastonetes (Visão escotópica):</strong> Lidam com visão em pouca luz e percepção periférica. Eles não conseguem distinguir cores e fornecem detalhes espaciais muito menores porque vários bastonetes compartilham uma única fibra nervosa.</p>
+</li>
+</ul>
+<p>Antes que os sinais viajem pelo nervo óptico para o córtex visual no cérebro, os neurônios locais (células bipolares e ganglionares) realizam a integração preliminar do sinal e a filtragem diretamente na retina.</p>
+<h3 id="ilusoes-psicologicas-e-perceptivas">Ilusões Psicológicas e Perceptivas</h3>
+<p>Como a visão humana depende do processamento neural em vez de simples medidores de luz, nosso sistema visual é suscetível a distorções perceptivas previsíveis:</p>
+<ul>
+<li>
+<p><strong>Adaptação de brilho logarítmico:</strong> O olho humano se adapta a uma vasta gama de intensidades de luz, mas nossa percepção de brilho (<span class="arithmatex">\(B\)</span>) é logarítmica e não linear em relação à energia luminosa incidente. Abaixo de um certo limite de adaptação (<span class="arithmatex">\(B_b\)</span>), todos os estímulos escuros são percebidos como pretos indistinguíveis.</p>
+</li>
+<li>
+<p><strong>Bandas de Mach:</strong> Ao visualizar barras verticais adjacentes de cinza uniforme com aumento gradual da intensidade, o sistema visual humano exagera o brilho nos limites. Isso cria faixas brilhantes e escuras percebidas ao longo das bordas, demonstrando que nossos olhos melhoram ativamente o contraste das bordas.</p>
+</li>
+<li>
+<p><strong>Contraste simultâneo:</strong> O brilho percebido de um objeto é fortemente influenciado pelo seu fundo. Um quadrado cinza médio fixo parece significativamente mais claro quando cercado por um fundo escuro e mais escuro quando colocado sobre um fundo brilhante.</p>
+</li>
+</ul>
+<hr />
+<h2 id="3-fisica-da-luz-e-modelos-de-cores-rgb-vs-hsi">3. Física da Luz e Modelos de Cores: RGB vs. HSI</h2>
+<p>Compreender as cores requer combinar a mecânica física das ondas com a percepção visual.</p>
+<h3 id="a-fisica-da-luz-visivel">A Física da Luz Visível</h3>
+<p>A luz visível é a radiação eletromagnética dentro de uma estreita faixa de comprimento de onda, entre aproximadamente <span class="arithmatex">\(430\text{ nm}\)</span> e <span class="arithmatex">\(790\text{ nm}\)</span>. A luz exibe dualidade onda-partícula:</p>
+<ul>
+<li>
+<p>As <strong>propriedades ondulatórias</strong> explicam comportamentos físicos como reflexão, refração e interferência.</p>
+</li>
+<li>
+<p>As <strong>propriedades corpusculares</strong> explicam a quantização da energia dos fótons através da equação de Planck:</p>
+</li>
+</ul>
+<div class="arithmatex">\[E = h \cdot \nu\]</div>
+<p>onde <span class="arithmatex">\(h = 6{,}63 \times 10^{-34} \text{ m}^2\text{kg/s}\)</span> (constante de Planck) e <span class="arithmatex">\(\nu\)</span> é a frequência, relacionada à velocidade da onda <span class="arithmatex">\(c \approx 2{,}998 \times 10^8 \text{ m/s}\)</span> por <span class="arithmatex">\(c = \lambda \cdot \nu\)</span>.</p>
+<p>A <strong>luz branca</strong> consiste em uma mistura equilibrada de todos os comprimentos de onda visíveis. Quando a luz atinge um objeto, os comprimentos de onda refletidos determinam a cor percebida do objeto. Se um objeto reflete a luz uniformemente em todos os comprimentos de onda, ele aparece <strong>acromático</strong> (branco, cinza ou preto, dependendo da intensidade refletida).</p>
+<p>A visão humana das cores depende de três tipos distintos de cones sensíveis a ondas curtas, médias e longas:</p>
+<ul>
+<li>
+<p><strong>Cones S:</strong> \~2% dos cones (sensíveis ao azul)</p>
+</li>
+<li>
+<p><strong>Cones M:</strong> \~33% dos cones (sensíveis ao verde)</p>
+</li>
+<li>
+<p><strong>Cones L:</strong> \~65% dos cones (sensíveis ao vermelho)</p>
+</li>
+</ul>
+<p>Mesmo que os cones S estejam em menor número, eles exibem a maior sensibilidade.</p>
+<h3 id="o-modelo-rgb-aditivo">O Modelo RGB Aditivo</h3>
+<p>Os computadores modelam a mistura de aditivos primários coloridos usando o modelo de cores RGB, que representa cores dentro de um cubo cartesiano 3D:</p>
+<ul>
+<li>
+<p>Os eixos primários representam <strong>Vermelho (R)</strong>, <strong>Verde (G)</strong> e <strong>Azul (B)</strong> normalizados de <span class="arithmatex">\(0{,}0\)</span> a <span class="arithmatex">\(1{,}0\)</span> (ou inteiros de <span class="arithmatex">\(0\)</span> a <span class="arithmatex">\(255\)</span>).</p>
+</li>
+<li>
+<p>A origem <span class="arithmatex">\((0, 0, 0)\)</span> representa o preto.</p>
+</li>
+<li>
+<p>O vértice oposto <span class="arithmatex">\((1, 1, 1)\)</span> representa o branco.</p>
+</li>
+<li>
+<p>As cores secundárias ficam nos vértices restantes: <strong>Ciano</strong> <span class="arithmatex">\((0, 1, 1)\)</span>, <strong>Magenta</strong> <span class="arithmatex">\((1, 0, 1)\)</span> e <strong>Amarelo</strong> <span class="arithmatex">\((1, 1, 0)\)</span>.</p>
+</li>
+<li>
+<p>A linha diagonal reta que conecta o preto ao branco representa o <strong>espectro em escala de cinza</strong>.</p>
+</li>
+</ul>
+<h3 id="o-modelo-hsi-hue-saturation-intensity">O Modelo HSI (Hue, Saturation, Intensity)</h3>
+<p>Embora o RGB seja ótimo para hardware de exibição, ele não é intuitivo para interpretação humana. Não descrevemos um carro vermelho especificando porcentagens de luz vermelha, verde e azul; descrevemos sua tonalidade, saturação e brilho. O modelo de cores HSI resolve isso desacoplando a intensidade do conteúdo cromático:</p>
+<ul>
+<li>
+<p><strong>Matiz (<span class="arithmatex">\(H\)</span> - Hue):</strong> Descreve o tom da cor pura (um ângulo que representa vermelho, amarelo, verde, ciano, azul ou magenta).</p>
+</li>
+<li>
+<p><strong>Saturação (<span class="arithmatex">\(S\)</span> - Saturation):</strong> Mede a pureza da cor ou a quantidade de luz branca que dilui o tom puro.</p>
+</li>
+<li>
+<p><strong>Intensidade (<span class="arithmatex">\(I\)</span> - Intensity):</strong> A medida acromática do brilho geral.</p>
+</li>
+</ul>
+<hr />
+<h2 id="4-digitalizacao-amostragem-quantizacao-e-representacao-de-imagens">4. Digitalização: Amostragem, Quantização e Representação de Imagens</h2>
+<p>Para processar uma cena física e contínua em um computador, devemos converter sinais ópticos contínuos em uma matriz matemática discreta.</p>
+<h3 id="amostragem-espacial-e-quantizacao-de-intensidade">Amostragem Espacial e Quantização de Intensidade</h3>
+<p>A digitalização envolve duas operações fundamentais:</p>
+<p>1. <strong>Amostragem:</strong> Discretiza as coordenadas espaciais contínuas <span class="arithmatex">\((x, y)\)</span> de uma cena em uma grade regular de pontos discretos chamados <strong>pixels</strong>. A amostragem determina a resolução espacial da imagem (por exemplo, <span class="arithmatex">\(1920 \times 1080\)</span> pixels).</p>
+<p>2. <strong>Quantização:</strong> Discretiza os valores contínuos de intensidade luminosa (amplitude) em cada pixel em um conjunto finito de níveis discretos. A quantização determina a resolução de intensidade ou profundidade de bits (por exemplo, a quantização de 8 bits produz <span class="arithmatex">\(2^8 = 256\)</span> níveis de cinza variando de <span class="arithmatex">\(0\)</span> a <span class="arithmatex">\(255\)</span>).</p>
+<h3 id="artefatos-de-degradacao">Artefatos de Degradação</h3>
+<p>O que acontece quando a taxa de amostragem ou os níveis de quantização são reduzidos em excesso?</p>
+<ul>
+<li>
+<p><strong>Resolução espacial reduzida:</strong> Causa serrilhamento espacial (<strong>aliasing</strong>), bordas irregulares em forma de "dente de serra" em curvas e diagonais, perda de detalhes finos de textura e pixelização perceptível quando ampliada por interpolação do vizinho mais próximo.</p>
+</li>
+<li>
+<p><strong>Quantização de intensidade reduzida:</strong> Causa contornos falsos, limites abruptos e não naturais em gradientes suaves (como céus ou tons de pele) porque o sistema não possui níveis de intensidade intermediários suficientes para renderizar transições contínuas.</p>
+</li>
+</ul>
+<h3 id="representacao-matematica-em-codigo">Representação Matemática em Código</h3>
+<p>Matematicamente, uma imagem acromática 2D (monocromática/escala de cinza) é representada como uma função matricial escalar <span class="arithmatex">\(f(x, y)\)</span>, onde <span class="arithmatex">\(x\)</span> representa o índice da linha e <span class="arithmatex">\(y\)</span> o índice da coluna, retornando um único valor de nível de cinza.</p>
+<p>Uma imagem colorida (RGB) é representada matematicamente como uma função vetorial:</p>
+<div class="arithmatex">\[f(x, y) = \big(f_r(x, y), \\, f_g(x, y), \\, f_b(x, y)\big)\]</div>
+<p>Em código (como Python com NumPy e OpenCV), isso corresponde a uma matriz tensorial 3D de formato `(altura, largura, 3)`.</p>
+<h3 id="vizinhanca-de-pixel">Vizinhança de Pixel</h3>
+<p>Ao aplicar filtros espaciais (como suavização, nitidez ou detecção de bordas), os algoritmos operam em um pixel <span class="arithmatex">\(p\)</span> nas coordenadas <span class="arithmatex">\((x, y)\)</span> utilizando seus vizinhos espaciais circundantes:</p>
+<ul>
+<li>
+<p><strong>4-vizinhos (<span class="arithmatex">\(N_4(p)\)</span>):</strong> Os 4 pixels ortogonais que compartilham uma aresta: <span class="arithmatex">\((x+1, y)\)</span>, <span class="arithmatex">\((x-1, y)\)</span>, <span class="arithmatex">\((x, y+1)\)</span> e <span class="arithmatex">\((x, y-1)\)</span>.</p>
+</li>
+<li>
+<p><strong>Vizinhos diagonais (<span class="arithmatex">\(N_d(p)\)</span>):</strong> Os 4 pixels nos cantos que se tocam diagonalmente: <span class="arithmatex">\((x+1, y+1)\)</span>, <span class="arithmatex">\((x+1, y-1)\)</span>, <span class="arithmatex">\((x-1, y+1)\)</span> e <span class="arithmatex">\((x-1, y-1)\)</span>.</p>
+</li>
+<li>
+<p><strong>8-vizinhos (<span class="arithmatex">\(N_8(p)\)</span>):</strong> A união de <span class="arithmatex">\(N_4(p)\)</span> e <span class="arithmatex">\(N_d(p)\)</span>, formando a vizinhança completa <span class="arithmatex">\(3 \times 3\)</span>, totalizando 8 pixels circundantes.</p>
+</li>
+</ul>
+<hr />
+<h2 id="guia-de-revisao-processamento-de-imagens-aulas-16">Guia de Revisão – Processamento de Imagens (Aulas 1–6)</h2>
+<p><strong>12 de outubro de 2026</strong></p>
+<h2 id="como-priorizar">Como Priorizar</h2>
+<p>Foque em entender, para cada técnica: <strong>o objetivo, como funciona, quando usar e como interpretar o resultado.</strong> Os Capítulos 3 e 6 do <strong>Gonzalez &amp; Woods</strong> cobrem as Aulas 2 a 6 (transformações de intensidade, histogramas, filtragem espacial) e a parte de cores (Aula 1 e tonalidade de imagens coloridas). Os slides e o cronograma são o guia principal; o livro é o complemento.</p>
+<table>
+<thead>
+<tr>
+<th>Nível</th>
+<th>O que estudar</th>
+<th>Onde</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Prioridade Alta</strong></td>
+<td>Transformações pontuais (negativo, brilho, log, exponencial, gamma, lineares por partes), limiarização, histograma e equalização, reamostragem (vizinho mais próximo e bilinear), filtragem espacial linear (correlação, convolução, padding, separabilidade), filtros box, gaussiano, mediana, laplaciano, gradiente/Sobel.</td>
+<td>Aulas 2 a 6</td>
+</tr>
+<tr>
+<td><strong>Entender sem decorar</strong></td>
+<td>Modelo HSI: o que são H, S e I, por que separar intensidade de cor e quando usar. <strong>Não</strong> memorizar as equações de conversão RGB <span class="arithmatex">\(\leftrightarrow\)</span> HSI.</td>
+<td>Aulas 1 e 2</td>
+</tr>
+<tr>
+<td><strong>Menor aprofundamento</strong></td>
+<td>Especificação de histogramas.</td>
+<td>Aula 3</td>
+</tr>
+<tr>
+<td><strong>Contexto</strong></td>
+<td>Sistema visual humano, espectro eletromagnético, sensores, bibliotecas (NumPy, Matplotlib, OpenCV).</td>
+<td>Aula 1</td>
+</tr>
+</tbody>
+</table>
+<p>Revise também os exercícios resolvidos em aula:</p>
+<ul>
+<li>Tabela de equalização (imagem <span class="arithmatex">\(64 \times 64\)</span> com 3 bits).</li>
+<li>Filtragem com o kernel de Sobel.</li>
+<li>Correlação vs. Convolução (<span class="arithmatex">\(285\)</span> vs. <span class="arithmatex">\(165\)</span>).</li>
+<li>Decomposição de kernel separável.</li>
+<li>Filtro da mediana <span class="arithmatex">\(3 \times 3\)</span>.</li>
+</ul>
+<hr />
+<h2 id="aula-1-fundamentos-visao-cor-e-representacao-de-imagens">Aula 1 – Fundamentos, Visão, Cor e Representação de Imagens</h2>
+<p><strong>Aula de contexto: focar no vocabulário e na base conceitual.</strong></p>
+<ul>
+<li>
+<p><strong>Processamento de imagens vs. Visão computacional:</strong> Processamento recebe imagem e devolve imagem (contraste, ruído, bordas). Visão computacional interpreta o conteúdo (detectar faces, classificar gato/cachorro).</p>
+</li>
+<li>
+<p><strong>Sistema visual humano:</strong> Cones (6–7 milhões, cor, visão fotópica, concentrados na fóvea) vs. Bastonetes (75–150 milhões, sem cor, visão periférica e escotópica). O brilho percebido é uma função logarítmica da intensidade, justificando as transformações logarítmicas e gamma.</p>
+</li>
+<li>
+<p><strong>Ilusões relevantes para realce:</strong> Bandas de Mach (o olho exagera diferenças perto de bordas) e contraste simultâneo (o brilho percebido depende do fundo). Por isso, a avaliação do realce é subjetiva.</p>
+</li>
+<li>
+<p><strong>Cor:</strong> A percepção de cor vem da ativação relativa de 3 tipos de cones (L \~65%, M \~33%, S \~2%), definindo R, G, B como cores primárias.</p>
+</li>
+<li>
+<p><strong>Modelo RGB:</strong> Cubo cartesiano com preto em <span class="arithmatex">\((0,0,0)\)</span>, branco em <span class="arithmatex">\((1,1,1)\)</span> e escala de cinza na diagonal principal. Ciano, magenta e amarelo são as cores secundárias.</p>
+</li>
+<li>
+<p><strong>Modelo HSI:</strong> Matiz (<span class="arithmatex">\(H\)</span>), Saturação (<span class="arithmatex">\(S\)</span>) e Intensidade (<span class="arithmatex">\(I\)</span>). Sua principal utilidade é <strong>desacoplar a intensidade da cor</strong>, permitindo alterar brilho e contraste sem distorcer os tons.</p>
+</li>
+<li>
+<p><strong>Amostragem vs. Quantização:</strong> Amostragem discretiza o espaço (resolução espacial, grade de pixels); quantização discretiza a intensidade (profundidade de bits). Reduzir a primeira causa pixelização; reduzir a segunda gera falsos contornos.</p>
+</li>
+<li>
+<p><strong>Vizinhança de pixel:</strong> 4-vizinhos, vizinhos diagonais (<span class="arithmatex">\(d\)</span>) e 8-vizinhos.</p>
+</li>
+<li>
+<p><strong>Ferramentas:</strong> NumPy (manipulação de matrizes), Matplotlib (exibição) e OpenCV (leitura e processamento).</p>
+</li>
+</ul>
+<hr />
+<h2 id="aula-2-transformacoes-pontuais-intensidade-e-brilho">Aula 2 – Transformações Pontuais (Intensidade e Brilho)</h2>
+<p><strong>Ideia central:</strong> No domínio espacial, cada pixel de saída depende exclusivamente do pixel de entrada na mesma posição:</p>
+<div class="arithmatex">\[g(x,y) = T[f(x,y)] \quad\Longleftrightarrow\quad s = T(r)\]</div>
+<p>O objetivo é o <strong>melhoramento para visualização</strong> (subjetivo e dependente da aplicação).</p>
+<table>
+<thead>
+<tr>
+<th>Técnica</th>
+<th>Como funciona</th>
+<th>Quando usar / Interpretação</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Negativo</strong></td>
+<td><span class="arithmatex">\(s = 255 - r\)</span>. Em RGB, aplica-se a cada canal (vermelho <span class="arithmatex">\(\leftrightarrow\)</span> ciano, azul <span class="arithmatex">\(\leftrightarrow\)</span> amarelo, verde <span class="arithmatex">\(\leftrightarrow\)</span> magenta).</td>
+<td>Realçar detalhes claros em regiões predominantemente escuras.</td>
+</tr>
+<tr>
+<td><strong>Brilho (Soma/Subtração)</strong></td>
+<td><span class="arithmatex">\(s = r \pm c\)</span></td>
+<td>Mantém a diferença absoluta entre pixels. Em RGB, pode alterar a tonalidade das cores.</td>
+</tr>
+<tr>
+<td><strong>Brilho (Multiplicação)</strong></td>
+<td><span class="arithmatex">\(s = c \cdot r\)</span></td>
+<td>Amplia a diferença proporcional. Em RGB, preserva as relações de cor.</td>
+</tr>
+<tr>
+<td><strong>Brilho em HSI</strong></td>
+<td>Altera apenas o canal <span class="arithmatex">\(I\)</span>.</td>
+<td>Preserva matiz (<span class="arithmatex">\(H\)</span>) e saturação (<span class="arithmatex">\(S\)</span>), evitando distorção de cor.</td>
+</tr>
+<tr>
+<td><strong>Logarítmica</strong></td>
+<td><span class="arithmatex">\(s = c \cdot \log(1 + r)\)</span></td>
+<td>Expande tons escuros e comprime tons claros (clareia imagens <strong>escuras</strong>).</td>
+</tr>
+<tr>
+<td><strong>Exponencial</strong></td>
+<td><span class="arithmatex">\(s = c \cdot r^\gamma\)</span> (com <span class="arithmatex">\(\gamma &gt; 1\)</span>)</td>
+<td>Comprime tons escuros e expande claros (escurece imagens <strong>claras</strong>).</td>
+</tr>
+<tr>
+<td><strong>Gamma</strong></td>
+<td><span class="arithmatex">\(s = c \cdot r^\gamma\)</span></td>
+<td><span class="arithmatex">\(\gamma &lt; 1\)</span> clareia (efeito log); <span class="arithmatex">\(\gamma &gt; 1\)</span> escurece (efeito exponencial).</td>
+</tr>
+<tr>
+<td><strong>Linear por partes</strong></td>
+<td>Combina trechos lineares mapeados por pontos <span class="arithmatex">\((r_1, s_1), (r_2, s_2)\)</span>.</td>
+<td>Expande o contraste em uma faixa específica e comprime no restante.</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Leitura do gráfico <span class="arithmatex">\(T(r)\)</span>:</strong> Curva <strong>acima</strong> da diagonal clareia a imagem; <strong>abaixo</strong> escurece. Trecho com <strong>inclinação <span class="arithmatex">\(&gt; 1\)</span></strong> aumenta o contraste naquela faixa; <strong>inclinação <span class="arithmatex">\(&lt; 1\)</span></strong> reduz.</p>
+</blockquote>
+<p><strong>Exercício da aula (Alargamento de contraste):</strong> Mapear <span class="arithmatex">\([r_{\min}, r_{\max}]\)</span> para <span class="arithmatex">\([0, 255]\)</span> através de uma reta:</p>
+<div class="arithmatex">\[s = \frac{255}{r_{\max} - r_{\min}} \cdot (r - r_{\min})\]</div>
+<hr />
+<h2 id="aula-3-cor-limiarizacao-e-histogramas">Aula 3 – Cor, Limiarização e Histogramas</h2>
+<ul>
+<li>
+<p><strong>Correções tonais em imagens coloridas:</strong> Para ajustar brilho/contraste preservando as cores, em RGB deve-se aplicar a <strong>mesma transformação nos três canais</strong>; em HSI, modifica-se <strong>apenas o canal <span class="arithmatex">\(I\)</span></strong>.</p>
+</li>
+<li>
+<p><strong>Limiarização de intensidade:</strong></p>
+</li>
+<li>
+<p><strong>Binária:</strong> Transforma uma faixa de interesse em branco e o restante em preto.</p>
+</li>
+<li>
+<p><strong>Não-binária:</strong> Altera apenas a faixa de interesse e preserva os demais níveis de cinza.</p>
+</li>
+<li>
+<p><strong>Limiarização de cor:</strong> Define uma região no espaço RGB delimitada por um <strong>cubo</strong> (largura <span class="arithmatex">\(W\)</span>) ou <strong>esfera</strong> (raio <span class="arithmatex">\(R\)</span> via distância euclidiana).</p>
+</li>
+<li>
+<p><strong>Histograma:</strong> Contagem da frequência de pixels por nível de intensidade. A versão normalizada representa a PMF: <span class="arithmatex">\(p(r_k) = \frac{n_k}{M \cdot N}\)</span>.</p>
+</li>
+<li>
+<p><strong>Imagem escura:</strong> Histograma deslocado para a esquerda.</p>
+</li>
+<li>
+<p><strong>Imagem clara:</strong> Histograma deslocado para a direita.</p>
+</li>
+<li>
+<p><strong>Baixo contraste:</strong> Histograma concentrado/estreito.</p>
+</li>
+<li>
+<p><strong>Alto contraste:</strong> Histograma bem distribuído e aproximadamente uniforme.</p>
+</li>
+</ul>
+<h3 id="equalizacao-de-histograma">Equalização de Histograma</h3>
+<p>Aumenta o contraste distribuindo os níveis de intensidade de forma aproximadamente uniforme usando a CDF escalada:</p>
+<div class="arithmatex">\[s_k = T(r_k) = (L-1) \sum_{j=0}^{k} p_r(r_j)\]</div>
+<p><strong>Passo a passo do cálculo:</strong></p>
+<p>1. Calcular <span class="arithmatex">\(p(r_k) = \frac{n_k}{\text{total}}\)</span>.</p>
+<p>2. Acumular os valores (CDF).</p>
+<p>3. Multiplicar por <span class="arithmatex">\(L-1\)</span> (para 3 bits, <span class="arithmatex">\(L-1 = 7\)</span>).</p>
+<p>4. Arredondar para o inteiro mais próximo.</p>
+<h4 id="exemplo-pratico-imagem-64-times-64-3-bits-total-4096-pixels">Exemplo Prático (Imagem <span class="arithmatex">\(64 \times 64\)</span>, 3 bits, total = 4096 pixels):</h4>
+<table>
+<thead>
+<tr>
+<th><span class="arithmatex">\(r\)</span></th>
+<th><span class="arithmatex">\(n_r\)</span></th>
+<th><span class="arithmatex">\(p(r)\)</span></th>
+<th>CDF</th>
+<th><span class="arithmatex">\(7 \times \text{CDF}\)</span></th>
+<th>Nível Arredondado</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>0</strong></td>
+<td>790</td>
+<td>0,19</td>
+<td>0,19</td>
+<td>1,33</td>
+<td><strong>1</strong></td>
+</tr>
+<tr>
+<td><strong>1</strong></td>
+<td>1023</td>
+<td>0,25</td>
+<td>0,44</td>
+<td>3,08</td>
+<td><strong>3</strong></td>
+</tr>
+<tr>
+<td><strong>2</strong></td>
+<td>850</td>
+<td>0,21</td>
+<td>0,65</td>
+<td>4,55</td>
+<td><strong>5</strong></td>
+</tr>
+<tr>
+<td><strong>3</strong></td>
+<td>656</td>
+<td>0,16</td>
+<td>0,81</td>
+<td>5,67</td>
+<td><strong>6</strong></td>
+</tr>
+<tr>
+<td><strong>4</strong></td>
+<td>329</td>
+<td>0,08</td>
+<td>0,89</td>
+<td>6,23</td>
+<td><strong>6</strong></td>
+</tr>
+<tr>
+<td><strong>5</strong></td>
+<td>245</td>
+<td>0,06</td>
+<td>0,95</td>
+<td>6,65</td>
+<td><strong>7</strong></td>
+</tr>
+<tr>
+<td><strong>6</strong></td>
+<td>122</td>
+<td>0,03</td>
+<td>0,98</td>
+<td>6,86</td>
+<td><strong>7</strong></td>
+</tr>
+<tr>
+<td><strong>7</strong></td>
+<td>81</td>
+<td>0,02</td>
+<td>1,00</td>
+<td>7,00</td>
+<td><strong>7</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Interpretação:</strong> Níveis adjacentes podem se fundir (ex: <span class="arithmatex">\(3\)</span> e <span class="arithmatex">\(4\)</span> viram <span class="arithmatex">\(6\)</span>). Em dados discretos, o resultado não fica perfeitamente plano, mas sim melhor distribuído.</p>
+<ul>
+<li>
+<p><strong>Equalização em cores:</strong> Converter para HSI, equalizar apenas o canal <span class="arithmatex">\(I\)</span> e reconstruir o RGB.</p>
+</li>
+<li>
+<p><strong>Equalização localizada:</strong> Processa vizinhanças locais (<span class="arithmatex">\(5 \times 5\)</span>, <span class="arithmatex">\(11 \times 11\)</span>) usando janelas deslizantes para preservar detalhes em regiões menores.</p>
+</li>
+</ul>
+<hr />
+<h2 id="aula-4-reamostragem-e-fundamentos-da-filtragem-espacial">Aula 4 – Reamostragem e Fundamentos da Filtragem Espacial</h2>
+<h3 id="reamostragem-interpolacao">Reamostragem (Interpolação)</h3>
+<p>Processo de alterar a dimensão da imagem (zoom, redução ou transformações geométricas).</p>
+<table>
+<thead>
+<tr>
+<th>Método</th>
+<th>Funcionamento</th>
+<th>Vantagens e Desvantagens</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Vizinho Mais Próximo</strong></td>
+<td>Copia o valor do pixel mais próximo da coordenada mapeada.</td>
+<td>Rápido e simples; gera serrilhamento (<strong>aliasing</strong>) e pixelização.</td>
+</tr>
+<tr>
+<td><strong>Bilinear</strong></td>
+<td>Média ponderada dos 4 vizinhos mais próximos.</td>
+<td>Transições suaves e boa qualidade; causa leve borramento.</td>
+</tr>
+<tr>
+<td><strong>Bicúbica</strong></td>
+<td>Utiliza uma janela de 16 vizinhos.</td>
+<td>Maior precisão e nitidez; maior custo computacional (`INTER_CUBIC`).</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Equação da Interpolação Bilinear:</strong></p>
+<p>Com <span class="arithmatex">\(a = r_m - r_0\)</span> e <span class="arithmatex">\(b = c_m - c_0\)</span> (deslocamentos fracionários):</p>
+<div class="arithmatex">\[J = (1-a)(1-b)I_{00} + (1-a)b I_{01} + a(1-b)I_{10} + ab I_{11}\]</div>
+<h3 id="filtragem-espacial">Filtragem Espacial</h3>
+<p>Substitui o valor de um pixel por uma função calculada sobre sua vizinhança.</p>
+<ul>
+<li>
+<p><strong>Filtros Passa-Baixas:</strong> Suavizam/borram a imagem; atenuam altas frequências (ruído e bordas).</p>
+</li>
+<li>
+<p><strong>Filtros Passa-Altas:</strong> Destacam variações abruptas (bordas e detalhes).</p>
+</li>
+<li>
+<p><strong>Tratamento de Bordas (Padding):</strong> Zero padding, replicação de borda (<strong>replicate</strong>), espelhamento (<strong>reflect</strong>) e valor constante.</p>
+</li>
+</ul>
+<hr />
+<h2 id="aula-5-correlacao-convolucao-separabilidade-e-filtro-box">Aula 5 – Correlação, Convolução, Separabilidade e Filtro Box</h2>
+<h3 id="correlacao-vs-convolucao">Correlação vs. Convolução</h3>
+<ul>
+<li>
+<p><strong>Correlação:</strong> Deslocamento do kernel sobre a imagem multiplicando e somando os elementos correspondentes.</p>
+</li>
+<li>
+<p><strong>Convolução:</strong> Idêntica à correlação, porém com o kernel <strong>rotacionado em 180°</strong>.</p>
+</li>
+<li>
+<p><strong>Kernels Simétricos:</strong> A correlação e a convolução produzem resultados idênticos (ex: Box, Gaussiano).</p>
+</li>
+</ul>
+<blockquote>
+<p><strong>Propriedade fundamental:</strong> A resposta ao impulso de uma convolução gera uma cópia idêntica do kernel na posição do impulso; na correlação, gera uma cópia rotacionada.</p>
+</blockquote>
+<h3 id="kernels-separaveis">Kernels Separáveis</h3>
+<p>Um kernel <span class="arithmatex">\(W\)</span> de dimensões <span class="arithmatex">\(m \times n\)</span> é separável se puder ser decomposto no produto de um vetor coluna por um vetor linha:</p>
+<div class="arithmatex">\[W = v_1 \cdot v_2^T\]</div>
+<p>Isso reduz a complexidade computacional de <span class="arithmatex">\(m \cdot n\)</span> operações por pixel para <span class="arithmatex">\(m + n\)</span>.</p>
+<h3 id="filtro-box-media">Filtro Box (Média)</h3>
+<p>Kernel com todos os coeficientes iguais a <span class="arithmatex">\(1\)</span>, normalizado pela soma (ex: <span class="arithmatex">\(1/9\)</span> em um kernel <span class="arithmatex">\(3 \times 3\)</span>).</p>
+<ul>
+<li>
+<p>Aumentar o tamanho da janela aumenta o borramento e reduz detalhes finos.</p>
+</li>
+<li>
+<p>Apresenta limitações direcionais (favorece eixos horizontais/verticais).</p>
+</li>
+</ul>
+<hr />
+<h2 id="aula-6-filtro-gaussiano-mediana-e-filtros-passa-altas">Aula 6 – Filtro Gaussiano, Mediana e Filtros Passa-Altas</h2>
+<h3 id="filtros-passa-baixas-continuacao">Filtros Passa-Baixas (Continuação)</h3>
+<h4 id="filtro-gaussiano">Filtro Gaussiano</h4>
+<p>Média ponderada baseada em uma distribuição normal 2D centrada:</p>
+<div class="arithmatex">\[G(x,y) = K \cdot e^{-\frac{x^2+y^2}{2\sigma^2}}\]</div>
+<ul>
+<li>
+<p><span class="arithmatex">\(\sigma\)</span> (desvio padrão) controla o grau de suavização.</p>
+</li>
+<li>
+<p>Regra prática para o tamanho da janela: <span class="arithmatex">\(N = \lceil 6\sigma \rceil\)</span>.</p>
+</li>
+<li>
+<p>É <strong>separável</strong>, <strong>circularmente simétrico</strong> e suaviza a imagem de forma mais natural que o filtro Box.</p>
+</li>
+</ul>
+<h4 id="filtro-da-mediana-nao-linear">Filtro da Mediana (Não Linear)</h4>
+<p>Substitui o pixel central pelo valor mediano da vizinhança ordenada.</p>
+<ul>
+<li>
+<p><strong>Aplicação principal:</strong> Remoção de ruído do tipo "sal e pimenta" (impulsivo).</p>
+</li>
+<li>
+<p>Preserva bordas com muito mais precisão do que os filtros de média e Gaussiano.</p>
+</li>
+</ul>
+<hr />
+<h3 id="filtros-passa-altas-derivativos">Filtros Passa-Altas (Derivativos)</h3>
+<table>
+<thead>
+<tr>
+<th>Propriedade</th>
+<th>1ª Derivada</th>
+<th>2ª Derivada</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Expressão Discreta</strong></td>
+<td><span class="arithmatex">\(f(x+1) - f(x)\)</span></td>
+<td><span class="arithmatex">\(f(x+1) + f(x-1) - 2f(x)\)</span></td>
+</tr>
+<tr>
+<td><strong>Região Constante</strong></td>
+<td>Zero</td>
+<td>Zero</td>
+</tr>
+<tr>
+<td><strong>Rampa de Intensidade</strong></td>
+<td>Valor constante não-zero longo da rampa</td>
+<td>Responde apenas no início e no fim da rampa</td>
+</tr>
+<tr>
+<td><strong>Característica Visual</strong></td>
+<td>Produz bordas mais largas</td>
+<td>Destaca detalhes finos; mais sensível ao ruído</td>
+</tr>
+</tbody>
+</table>
+<h4 id="laplaciano-2a-ordem-agucamento">Laplaciano (2ª Ordem - Aguçamento)</h4>
+<p>Operador isotrópico definido pela soma das segundas derivadas:</p>
+<div class="arithmatex">\[\nabla^2 f = f(x+1,y) + f(x-1,y) + f(x,y+1) + f(x,y-1) - 4f(x,y)\]</div>
+<p>Para aguçar uma imagem usando o Laplaciano:</p>
+<div class="arithmatex">\[g(x,y) = f(x,y) + c \cdot \nabla^2 f(x,y)\]</div>
+<p><strong>(onde <span class="arithmatex">\(c = -1\)</span> se o elemento central do kernel for negativo, e <span class="arithmatex">\(c = +1\)</span> se for positivo).</strong></p>
+<h4 id="operador-de-gradiente-1a-ordem-sobel">Operador de Gradiente (1ª Ordem - Sobel)</h4>
+<p>Mede a variação espacial de intensidade por meio da magnitude do vetor gradiente:</p>
+<div class="arithmatex">\[M(x,y) = \sqrt{g_x^2 + g_y^2} \approx \vert{}g_x\vert{} + \vert{}g_y\vert{}\]</div>
+<ul>
+<li>O operador <strong>Sobel</strong> utiliza máscaras <span class="arithmatex">\(3 \times 3\)</span> com ponderação central para aproximar as derivadas parciais <span class="arithmatex">\(g_x\)</span> e <span class="arithmatex">\(g_y\)</span>, integrando uma leve suavização perpendicular para mitigar o ruído.</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tabs", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copiado para \u00e1rea de transfer\u00eancia", "clipboard.copy": "Copiar para \u00e1rea de transfer\u00eancia", "search.result.more.one": "Mais 1 nesta p\u00e1gina", "search.result.more.other": "Mais # nesta p\u00e1gina", "search.result.none": "Nenhum resultado encontrado", "search.result.one": "1 resultado encontrado", "search.result.other": "# resultados encontrados", "search.result.placeholder": "Digite para iniciar a busca", "search.result.term.missing": "Ausente", "select.version": "Selecione a vers\u00e3o"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
